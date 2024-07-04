@@ -26,7 +26,7 @@ class PlayerScreen extends StatelessWidget {
                     color: Provider.of<ThemeProvider>(context)
                         .themeData
                         .colorScheme
-                        .onPrimary,
+                        .primary,
                     fontSize: 23.0,
                     fontWeight: FontWeight.bold,
                   ),
