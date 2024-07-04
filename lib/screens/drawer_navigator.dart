@@ -64,11 +64,13 @@ class _DrawerScreenState extends State<DrawerScreen> {
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
-            const DrawerHeader(
+            DrawerHeader(
               decoration: BoxDecoration(
                 color: Color(0xFFEE631E),
               ),
-              child: Text('Drawer Header'),
+              child: Container(
+                child: Text("Drawer Header"),
+              ),
             ),
             Padding(
               padding: const EdgeInsets.only(left: 10.0, right: 10.0),
