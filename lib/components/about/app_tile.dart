@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:mezgebe_sbhat/providers/theme_provider.dart';
+import 'package:provider/provider.dart';
 
 class AppTile extends StatelessWidget {
   final NetworkImage image;
@@ -22,7 +24,8 @@ class AppTile extends StatelessWidget {
       constraints: BoxConstraints(minHeight: 120, maxHeight: 150),
       child: Container(
         decoration: BoxDecoration(
-          color: const Color(0xffaf5808),
+          color:
+              Provider.of<ThemeProvider>(context).themeData.colorScheme.primary,
           borderRadius: BorderRadius.circular(10),
         ),
         clipBehavior: Clip.hardEdge,
@@ -47,7 +50,10 @@ class AppTile extends StatelessWidget {
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                       overflow: TextOverflow.ellipsis,
-                      color: Color(0xFF212832),
+                      color: Provider.of<ThemeProvider>(context)
+                          .themeData
+                          .colorScheme
+                          .background,
                     ),
                   ),
                   Text(
@@ -81,7 +87,10 @@ class AppTile extends StatelessWidget {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(5),
                         border: Border.all(
-                          color: Color(0xFF212832),
+                          color: Provider.of<ThemeProvider>(context)
+                              .themeData
+                              .colorScheme
+                              .background,
                           width: 1.0,
                         ),
                       ),
@@ -90,7 +99,10 @@ class AppTile extends StatelessWidget {
                         child: Icon(
                           Icons.telegram,
                           size: 30.0,
-                          color: Color(0xFF212832),
+                          color: Provider.of<ThemeProvider>(context)
+                              .themeData
+                              .colorScheme
+                              .background,
                         ),
                       ),
                     ),
@@ -101,7 +113,10 @@ class AppTile extends StatelessWidget {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(5),
                         border: Border.all(
-                          color: Color(0xFF212832),
+                          color: Provider.of<ThemeProvider>(context)
+                              .themeData
+                              .colorScheme
+                              .background,
                           width: 1.0,
                         ),
                       ),
@@ -110,7 +125,10 @@ class AppTile extends StatelessWidget {
                         child: Icon(
                           Icons.laptop,
                           size: 30.0,
-                          color: Color(0xFF212832),
+                          color: Provider.of<ThemeProvider>(context)
+                              .themeData
+                              .colorScheme
+                              .background,
                         ),
                       ),
                     ),
@@ -121,7 +139,10 @@ class AppTile extends StatelessWidget {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
                         border: Border.all(
-                          color: Color(0xFF212832),
+                          color: Provider.of<ThemeProvider>(context)
+                              .themeData
+                              .colorScheme
+                              .background,
                           width: 1.0,
                         ),
                       ),
@@ -130,7 +151,10 @@ class AppTile extends StatelessWidget {
                         child: Icon(
                           Icons.web,
                           size: 30.0,
-                          color: Color(0xFF212832),
+                          color: Provider.of<ThemeProvider>(context)
+                              .themeData
+                              .colorScheme
+                              .background,
                         ),
                       ),
                     ),

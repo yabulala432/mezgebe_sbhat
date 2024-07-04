@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mezgebe_sbhat/providers/theme_provider.dart';
+import 'package:provider/provider.dart';
 
 class AppDrawerButton extends StatelessWidget {
   final bool isSelected;
@@ -19,19 +21,22 @@ class AppDrawerButton extends StatelessWidget {
     return ListTile(
       title: Text(
         title,
-        style: const TextStyle(
-          color: Color(0xFFEE631E),
+        style: TextStyle(
+          color:
+              Provider.of<ThemeProvider>(context).themeData.colorScheme.primary,
         ),
       ),
       selected: isSelected,
       onTap: onItemTapped,
-      selectedTileColor: const Color(0xFF3f312e),
+      selectedTileColor:
+          Provider.of<ThemeProvider>(context).themeData.colorScheme.shadow,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8),
       ),
       leading: Icon(
         leadingIcon,
-        color: const Color(0xFFEE631E),
+        color:
+            Provider.of<ThemeProvider>(context).themeData.colorScheme.primary,
       ),
     );
   }

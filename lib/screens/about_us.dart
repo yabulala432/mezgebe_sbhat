@@ -6,6 +6,8 @@ import 'package:flutter/widgets.dart';
 import 'package:mezgebe_sbhat/components/about/app_tile.dart';
 import 'package:mezgebe_sbhat/components/home/background_color.dart';
 import 'package:getwidget/getwidget.dart';
+import 'package:mezgebe_sbhat/providers/theme_provider.dart';
+import 'package:provider/provider.dart';
 
 class AboutUs extends StatelessWidget {
   const AboutUs({super.key});
@@ -13,17 +15,20 @@ class AboutUs extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BackgroundColor(
-      color: Color(0xFF212832),
+      color:
+          Provider.of<ThemeProvider>(context).themeData.colorScheme.background,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10.0),
+        padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 15.0),
         child: ListView(
           children: [
             Container(
               decoration: BoxDecoration(
-                color: Color(0xfffa7e0a),
+                color: Provider.of<ThemeProvider>(context)
+                    .themeData
+                    .colorScheme
+                    .primary,
                 borderRadius: BorderRadius.circular(10),
               ),
-              margin: EdgeInsets.only(top: 10),
               height: 250,
               width: double.infinity,
               child: Expanded(
@@ -42,13 +47,23 @@ class AboutUs extends StatelessWidget {
                               "Mezgebe Sbhat",
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.bold),
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                color: Provider.of<ThemeProvider>(context)
+                                    .themeData
+                                    .colorScheme
+                                    .inversePrimary,
+                              ),
                             ),
                             Text(
                               "Inspired by Qale Sbhat Version 1.0.0",
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontSize: 16,
+                                color: Provider.of<ThemeProvider>(context)
+                                    .themeData
+                                    .colorScheme
+                                    .inversePrimary,
                               ),
                             ),
                           ],
@@ -67,7 +82,10 @@ class AboutUs extends StatelessWidget {
               child: Text(
                 'Collaborators',
                 style: TextStyle(
-                  color: Color(0xfffa7e0a),
+                  color: Provider.of<ThemeProvider>(context)
+                      .themeData
+                      .colorScheme
+                      .primary,
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),
@@ -124,10 +142,16 @@ class AboutUs extends StatelessWidget {
                     textStyle: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: Color(0xFF212832),
+                      color: Provider.of<ThemeProvider>(context)
+                          .themeData
+                          .colorScheme
+                          .background,
                     ),
                     shape: GFButtonShape.pills,
-                    color: Color(0xffaf5808),
+                    color: Provider.of<ThemeProvider>(context)
+                        .themeData
+                        .colorScheme
+                        .primary,
                     size: 60,
                   ),
                   SizedBox(
@@ -137,11 +161,17 @@ class AboutUs extends StatelessWidget {
                     onPressed: () {},
                     text: "About the Developer",
                     shape: GFButtonShape.pills,
-                    color: Color(0xffaf5808),
+                    color: Provider.of<ThemeProvider>(context)
+                        .themeData
+                        .colorScheme
+                        .primary,
                     textStyle: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: Color(0xFF212832),
+                      color: Provider.of<ThemeProvider>(context)
+                          .themeData
+                          .colorScheme
+                          .background,
                     ),
                     size: 60,
                   ),

@@ -4,6 +4,7 @@ import 'package:mezgebe_sbhat/components/home/separator.dart';
 import 'package:mezgebe_sbhat/components/player/app_slider.dart';
 import 'package:mezgebe_sbhat/components/player/flip_card.dart';
 import 'package:flutter/material.dart';
+import 'package:mezgebe_sbhat/providers/theme_provider.dart';
 import 'package:provider/provider.dart';
 
 class ListScreen extends StatelessWidget {
@@ -17,13 +18,18 @@ class ListScreen extends StatelessWidget {
       "03. ኦ ሥሉስ_ቅዱስ",
     ];
     return Scaffold(
-      backgroundColor: const Color(0xFF212832),
+      backgroundColor:
+          Provider.of<ThemeProvider>(context).themeData.colorScheme.background,
       appBar: AppBar(
-        backgroundColor: const Color(0xFFEE631E),
-        title: const Text(
+        backgroundColor:
+            Provider.of<ThemeProvider>(context).themeData.colorScheme.primary,
+        title: Text(
           "መዝገበ ስብሐት",
           style: TextStyle(
-            color: Colors.white,
+            color: Provider.of<ThemeProvider>(context)
+                .themeData
+                .colorScheme
+                .onPrimary,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -32,9 +38,12 @@ class ListScreen extends StatelessWidget {
             left: 8.0,
           ),
           child: IconButton(
-            icon: const Icon(
+            icon: Icon(
               Icons.arrow_back,
-              color: Colors.white,
+              color: Provider.of<ThemeProvider>(context)
+                  .themeData
+                  .colorScheme
+                  .onPrimary,
               size: 30.0,
             ),
             onPressed: () {
@@ -71,8 +80,11 @@ class ListScreen extends StatelessWidget {
                             children: [
                               Text(
                                 data[index],
-                                style: const TextStyle(
-                                  color: Color(0xFFEE631E),
+                                style: TextStyle(
+                                  color: Provider.of<ThemeProvider>(context)
+                                      .themeData
+                                      .colorScheme
+                                      .primary,
                                   fontSize: 23.0,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -84,7 +96,11 @@ class ListScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                const Separator(
+                Separator(
+                  color: Provider.of<ThemeProvider>(context)
+                      .themeData
+                      .colorScheme
+                      .primary,
                   indent: 65,
                   height: 0,
                 )
@@ -99,15 +115,19 @@ class ListScreen extends StatelessWidget {
             {"title": "From FAB"},
           );
         },
-        backgroundColor: const Color(0xFFEE631E),
+        backgroundColor:
+            Provider.of<ThemeProvider>(context).themeData.colorScheme.primary,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(
             Radius.circular(26.0),
           ),
         ),
-        child: const Icon(
+        child: Icon(
           Icons.play_arrow,
-          color: Colors.white,
+          color: Provider.of<ThemeProvider>(context)
+              .themeData
+              .colorScheme
+              .onPrimary,
           size: 50.0,
         ),
       ),
@@ -132,8 +152,11 @@ class PlayerScreen extends StatelessWidget {
                 child: Text(
                   data,
                   textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    color: Color(0xFFEE631E),
+                  style: TextStyle(
+                    color: Provider.of<ThemeProvider>(context)
+                        .themeData
+                        .colorScheme
+                        .onPrimary,
                     fontSize: 23.0,
                     fontWeight: FontWeight.bold,
                   ),
@@ -142,32 +165,32 @@ class PlayerScreen extends StatelessWidget {
             ],
           ),
         ),
-        backgroundColor: const Color(0xFF212832),
+        backgroundColor: Provider.of<ThemeProvider>(context)
+            .themeData
+            .colorScheme
+            .background,
         leading: IconButton(
           onPressed: () {
             Provider.of<BottomNavState>(context, listen: false).currentIndex =
                 0;
           },
-          icon: const Icon(
+          icon: Icon(
             Icons.arrow_back,
-            color: Colors.white,
+            color: Provider.of<ThemeProvider>(context)
+                .themeData
+                .colorScheme
+                .onPrimary,
             size: 30.0,
           ),
         ),
         // just a placeholder for the back button
       ),
-      backgroundColor: const Color(0xFF212832),
+      backgroundColor:
+          Provider.of<ThemeProvider>(context).themeData.colorScheme.background,
       body: Padding(
         padding: const EdgeInsets.only(top: 8.0),
         child: Column(
           children: [
-            // Row(
-            //   children: [
-            //     Expanded(
-            //       // child:
-            //     ),
-            //   ],
-            // ),
             Padding(
               padding:
                   const EdgeInsets.symmetric(horizontal: 16.0, vertical: 20.0),
@@ -188,7 +211,10 @@ class PlayerScreen extends StatelessWidget {
                           Text(
                             "00:00",
                             style: TextStyle(
-                              color: Colors.white,
+                              color: Provider.of<ThemeProvider>(context)
+                                  .themeData
+                                  .colorScheme
+                                  .onPrimary,
                             ),
                           ),
                           Expanded(
@@ -198,7 +224,10 @@ class PlayerScreen extends StatelessWidget {
                           Text(
                             "10:52",
                             style: TextStyle(
-                              color: Colors.white,
+                              color: Provider.of<ThemeProvider>(context)
+                                  .themeData
+                                  .colorScheme
+                                  .onPrimary,
                             ),
                           ),
                         ],
@@ -210,17 +239,23 @@ class PlayerScreen extends StatelessWidget {
                           // icon button for repeat one song only
                           IconButton(
                             onPressed: () {},
-                            icon: const Icon(
+                            icon: Icon(
                               Icons.repeat,
                               size: 30.0,
-                              color: Colors.white,
+                              color: Provider.of<ThemeProvider>(context)
+                                  .themeData
+                                  .colorScheme
+                                  .onPrimary,
                             ),
                           ),
                           IconButton(
                             onPressed: () {},
-                            icon: const Icon(
+                            icon: Icon(
                               Icons.skip_previous,
-                              color: Colors.white,
+                              color: Provider.of<ThemeProvider>(context)
+                                  .themeData
+                                  .colorScheme
+                                  .onPrimary,
                               size: 30.0,
                             ),
                           ),
@@ -229,13 +264,19 @@ class PlayerScreen extends StatelessWidget {
                             icon: Container(
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(40),
-                                color: Color(0xFFEE631E),
+                                color: Provider.of<ThemeProvider>(context)
+                                    .themeData
+                                    .colorScheme
+                                    .primary,
                               ),
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
-                                child: const Icon(
+                                child: Icon(
                                   Icons.play_arrow,
-                                  color: Colors.white,
+                                  color: Provider.of<ThemeProvider>(context)
+                                      .themeData
+                                      .colorScheme
+                                      .onPrimary,
                                   size: 60.0,
                                 ),
                               ),
@@ -243,18 +284,24 @@ class PlayerScreen extends StatelessWidget {
                           ),
                           IconButton(
                             onPressed: () {},
-                            icon: const Icon(
+                            icon: Icon(
                               Icons.skip_next,
-                              color: Colors.white,
+                              color: Provider.of<ThemeProvider>(context)
+                                  .themeData
+                                  .colorScheme
+                                  .onPrimary,
                               size: 30.0,
                             ),
                           ),
                           IconButton(
                             onPressed: () {},
-                            icon: const Icon(
+                            icon: Icon(
                               Icons.repeat_one,
                               size: 30.0,
-                              color: Colors.white,
+                              color: Provider.of<ThemeProvider>(context)
+                                  .themeData
+                                  .colorScheme
+                                  .onPrimary,
                             ),
                           )
                         ],
@@ -322,10 +369,14 @@ class _BottomNavigatorState extends State<BottomNavigator> {
     return Scaffold(
       body: _screens[bottomNavState.currentIndex],
       bottomNavigationBar: Container(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
-              color: Colors.black,
+              color: Provider.of<ThemeProvider>(context)
+                  .themeData
+                  .colorScheme
+                  .onPrimary
+                  .withOpacity(0.5),
               blurRadius: 10.0,
             ),
           ],
@@ -335,10 +386,17 @@ class _BottomNavigatorState extends State<BottomNavigator> {
           onTap: (int index) {
             bottomNavState.currentIndex = index;
           },
-          backgroundColor: const Color(0xFF212832),
+          backgroundColor: Provider.of<ThemeProvider>(context)
+              .themeData
+              .colorScheme
+              .background,
           // selectedItemColor: Color(0xffffffff),
-          fixedColor: Color(0xFFEE631E),
-          unselectedItemColor: Color(0xffffffff),
+          fixedColor:
+              Provider.of<ThemeProvider>(context).themeData.colorScheme.primary,
+          unselectedItemColor: Provider.of<ThemeProvider>(context)
+              .themeData
+              .colorScheme
+              .onPrimary,
           items: const [
             BottomNavigationBarItem(icon: Icon(Icons.church), label: 'Home'),
             BottomNavigationBarItem(

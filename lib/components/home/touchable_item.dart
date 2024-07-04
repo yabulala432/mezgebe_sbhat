@@ -1,5 +1,7 @@
 import 'package:mezgebe_sbhat/components/home/separator.dart';
 import 'package:flutter/material.dart';
+import 'package:mezgebe_sbhat/providers/theme_provider.dart';
+import 'package:provider/provider.dart';
 
 class TouchableItem extends StatefulWidget {
   final String imageUrl;
@@ -68,16 +70,22 @@ class _TouchableItemState extends State<TouchableItem> {
                         children: [
                           Text(
                             title,
-                            style: const TextStyle(
-                                color: Color(0xFFEE631E),
+                            style: TextStyle(
+                                color: Provider.of<ThemeProvider>(context)
+                                    .themeData
+                                    .colorScheme
+                                    .primary,
                                 fontSize: 23.0,
                                 fontWeight: FontWeight.bold),
                           ),
                           Text(
                             subtitle,
                             softWrap: true,
-                            style: const TextStyle(
-                              color: Color.fromARGB(82, 247, 244, 244),
+                            style: TextStyle(
+                              color: Provider.of<ThemeProvider>(context)
+                                  .themeData
+                                  .colorScheme
+                                  .secondary,
                               fontSize: 15.0,
                             ),
                           ),
@@ -88,13 +96,14 @@ class _TouchableItemState extends State<TouchableItem> {
                 ),
               ),
             )),
-        const Separator(
-          color: Color(0xFFEE631E),
+        Separator(
+          color:
+              Provider.of<ThemeProvider>(context).themeData.colorScheme.primary,
           height: 0.0,
           thickness: 1.0,
           indent: 10.0,
           endEndent: 10,
-          padding: EdgeInsets.symmetric(vertical: 8.0),
+          padding: const EdgeInsets.symmetric(vertical: 8.0),
         )
       ],
     );

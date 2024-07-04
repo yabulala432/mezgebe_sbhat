@@ -1,8 +1,10 @@
 import 'package:mezgebe_sbhat/components/drawer/drawer_button.dart';
+import 'package:mezgebe_sbhat/providers/theme_provider.dart';
 import 'package:mezgebe_sbhat/screens/about_us.dart';
 
 import 'package:mezgebe_sbhat/screens/home_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class DrawerScreen extends StatefulWidget {
   const DrawerScreen({super.key, required this.title});
@@ -15,15 +17,9 @@ class DrawerScreen extends StatefulWidget {
 
 class _DrawerScreenState extends State<DrawerScreen> {
   int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   final List<Widget> _widgetOptions = <Widget>[
     const HomeScreen(),
     const AboutUs(),
-    const Text(
-      'Index 2: School',
-      style: optionStyle,
-    ),
   ];
 
   void _onItemTapped(int index) {
@@ -38,17 +34,24 @@ class _DrawerScreenState extends State<DrawerScreen> {
       appBar: AppBar(
         title: Text(
           widget.title,
-          style: const TextStyle(
-            color: Colors.white,
+          style: TextStyle(
+            color: Provider.of<ThemeProvider>(context)
+                .themeData
+                .colorScheme
+                .onPrimary,
             fontWeight: FontWeight.bold,
           ),
         ),
-        backgroundColor: const Color(0xFFEE631E),
+        backgroundColor:
+            Provider.of<ThemeProvider>(context).themeData.colorScheme.primary,
         leading: Builder(
           builder: (context) {
             return IconButton(
               icon: const Icon(Icons.menu),
-              color: Colors.white,
+              color: Provider.of<ThemeProvider>(context)
+                  .themeData
+                  .colorScheme
+                  .onPrimary,
               onPressed: () {
                 Scaffold.of(context).openDrawer();
               },
@@ -60,16 +63,51 @@ class _DrawerScreenState extends State<DrawerScreen> {
         child: _widgetOptions[_selectedIndex],
       ),
       drawer: Drawer(
-        backgroundColor: const Color(0xFF212832),
+        backgroundColor: Provider.of<ThemeProvider>(context)
+            .themeData
+            .colorScheme
+            .background,
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
             DrawerHeader(
               decoration: BoxDecoration(
-                color: Color(0xFFEE631E),
+                color: Provider.of<ThemeProvider>(context)
+                    .themeData
+                    .colorScheme
+                    .primary,
               ),
               child: Container(
-                child: Text("Drawer Header"),
+                alignment: Alignment.topLeft,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Drawer Header",
+                      style: TextStyle(
+                        fontSize: 24,
+                        color: Provider.of<ThemeProvider>(context)
+                            .themeData
+                            .colorScheme
+                            .onPrimary,
+                      ),
+                    ),
+                    IconButton(
+                        onPressed: () {
+                          Provider.of<ThemeProvider>(context, listen: false)
+                              .toggleTheme();
+                        },
+                        icon: Icon(
+                            Provider.of<ThemeProvider>(context).isDark
+                                ? Icons.light_mode
+                                : Icons.dark_mode,
+                            color: Provider.of<ThemeProvider>(context)
+                                .themeData
+                                .colorScheme
+                                .onPrimary,
+                            size: 30.0)),
+                  ],
+                ),
               ),
             ),
             Padding(
@@ -82,15 +120,6 @@ class _DrawerScreenState extends State<DrawerScreen> {
                     leadingIcon: Icons.home,
                     onItemTapped: () {
                       _onItemTapped(0);
-                      Navigator.pop(context);
-                    },
-                  ),
-                  AppDrawerButton(
-                    title: 'Settings',
-                    isSelected: _selectedIndex == 2,
-                    leadingIcon: Icons.settings,
-                    onItemTapped: () {
-                      _onItemTapped(2);
                       Navigator.pop(context);
                     },
                   ),

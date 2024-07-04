@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:mezgebe_sbhat/components/home/background_color.dart';
 import 'package:mezgebe_sbhat/components/home/touchable_item.dart';
 import 'package:mezgebe_sbhat/data/menu.dart';
+import 'package:mezgebe_sbhat/providers/theme_provider.dart';
 import 'package:mezgebe_sbhat/screens/bottom_nav_app.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -10,7 +12,10 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BackgroundColor(
-      color: const Color(0xFF212832),
+      color:  Provider.of<ThemeProvider>(context)
+          .themeData
+          .colorScheme
+          .background,
       child: ListView.builder(
         itemCount: Menu.items.length,
         itemBuilder: (context, index) {
