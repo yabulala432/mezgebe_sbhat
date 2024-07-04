@@ -14,6 +14,10 @@ class FlipCardContainer extends StatelessWidget {
       direction: FlipDirection.HORIZONTAL, // default
       side: CardSide.FRONT, // The side to initially display.
       front: Container(
+        constraints: BoxConstraints(
+          minHeight: 450.0,
+          maxWidth: 500,
+        ),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           color: Colors.white70,
