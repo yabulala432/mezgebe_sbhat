@@ -1,12 +1,12 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:getwidget/getwidget.dart';
 import 'package:mezgebe_sbhat/components/about/app_tile.dart';
 import 'package:mezgebe_sbhat/components/home/background_color.dart';
-import 'package:getwidget/getwidget.dart';
 import 'package:mezgebe_sbhat/providers/theme_provider.dart';
+import 'package:mezgebe_sbhat/screens/about_app.dart';
+import 'package:mezgebe_sbhat/screens/about_developer.dart';
 import 'package:provider/provider.dart';
 
 class AboutUs extends StatelessWidget {
@@ -34,7 +34,10 @@ class AboutUs extends StatelessWidget {
               child: Expanded(
                 child: Row(
                   children: [
-                    Image(image: AssetImage('assets/images/adaptive-icon.png')),
+                    Image(
+                      image: AssetImage('assets/images/adaptive-icon.png'),
+                      width: 200,
+                    ),
                     Expanded(
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 8),
@@ -47,7 +50,7 @@ class AboutUs extends StatelessWidget {
                               "Mezgebe Sbhat",
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                fontSize: 20,
+                                fontSize: 23,
                                 fontWeight: FontWeight.bold,
                                 color: Provider.of<ThemeProvider>(context)
                                     .themeData
@@ -92,8 +95,7 @@ class AboutUs extends StatelessWidget {
               ),
             ),
             AppTile(
-              image: NetworkImage(
-                  'https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp'),
+              image: AssetImage('assets/images/yeabsira.jpg'),
               name: 'Yeabsira Yonas',
               title: 'Software Engineer',
               description: 'App Developer and Maintainer',
@@ -102,8 +104,7 @@ class AboutUs extends StatelessWidget {
               height: 15,
             ),
             AppTile(
-              image: NetworkImage(
-                  'https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp'),
+              image: AssetImage('assets/images/solomonImage.jpeg'),
               name: "Solomon Belay",
               title: "Software Engineer",
               description: "Logo Designer",
@@ -112,8 +113,7 @@ class AboutUs extends StatelessWidget {
               height: 15,
             ),
             AppTile(
-              image: NetworkImage(
-                  'https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp'),
+              image: AssetImage('assets/images/yihunImage.jpg'),
               name: "Yihun Shekuri (D/N)",
               title: "Software Engineer",
               description: "App Name and Modification Ideas",
@@ -122,8 +122,7 @@ class AboutUs extends StatelessWidget {
               height: 15,
             ),
             AppTile(
-              image: NetworkImage(
-                  'https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp'),
+              image: AssetImage('assets/images/tempYihune.jpeg'),
               name: "Yihune Zewdie (D/N)",
               title: "Software Engineer",
               description: "Some Modification Ideas",
@@ -137,7 +136,13 @@ class AboutUs extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   GFButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        CupertinoPageRoute(
+                          builder: (context) => AboutApp(),
+                        ),
+                      );
+                    },
                     text: ("About the App"),
                     textStyle: TextStyle(
                       fontSize: 20,
@@ -158,7 +163,13 @@ class AboutUs extends StatelessWidget {
                     height: 15,
                   ),
                   GFButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        CupertinoPageRoute(
+                          builder: (context) => AboutDeveloper(),
+                        ),
+                      );
+                    },
                     text: "About the Developer",
                     shape: GFButtonShape.pills,
                     color: Provider.of<ThemeProvider>(context)

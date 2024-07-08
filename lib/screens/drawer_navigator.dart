@@ -76,37 +76,37 @@ class _DrawerScreenState extends State<DrawerScreen> {
                     .colorScheme
                     .primary,
               ),
-              child: Container(
-                alignment: Alignment.topLeft,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Drawer Header",
-                      style: TextStyle(
-                        fontSize: 24,
-                        color: Provider.of<ThemeProvider>(context)
-                            .themeData
-                            .colorScheme
-                            .onPrimary,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // const Expanded(
+                  // child:
+                  const Column(
+                    children: [
+                      Image(
+                        image: AssetImage('assets/images/adaptive-icon.png'),
+                        height: 125,
+                        // width: 40,
                       ),
-                    ),
-                    IconButton(
-                        onPressed: () {
-                          Provider.of<ThemeProvider>(context, listen: false)
-                              .toggleTheme();
-                        },
-                        icon: Icon(
-                            Provider.of<ThemeProvider>(context).isDark
-                                ? Icons.light_mode
-                                : Icons.dark_mode,
-                            color: Provider.of<ThemeProvider>(context)
-                                .themeData
-                                .colorScheme
-                                .onPrimary,
-                            size: 30.0)),
-                  ],
-                ),
+                    ],
+                  ),
+                  // ),
+                  IconButton(
+                      onPressed: () {
+                        Provider.of<ThemeProvider>(context, listen: false)
+                            .toggleTheme();
+                      },
+                      icon: Icon(
+                          Provider.of<ThemeProvider>(context).isDark
+                              ? Icons.light_mode
+                              : Icons.dark_mode,
+                          color: Provider.of<ThemeProvider>(context)
+                              .themeData
+                              .colorScheme
+                              .onPrimary,
+                          size: 30.0)),
+                ],
               ),
             ),
             Padding(

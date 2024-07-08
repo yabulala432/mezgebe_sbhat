@@ -4,7 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:flip_card/flip_card.dart';
 
 class FlipCardContainer extends StatelessWidget {
-  const FlipCardContainer({super.key});
+  final String frontImagePath;
+  final String backImagePath;
+  const FlipCardContainer({
+    super.key,
+    required this.frontImagePath,
+    required this.backImagePath,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -15,28 +21,23 @@ class FlipCardContainer extends StatelessWidget {
       front: Container(
         constraints: BoxConstraints(
           minHeight: 450.0,
+          maxHeight: 500.0,
           maxWidth: 500,
         ),
         width: double.infinity,
         child: ClipRRect(
           borderRadius: BorderRadius.circular(10),
           child: Image(
-            image: AssetImage('assets/kdase/emne_beha_geez.png'),
+            image: AssetImage(frontImagePath),
             fit: BoxFit.fill,
           ),
         ),
       ),
-      back: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          color: Colors.white60,
-        ),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(10),
-          child: Image(
-            image: AssetImage('assets/kdase/emne_beha_amharic.png'),
-            fit: BoxFit.fill,
-          ),
+      back: ClipRRect(
+        borderRadius: BorderRadius.circular(10),
+        child: Image(
+          image: AssetImage(backImagePath),
+          fit: BoxFit.fill,
         ),
       ),
     );

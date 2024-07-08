@@ -45,7 +45,6 @@ class PlayListProvider extends ChangeNotifier {
   String get totalDurationString => formatDuration(_totalDuration);
 
   // setters
-
   final AudioPlayer _audioPlayer = AudioPlayer();
 
   Duration _currentDuration = Duration.zero;
@@ -107,12 +106,14 @@ class PlayListProvider extends ChangeNotifier {
   }
 
   void next() {
+    _currentDuration = Duration.zero;
     setCurrentIndex(_currentIndex + 1);
     stop();
     play();
   }
 
   void previous() {
+    _currentDuration = Duration.zero;
     setCurrentIndex(_currentIndex - 1);
     stop();
     play();
@@ -144,6 +145,11 @@ class PlayListProvider extends ChangeNotifier {
       _loopAudio = false;
     }
     notifyListeners();
+  }
+
+  void playIndex(int index) {
+    setCurrentIndex(index);
+    play();
   }
 
   @override

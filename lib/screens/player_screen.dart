@@ -62,9 +62,19 @@ class PlayerScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 20.0),
-              child: FlipCardContainer(),
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 16.0, vertical: 20.0),
+              child: FlipCardContainer(
+                frontImagePath: Provider.of<PlayListProvider>(context)
+                    .playList[
+                        Provider.of<PlayListProvider>(context).currentIndex]
+                    .geezImagePath,
+                backImagePath: Provider.of<PlayListProvider>(context)
+                    .playList[
+                        Provider.of<PlayListProvider>(context).currentIndex]
+                    .amharicImagePath,
+              ),
             ),
             Padding(
               padding:
@@ -94,11 +104,9 @@ class PlayerScreen extends StatelessWidget {
                             flex: 1,
                             child: AppSlider(
                               onChanged: (double value) {
-                                // pause the audio when sliding
                                 Provider.of<PlayListProvider>(context,
                                         listen: false)
                                     .pause();
-                                // set the current duration to the value of the slider
                                 final Duration duration = Duration(
                                   milliseconds: value.toInt(),
                                 );
@@ -114,9 +122,18 @@ class PlayerScreen extends StatelessWidget {
                                   .inMilliseconds
                                   .toDouble(),
                               value: Provider.of<PlayListProvider>(context)
-                                  .currentDuration
-                                  .inMilliseconds
-                                  .toDouble(),
+                                          .currentDuration
+                                          .inMilliseconds
+                                          .toDouble() >
+                                      Provider.of<PlayListProvider>(context)
+                                          .totalDuration
+                                          .inMilliseconds
+                                          .toDouble()
+                                  ? 0
+                                  : Provider.of<PlayListProvider>(context)
+                                      .currentDuration
+                                      .inMilliseconds
+                                      .toDouble(),
                               divisions: Provider.of<PlayListProvider>(context)
                                           .totalDuration
                                           .inMilliseconds

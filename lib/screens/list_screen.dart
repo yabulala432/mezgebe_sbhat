@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mezgebe_sbhat/components/home/separator.dart';
+import 'package:mezgebe_sbhat/providers/playlist_provider.dart';
 import 'package:mezgebe_sbhat/providers/theme_provider.dart';
 import 'package:mezgebe_sbhat/screens/bottom_nav_state.dart';
 import 'package:provider/provider.dart';
@@ -9,11 +10,12 @@ class ListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<String> data = [
-      "01. እምነ በሐ",
-      "02. መስቀል አብርሃ",
-      "03. ኦ ሥሉስ_ቅዱስ",
-    ];
+    final List<String> data = [];
+
+    Provider.of<PlayListProvider>(context).playList.forEach((element) {
+      data.add(element.title);
+    });
+
     return Scaffold(
       backgroundColor:
           Provider.of<ThemeProvider>(context).themeData.colorScheme.background,
@@ -57,11 +59,13 @@ class ListScreen extends StatelessWidget {
             return Column(
               children: [
                 InkWell(
-                  onTap: () =>
-                      Provider.of<BottomNavState>(context, listen: false)
-                          .navigateToScreen2(
-                    {"title": data[index]},
-                  ),
+                  onTap: () {
+                    Provider.of<BottomNavState>(context, listen: false)
+                        .navigateToScreen2({"title": data[index]});
+
+                    Provider.of<PlayListProvider>(context, listen: false)
+                        .playIndex(index);
+                  },
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Row(
@@ -105,28 +109,6 @@ class ListScreen extends StatelessWidget {
               ],
             );
           },
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Provider.of<BottomNavState>(context, listen: false).navigateToScreen2(
-            {"title": "From FAB"},
-          );
-        },
-        backgroundColor:
-            Provider.of<ThemeProvider>(context).themeData.colorScheme.primary,
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(26.0),
-          ),
-        ),
-        child: Icon(
-          Icons.play_arrow,
-          color: Provider.of<ThemeProvider>(context)
-              .themeData
-              .colorScheme
-              .onPrimary,
-          size: 50.0,
         ),
       ),
     );

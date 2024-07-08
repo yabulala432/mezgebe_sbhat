@@ -8,9 +8,8 @@ void main() async {
     ChangeNotifierProvider(
       create: (context) => ThemeProvider(),
       child: const MaterialApp(
-        title: "መዝገበ ስብሐት",
         home: DrawerScreen(
-          title: "title",
+          title: "መዝገበ ስብሐት",
         ),
       ),
     ),

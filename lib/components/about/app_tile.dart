@@ -5,7 +5,7 @@ import 'package:mezgebe_sbhat/providers/theme_provider.dart';
 import 'package:provider/provider.dart';
 
 class AppTile extends StatelessWidget {
-  final NetworkImage image;
+  final AssetImage image;
   final String name;
   final String title;
   final String description;
@@ -20,150 +20,151 @@ class AppTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ConstrainedBox(
-      constraints: BoxConstraints(minHeight: 120, maxHeight: 150),
-      child: Container(
-        decoration: BoxDecoration(
-          color:
-              Provider.of<ThemeProvider>(context).themeData.colorScheme.primary,
-          borderRadius: BorderRadius.circular(10),
-        ),
-        clipBehavior: Clip.hardEdge,
-        // height: 120,
-        width: double.infinity,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Image(
-              image: image,
-              width: 100,
-            ),
-            Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    name,
-                    textAlign: TextAlign.center,
-                    maxLines: 2,
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      overflow: TextOverflow.ellipsis,
-                      color: Provider.of<ThemeProvider>(context)
-                          .themeData
-                          .colorScheme
-                          .background,
-                    ),
+    return Container(
+      constraints: BoxConstraints(
+        minHeight: 120,
+        maxHeight: 150,
+        maxWidth: 500,
+      ),
+      decoration: BoxDecoration(
+        color:
+            Provider.of<ThemeProvider>(context).themeData.colorScheme.primary,
+        borderRadius: BorderRadius.circular(10),
+      ),
+      clipBehavior: Clip.hardEdge,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Image(
+            image: image,
+            height: double.infinity,
+            fit: BoxFit.contain,
+          ),
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  name,
+                  textAlign: TextAlign.center,
+                  maxLines: 2,
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    overflow: TextOverflow.ellipsis,
+                    color: Provider.of<ThemeProvider>(context)
+                        .themeData
+                        .colorScheme
+                        .background,
                   ),
-                  Text(
-                    title,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.white,
-                      overflow: TextOverflow.ellipsis,
-                      fontSize: 16,
-                    ),
+                ),
+                Text(
+                  title,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.white,
+                    overflow: TextOverflow.ellipsis,
+                    fontSize: 13,
                   ),
-                  Text(
+                ),
+                Flexible(
+                  child: Text(
                     description,
                     textAlign: TextAlign.center,
-                    overflow: TextOverflow.ellipsis,
                     style: TextStyle(color: Colors.white, fontSize: 14),
-                  )
-                ],
-              ),
+                  ),
+                ),
+              ],
             ),
-            Padding(
-              padding: const EdgeInsets.only(right: 5.0),
-              child: Wrap(
-                spacing: 8.0,
-                runSpacing: 4.0,
-                // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(3.0),
-                    child: DecoratedBox(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                        border: Border.all(
-                          color: Provider.of<ThemeProvider>(context)
-                              .themeData
-                              .colorScheme
-                              .background,
-                          width: 1.0,
-                        ),
+          ),
+          Flexible(
+            child: Wrap(
+              alignment: WrapAlignment.center,
+              spacing: 8.0,
+              runSpacing: 4.0,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(3.0),
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      border: Border.all(
+                        color: Provider.of<ThemeProvider>(context)
+                            .themeData
+                            .colorScheme
+                            .background,
+                        width: 1.0,
                       ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(5.0),
-                        child: Icon(
-                          Icons.telegram,
-                          size: 30.0,
-                          color: Provider.of<ThemeProvider>(context)
-                              .themeData
-                              .colorScheme
-                              .background,
-                        ),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(3.0),
+                      child: Icon(
+                        Icons.telegram,
+                        size: 30.0,
+                        color: Provider.of<ThemeProvider>(context)
+                            .themeData
+                            .colorScheme
+                            .background,
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(3.0),
-                    child: DecoratedBox(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                        border: Border.all(
-                          color: Provider.of<ThemeProvider>(context)
-                              .themeData
-                              .colorScheme
-                              .background,
-                          width: 1.0,
-                        ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(3.0),
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      border: Border.all(
+                        color: Provider.of<ThemeProvider>(context)
+                            .themeData
+                            .colorScheme
+                            .background,
+                        width: 1.0,
                       ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(5.0),
-                        child: Icon(
-                          Icons.laptop,
-                          size: 30.0,
-                          color: Provider.of<ThemeProvider>(context)
-                              .themeData
-                              .colorScheme
-                              .background,
-                        ),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(3.0),
+                      child: Icon(
+                        Icons.laptop,
+                        size: 30.0,
+                        color: Provider.of<ThemeProvider>(context)
+                            .themeData
+                            .colorScheme
+                            .background,
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(3.0),
-                    child: DecoratedBox(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        border: Border.all(
-                          color: Provider.of<ThemeProvider>(context)
-                              .themeData
-                              .colorScheme
-                              .background,
-                          width: 1.0,
-                        ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(3.0),
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(
+                        color: Provider.of<ThemeProvider>(context)
+                            .themeData
+                            .colorScheme
+                            .background,
+                        width: 1.0,
                       ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(5.0),
-                        child: Icon(
-                          Icons.web,
-                          size: 30.0,
-                          color: Provider.of<ThemeProvider>(context)
-                              .themeData
-                              .colorScheme
-                              .background,
-                        ),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(3.0),
+                      child: Icon(
+                        Icons.web,
+                        size: 30.0,
+                        color: Provider.of<ThemeProvider>(context)
+                            .themeData
+                            .colorScheme
+                            .background,
                       ),
                     ),
                   ),
-                ],
-              ),
-            )
-          ],
-        ),
+                ),
+              ],
+            ),
+          )
+        ],
       ),
     );
   }
