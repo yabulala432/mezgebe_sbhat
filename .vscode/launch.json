@@ -28,6 +28,13 @@
       "program": "lib/main.dart",
       "args": ["-d", "linux"],
       "cwd": "${workspaceFolder}"
+    },
+    {
+      "name": "Flutter with Filtered Logs",
+      "type": "dart",
+      "request": "launch",
+      "preLaunchTask": "Run Flutter with Filtered Logs",
+      "program": "lib/main.dart"
     }
   ]
 }

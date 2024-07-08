@@ -9,31 +9,35 @@ class FlipCardContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FlipCard(
-      fill: Fill
-          .fillBack, // Fill the back side of the card to make in the same size as the front.
+      fill: Fill.fillBack,
       direction: FlipDirection.HORIZONTAL, // default
-      side: CardSide.FRONT, // The side to initially display.
+      side: CardSide.FRONT,
       front: Container(
         constraints: BoxConstraints(
           minHeight: 450.0,
           maxWidth: 500,
         ),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          color: Colors.white70,
-        ),
-        height: 450.0,
         width: double.infinity,
-        child: Center(child: Text('Front')),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(10),
+          child: Image(
+            image: AssetImage('assets/kdase/emne_beha_geez.png'),
+            fit: BoxFit.fill,
+          ),
+        ),
       ),
       back: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           color: Colors.white60,
         ),
-        height: 450.0,
-        width: double.infinity,
-        child: Center(child: const Text('Back')),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(10),
+          child: Image(
+            image: AssetImage('assets/kdase/emne_beha_amharic.png'),
+            fit: BoxFit.fill,
+          ),
+        ),
       ),
     );
   }

@@ -68,7 +68,8 @@ class ListScreen extends StatelessWidget {
                       children: [
                         const CircleAvatar(
                           radius: 30.0,
-                          backgroundImage: AssetImage("assets/listImage.jpg"),
+                          backgroundImage:
+                              AssetImage("assets/images/listImage.jpg"),
                         ),
                         const SizedBox(width: 20.0),
                         Expanded(

@@ -34,7 +34,7 @@ class AboutUs extends StatelessWidget {
               child: Expanded(
                 child: Row(
                   children: [
-                    Image(image: AssetImage('assets/adaptive-icon.png')),
+                    Image(image: AssetImage('assets/images/adaptive-icon.png')),
                     Expanded(
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 8),

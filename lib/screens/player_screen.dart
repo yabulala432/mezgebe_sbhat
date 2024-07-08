@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mezgebe_sbhat/components/player/app_slider.dart';
 import 'package:mezgebe_sbhat/components/player/flip_card.dart';
+import 'package:mezgebe_sbhat/providers/playlist_provider.dart';
 import 'package:mezgebe_sbhat/providers/theme_provider.dart';
 import 'package:mezgebe_sbhat/screens/bottom_nav_state.dart';
 import 'package:provider/provider.dart';
@@ -53,7 +54,6 @@ class PlayerScreen extends StatelessWidget {
             size: 30.0,
           ),
         ),
-        // just a placeholder for the back button
       ),
       backgroundColor:
           Provider.of<ThemeProvider>(context).themeData.colorScheme.background,
@@ -81,7 +81,8 @@ class PlayerScreen extends StatelessWidget {
                       child: Row(
                         children: [
                           Text(
-                            "00:00",
+                            Provider.of<PlayListProvider>(context)
+                                .currentDurationString,
                             style: TextStyle(
                               color: Provider.of<ThemeProvider>(context)
                                   .themeData
@@ -89,12 +90,48 @@ class PlayerScreen extends StatelessWidget {
                                   .onPrimary,
                             ),
                           ),
-                          const Expanded(
+                          Expanded(
                             flex: 1,
-                            child: AppSlider(),
+                            child: AppSlider(
+                              onChanged: (double value) {
+                                // pause the audio when sliding
+                                Provider.of<PlayListProvider>(context,
+                                        listen: false)
+                                    .pause();
+                                // set the current duration to the value of the slider
+                                final Duration duration = Duration(
+                                  milliseconds: value.toInt(),
+                                );
+                                Provider.of<PlayListProvider>(context,
+                                        listen: false)
+                                    .seek(duration);
+                                Provider.of<PlayListProvider>(context,
+                                        listen: false)
+                                    .play();
+                              },
+                              max: Provider.of<PlayListProvider>(context)
+                                  .totalDuration
+                                  .inMilliseconds
+                                  .toDouble(),
+                              value: Provider.of<PlayListProvider>(context)
+                                  .currentDuration
+                                  .inMilliseconds
+                                  .toDouble(),
+                              divisions: Provider.of<PlayListProvider>(context)
+                                          .totalDuration
+                                          .inMilliseconds
+                                          .toInt() !=
+                                      0
+                                  ? Provider.of<PlayListProvider>(context)
+                                      .totalDuration
+                                      .inMilliseconds
+                                      .toInt()
+                                  : 1,
+                            ),
                           ),
                           Text(
-                            "10:52",
+                            Provider.of<PlayListProvider>(context)
+                                .totalDurationString,
                             style: TextStyle(
                               color: Provider.of<ThemeProvider>(context)
                                   .themeData
@@ -115,18 +152,32 @@ class PlayerScreen extends StatelessWidget {
                         children: [
                           // icon button for repeat one song only
                           IconButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Provider.of<PlayListProvider>(context,
+                                      listen: false)
+                                  .togglePlayNext();
+                            },
                             icon: Icon(
                               Icons.repeat,
                               size: 30.0,
-                              color: Provider.of<ThemeProvider>(context)
-                                  .themeData
-                                  .colorScheme
-                                  .onPrimary,
+                              color: Provider.of<PlayListProvider>(context)
+                                      .playNext
+                                  ? Provider.of<ThemeProvider>(context)
+                                      .themeData
+                                      .colorScheme
+                                      .primary
+                                  : Provider.of<ThemeProvider>(context)
+                                      .themeData
+                                      .colorScheme
+                                      .onPrimary,
                             ),
                           ),
                           IconButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Provider.of<PlayListProvider>(context,
+                                      listen: false)
+                                  .previous();
+                            },
                             icon: Icon(
                               Icons.skip_previous,
                               color: Provider.of<ThemeProvider>(context)
@@ -137,7 +188,11 @@ class PlayerScreen extends StatelessWidget {
                             ),
                           ),
                           IconButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Provider.of<PlayListProvider>(context,
+                                      listen: false)
+                                  .playPause();
+                            },
                             icon: Container(
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(40),
@@ -149,7 +204,10 @@ class PlayerScreen extends StatelessWidget {
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Icon(
-                                  Icons.play_arrow,
+                                  Provider.of<PlayListProvider>(context)
+                                          .isPlaying
+                                      ? Icons.pause
+                                      : Icons.play_arrow,
                                   color: Provider.of<ThemeProvider>(context)
                                       .themeData
                                       .colorScheme
@@ -160,7 +218,11 @@ class PlayerScreen extends StatelessWidget {
                             ),
                           ),
                           IconButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Provider.of<PlayListProvider>(context,
+                                      listen: false)
+                                  .next();
+                            },
                             icon: Icon(
                               Icons.skip_next,
                               color: Provider.of<ThemeProvider>(context)
@@ -171,14 +233,24 @@ class PlayerScreen extends StatelessWidget {
                             ),
                           ),
                           IconButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Provider.of<PlayListProvider>(context,
+                                      listen: false)
+                                  .toggleLoop();
+                            },
                             icon: Icon(
                               Icons.repeat_one,
                               size: 30.0,
-                              color: Provider.of<ThemeProvider>(context)
-                                  .themeData
-                                  .colorScheme
-                                  .onPrimary,
+                              color: Provider.of<PlayListProvider>(context)
+                                      .loopAudio
+                                  ? Provider.of<ThemeProvider>(context)
+                                      .themeData
+                                      .colorScheme
+                                      .primary
+                                  : Provider.of<ThemeProvider>(context)
+                                      .themeData
+                                      .colorScheme
+                                      .onPrimary,
                             ),
                           )
                         ],
