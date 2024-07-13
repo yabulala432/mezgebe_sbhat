@@ -1,22 +1,30 @@
+import 'dart:io';
+
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/foundation.dart';
 import 'package:mezgebe_sbhat/models/song.dart';
 
+import 'package:mezgebe_sbhat/services/file_service.dart';
+
 class PlayListProvider extends ChangeNotifier {
+  FileService fileService = FileService();
   final List<Song> _playList = [
     Song(
-      audioPath: 'audios/emne_beha.mp3',
+      audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
       amharicImagePath: 'assets/kdase/emne_beha_amharic.png',
       geezImagePath: 'assets/kdase/emne_beha_geez.png',
-      title: 'Emne Beha',
+      title: '01_wetebarek',
     ),
     Song(
-      amharicImagePath: 'assets/kdase/O_SLUS_KDUS_amharic.png',
+      audioUrl:
+          'https://www.ethiopianorthodox.org/amharic/yeqolotbet/gitsawe/02%20weemeni.wma',
       geezImagePath: 'assets/kdase/O_SLUS_KDUS_geez.png',
-      audioPath: 'audios/O_SLUS_KDUS.amr',
-      title: 'O Slus Kdus',
+      amharicImagePath: 'assets/kdase/O_SLUS_KDUS_amharic.png',
+      title: '02_weemeni',
     ),
   ];
+
+  List<Song> get playList => _playList;
 
   PlayListProvider() {
     listenToDuration();
@@ -25,7 +33,7 @@ class PlayListProvider extends ChangeNotifier {
   int _currentIndex = 0;
 
   // getters
-  List<Song> get playList => _playList;
+  // List<Song> get playList => _playList;
   int get currentIndex => _currentIndex;
 
   Duration get currentDuration => _currentDuration;
@@ -76,7 +84,32 @@ class PlayListProvider extends ChangeNotifier {
   }
 
   void play() async {
-    await _audioPlayer.play(AssetSource(_playList[_currentIndex].audioPath));
+    String path = await fileService.getPath();
+    String fileName =
+        '${_playList[_currentIndex].title.replaceAll(' ', '_')}.wma';
+    File? file = File(
+        '$path/${_playList[_currentIndex].title.replaceAll(' ', '_')}.wma');
+    if (await fileService.doesFileExist(fileName: fileName)) {
+      print('playing from file');
+      playFile(file);
+    } else {
+      file = await fileService.downloadFile(
+        url: _playList[_currentIndex].audioUrl,
+        fileName: _playList[_currentIndex].title.replaceAll(' ', '_'),
+        fileType: 'wma',
+      );
+      if (file != null) playFile(file);
+    }
+  }
+
+  void playFile(File file) async {
+    try {
+      await _audioPlayer.stop();
+      await _audioPlayer
+          .play(DeviceFileSource(file.path, mimeType: 'audio/x-ms-wma'));
+    } catch (e) {
+      print('error from playFile function: $e');
+    }
   }
 
   void pause() {

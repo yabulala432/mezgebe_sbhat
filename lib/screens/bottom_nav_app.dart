@@ -14,7 +14,7 @@ class BottomNavigator extends StatefulWidget {
 }
 
 class _BottomNavigatorState extends State<BottomNavigator> {
-  final List<Widget> _screens = const [ListScreen(), PlayerScreen()];
+  final List<Widget> _screens = [ListScreen(), const PlayerScreen()];
 
   @override
   Widget build(BuildContext context) {
