@@ -68,7 +68,12 @@ class _ListItemState extends State<ListItem> {
             ),
             SizedBox(
               child: isDownloading
-                  ? const CircularProgressIndicator()
+                  ? CircularProgressIndicator(
+                      color: Provider.of<ThemeProvider>(context)
+                          .themeData
+                          .colorScheme
+                          .primary,
+                    )
                   : fileExists
                       ? Icon(
                           const FaIcon(FontAwesomeIcons.play).icon,
@@ -76,13 +81,13 @@ class _ListItemState extends State<ListItem> {
                           color: Provider.of<ThemeProvider>(context)
                               .themeData
                               .colorScheme
-                              .secondary,
+                              .primary,
                         )
                       : IconButton(
                           color: Provider.of<ThemeProvider>(context)
                               .themeData
                               .colorScheme
-                              .secondary,
+                              .primary,
                           iconSize: 35,
                           onPressed: () {},
                           icon: Icon(
@@ -115,27 +120,37 @@ class _ListItemState extends State<ListItem> {
         .downloadFile(
       url: widget.url,
       fileName: widget.title,
-      fileType: 'wma',
+      fileType: 'mp3',
     )
         .then((value) {
-      print("value is $value");
-      setState(() {
-        isDownloading = false;
-      });
+      // value = null or File
+      if (value != null && mounted) {
+        setState(() {
+          fileExists = true;
+          isDownloading = false;
+        });
+      } else if (mounted) {
+        setState(() {
+          fileExists = false;
+        });
+      }
     }).catchError((error) {
-      print("$error is the error");
-      setState(() {
-        isDownloading = false;
-      });
+      if (mounted) {
+        setState(() {
+          isDownloading = false;
+        });
+      }
     });
   }
 
   Future<bool> doesFileExist() async {
     bool value = await widget.fileService
-        .doesFileExist(fileName: '${widget.title.replaceAll(' ', '_')}.wma');
-    setState(() {
-      fileExists = true;
-    });
+        .doesFileExist(fileName: '${widget.title.replaceAll(' ', '_')}.mp3');
+    if (value) {
+      setState(() {
+        fileExists = true;
+      });
+    }
     return value;
   }
 }

@@ -22,6 +22,7 @@ class AppDrawerButton extends StatelessWidget {
       title: Text(
         title,
         style: TextStyle(
+          fontWeight: FontWeight.bold,
           color:
               Provider.of<ThemeProvider>(context).themeData.colorScheme.primary,
         ),

@@ -36,7 +36,6 @@ flutter:
     - assets/
     - assets/images/
     - assets/kdase/
-    - assets/audios/
   #   - images/a_dot_ham.jpeg
 
   # fonts:

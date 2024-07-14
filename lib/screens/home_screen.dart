@@ -30,7 +30,7 @@ class HomeScreen extends StatelessWidget {
                     Navigator.of(context).push(
                       PageRouteBuilder(
                         pageBuilder: (context, animation1, animation2) =>
-                            const BottomNavApp(),
+                            BottomNavApp(),
                         transitionDuration: const Duration(seconds: 0),
                         reverseTransitionDuration: const Duration(seconds: 0),
                       ),

@@ -3,18 +3,20 @@ import 'package:mezgebe_sbhat/providers/theme_provider.dart';
 import 'package:provider/provider.dart';
 
 class AppSlider extends StatefulWidget {
-  final Function onChanged;
   final double max;
   final double value;
   final int divisions;
-  // final Function onChangeEnd;
+  final Function onChangeEnd;
+  final Function onChanged;
+  final Function onChangeStart;
   const AppSlider({
     super.key,
-    required this.onChanged,
     required this.max,
     required this.value,
     required this.divisions,
-    // required this.onChangeEnd,
+    required this.onChangeEnd,
+    required this.onChangeStart,
+    required this.onChanged,
   });
 
   @override
@@ -22,6 +24,7 @@ class AppSlider extends StatefulWidget {
 }
 
 class _AppSliderState extends State<AppSlider> {
+  double _currentSliderValue = 0;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -41,12 +44,23 @@ class _AppSliderState extends State<AppSlider> {
           max: widget.max,
           divisions: widget.divisions,
           // label: _currentSliderValue.round().toString(),
-          // onChangeStart: (value) {
-          //  widget. onChangeStart(value);
-          // },
+          onChangeStart: (value) {
+            widget.onChangeStart();
+            setState(() {
+              _currentSliderValue = value;
+            });
+          },
           onChanged: (double value) {
             widget.onChanged(value);
-            setState(() {});
+            setState(() {
+              _currentSliderValue = value;
+            });
+          },
+          onChangeEnd: (value) {
+            widget.onChangeEnd(value);
+            setState(() {
+              _currentSliderValue = value;
+            });
           },
         ),
       ),
