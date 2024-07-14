@@ -21,7 +21,10 @@ class _BottomNavigatorState extends State<BottomNavigator> {
     final BottomNavState bottomNavState = Provider.of<BottomNavState>(context);
 
     return Scaffold(
-      body: _screens[bottomNavState.currentIndex],
+      body: IndexedStack(
+        index: bottomNavState.currentIndex,
+        children: _screens,
+      ),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
           boxShadow: [

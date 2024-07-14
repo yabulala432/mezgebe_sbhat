@@ -8,32 +8,18 @@ import 'package:mezgebe_sbhat/services/file_service.dart';
 
 class PlayListProvider extends ChangeNotifier {
   FileService fileService = FileService();
-  final List<Song> _playList = [
-    Song(
-      audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
-      amharicImagePath: 'assets/kdase/emne_beha_amharic.png',
-      geezImagePath: 'assets/kdase/emne_beha_geez.png',
-      title: '01_wetebarek',
-    ),
-    Song(
-      audioUrl:
-          'https://www.ethiopianorthodox.org/amharic/yeqolotbet/gitsawe/02%20weemeni.wma',
-      geezImagePath: 'assets/kdase/O_SLUS_KDUS_geez.png',
-      amharicImagePath: 'assets/kdase/O_SLUS_KDUS_amharic.png',
-      title: '02_weemeni',
-    ),
-  ];
+  List<Song> playList = [];
 
-  List<Song> get playList => _playList;
-
-  PlayListProvider() {
+  PlayListProvider({
+    required this.playList,
+  }) {
     listenToDuration();
   }
 
   int _currentIndex = 0;
 
   // getters
-  // List<Song> get playList => _playList;
+  // List<Song> get playList => playList;
   int get currentIndex => _currentIndex;
 
   Duration get currentDuration => _currentDuration;
@@ -42,6 +28,9 @@ class PlayListProvider extends ChangeNotifier {
   bool get isPlaying => _audioPlayer.state == PlayerState.playing;
   bool get isPaused => _audioPlayer.state == PlayerState.paused;
   bool get isStopped => _audioPlayer.state == PlayerState.stopped;
+
+  bool _isDownloading = false;
+  bool get isDownloading => _isDownloading;
 
   bool _loopAudio = false;
   bool _playNext = false;
@@ -83,44 +72,55 @@ class PlayListProvider extends ChangeNotifier {
     });
   }
 
-  void play() async {
+  Future<void> play() async {
     String path = await fileService.getPath();
     String fileName =
-        '${_playList[_currentIndex].title.replaceAll(' ', '_')}.wma';
-    File? file = File(
-        '$path/${_playList[_currentIndex].title.replaceAll(' ', '_')}.wma');
+        '${playList[_currentIndex].title.replaceAll(' ', '_')}.wma';
+    File? file =
+        File('$path/${playList[_currentIndex].title.replaceAll(' ', '_')}.wma');
     if (await fileService.doesFileExist(fileName: fileName)) {
       print('playing from file');
       playFile(file);
     } else {
+      _isDownloading = true;
+      notifyListeners();
       file = await fileService.downloadFile(
-        url: _playList[_currentIndex].audioUrl,
-        fileName: _playList[_currentIndex].title.replaceAll(' ', '_'),
-        fileType: 'wma',
+        url: playList[_currentIndex].audioUrl,
+        fileName: playList[_currentIndex].title.replaceAll(' ', '_'),
+        fileType: 'mp3',
       );
-      if (file != null) playFile(file);
+      if (file != null) {
+        _isDownloading = false;
+        notifyListeners();
+        await playFile(file);
+      }
     }
   }
 
-  void playFile(File file) async {
+  Future<void> playFile(File file) async {
     try {
       await _audioPlayer.stop();
       await _audioPlayer
-          .play(DeviceFileSource(file.path, mimeType: 'audio/x-ms-wma'));
+          // any type of audio file can be played = audio/mpeg, audio/x-wav, audio/x-ms-wma
+          .play(DeviceFileSource(file.path, mimeType: 'audio/*'));
     } catch (e) {
       print('error from playFile function: $e');
     }
   }
 
-  void pause() {
-    _audioPlayer.pause();
+  Future<void> pause() async {
+    await _audioPlayer.pause();
   }
 
-  void playPause() {
+  Future<void> resume() async {
+    await _audioPlayer.resume();
+  }
+
+  Future<void> playPause() async {
     if (isPlaying) {
-      pause();
+      await pause();
     } else {
-      play();
+      await resume();
     }
   }
 
@@ -129,39 +129,40 @@ class PlayListProvider extends ChangeNotifier {
   }
 
   void setCurrentIndex(int index) {
-    if (index >= _playList.length) {
+    if (index >= playList.length) {
       _currentIndex = 0;
     } else if (index < 0) {
-      _currentIndex = _playList.length - 1;
+      _currentIndex = playList.length - 1;
     } else {
       _currentIndex = index;
     }
   }
 
-  void next() {
+  void next() async {
     _currentDuration = Duration.zero;
+    print('current duration: $_currentDuration');
     setCurrentIndex(_currentIndex + 1);
-    stop();
-    play();
+    await stop();
+    await play();
   }
 
-  void previous() {
+  Future<void> previous() async {
     _currentDuration = Duration.zero;
     setCurrentIndex(_currentIndex - 1);
-    stop();
-    play();
+    await stop();
+    await play();
   }
 
-  void stop() {
-    _audioPlayer.stop();
+  Future<void> stop() async {
+    await _audioPlayer.stop();
   }
 
-  void fastForward() {
-    _audioPlayer.seek(_currentDuration + const Duration(seconds: 5));
+  Future<void> fastForward() async {
+    await _audioPlayer.seek(_currentDuration + const Duration(seconds: 5));
   }
 
-  void rewind() {
-    _audioPlayer.seek(_currentDuration - const Duration(seconds: 5));
+  Future<void> rewind() async {
+    await _audioPlayer.seek(_currentDuration - const Duration(seconds: 5));
   }
 
   void toggleLoop() {
