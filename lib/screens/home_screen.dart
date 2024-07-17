@@ -30,14 +30,12 @@ class HomeScreen extends StatelessWidget {
                     Navigator.of(context).push(
                       PageRouteBuilder(
                         pageBuilder: (context, animation1, animation2) =>
-                            BottomNavApp(),
+                            BottomNavApp(
+                          menu: item['playList'],
+                        ),
                         transitionDuration: const Duration(seconds: 0),
                         reverseTransitionDuration: const Duration(seconds: 0),
                       ),
-
-                      //   MaterialPageRoute(
-                      // builder: (context) => GeminiApp(),
-                      // )
                     );
                     // ignore: avoid_print
                     print("Tapped on $index");

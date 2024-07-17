@@ -1,11 +1,15 @@
+import 'kdase_menu_list.dart';
+import 'msbak_menu_list.dart';
+
 class Menu {
-  static const List<Map<String, dynamic>> items = [
+  static List<Map<String, dynamic>> items = [
     {
       "title": "ሥርዓተ ቅዳሴ (ግእዝ)",
       "name": "kdase",
       "imageUrl": "assets/images/kdase.jpg",
       "subTitle": "ሥርዓተ ቅዳሴ ዘደብረ ዓባይ",
       "hasDay": false,
+      "playList": KdaseMenu().playList,
     },
     {
       "title": "ሰዓታት",
@@ -13,6 +17,7 @@ class Menu {
       "imageUrl": "assets/images/seatat.jpeg",
       "subTitle": "ሰዓታት ዘበኣታ በየኔታ መጋቤ ኅሩያን የማነ ብርሃን ጌታሁን",
       "hasDay": false,
+      "playList": KdaseMenu().playList,
     },
     {
       "title": "ውዳሴ ማርያም",
@@ -20,6 +25,7 @@ class Menu {
       "imageUrl": "assets/images/wdaseMaryam.jpeg",
       "subTitle": "ዜማ ውዳሴ ማርያም በሊቀ ጠበብት ተክሌ ዘውዱ",
       "hasDay": true,
+      "playList": KdaseMenu().playList,
       "content": days,
     },
     {
@@ -28,6 +34,7 @@ class Menu {
       "imageUrl": "assets/images/mestegabe.jpeg",
       "subTitle": "መስተጋብእ ዜማ በሊቀ ጠበብት ተክሌ ዘውዱ",
       "hasDay": true,
+      "playList": KdaseMenu().playList,
       "content": days,
     },
     {
@@ -36,6 +43,7 @@ class Menu {
       "imageUrl": "assets/images/arbaet.jpg",
       "subTitle": "አርባእት ዜማ በሊቀ ጠበብት ተክሌ ዘውዱ",
       "hasDay": true,
+      "playList": MsbakMenu().playList,
       "content": days,
     },
     {
@@ -44,6 +52,7 @@ class Menu {
       "imageUrl": "assets/images/aryam.jpg",
       "subTitle": "አርያም ዜማ በሊቀ ጠበብት ተክሌ ዘውዱ",
       "hasDay": true,
+      "playList": MsbakMenu().playList,
       "content": days,
     },
     {
@@ -52,6 +61,7 @@ class Menu {
       "imageUrl": "assets/images/selest.jpg",
       "subTitle": "ሠለስት ዜማ በሊቀ ጠበብት ተክሌ ዘውዱ",
       "hasDay": true,
+      "playList": MsbakMenu().playList,
       "content": days,
     },
   ];
