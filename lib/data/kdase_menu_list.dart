@@ -804,7 +804,7 @@ class KdaseMenu extends MenuListParent {
           audioUrl: '${baseUri}part2kidaseetimhert/43etewubeselam.MP3',
           amharicImagePath: 'assets/kdase/O_SLUS_KDUS_amharic.png',
           geezImagePath: 'assets/kdase/O_SLUS_KDUS_geez.png',
-          title: 'etewubeselam.MP3',
+          title: 'etewubeselam',
         )
       ];
 }
