@@ -75,9 +75,9 @@ class PlayListProvider extends ChangeNotifier {
   Future<void> play() async {
     String path = await fileService.getPath();
     String fileName =
-        '${playList[_currentIndex].title.replaceAll(' ', '_')}.wma';
-    File? file =
-        File('$path/${playList[_currentIndex].title.replaceAll(' ', '_')}.wma');
+        '${playList[_currentIndex].title.replaceAll(' ', '_')}.${playList[_currentIndex].fileType}';
+    File? file = File(
+        '$path/${playList[_currentIndex].title.replaceAll(' ', '_')}.${playList[_currentIndex].fileType}');
     if (await fileService.doesFileExist(fileName: fileName)) {
       print('playing from file');
       playFile(file);
@@ -87,7 +87,7 @@ class PlayListProvider extends ChangeNotifier {
       file = await fileService.downloadFile(
         url: playList[_currentIndex].audioUrl,
         fileName: playList[_currentIndex].title.replaceAll(' ', '_'),
-        fileType: 'mp3',
+        fileType: playList[_currentIndex].fileType,
       );
       if (file != null) {
         _isDownloading = false;
@@ -100,9 +100,7 @@ class PlayListProvider extends ChangeNotifier {
   Future<void> playFile(File file) async {
     try {
       await _audioPlayer.stop();
-      await _audioPlayer
-          // any type of audio file can be played = audio/mpeg, audio/x-wav, audio/x-ms-wma
-          .play(DeviceFileSource(file.path, mimeType: 'audio/*'));
+      await _audioPlayer.play(DeviceFileSource(file.path, mimeType: 'audio/*'));
     } catch (e) {
       print('error from playFile function: $e');
     }

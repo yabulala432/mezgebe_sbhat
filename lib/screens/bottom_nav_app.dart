@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mezgebe_sbhat/providers/playlist_provider.dart';
 import 'package:mezgebe_sbhat/providers/theme_provider.dart';
 import 'package:mezgebe_sbhat/screens/bottom_nav_state.dart';
 import 'package:mezgebe_sbhat/screens/list_screen.dart';
@@ -9,8 +10,7 @@ class BottomNavigator extends StatefulWidget {
   const BottomNavigator({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
-  _BottomNavigatorState createState() => _BottomNavigatorState();
+  State<BottomNavigator> createState() => _BottomNavigatorState();
 }
 
 class _BottomNavigatorState extends State<BottomNavigator> {
@@ -62,4 +62,10 @@ class _BottomNavigatorState extends State<BottomNavigator> {
       ),
     );
   }
+
+  // @override
+  // void dispose() {
+  //   super.dispose();
+  //   // Provider.of<PlayListProvider>(context, listen: false).dispose();
+  // }
 }
