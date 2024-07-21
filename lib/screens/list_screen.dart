@@ -76,13 +76,15 @@ class _ListScreen extends State<ListScreen> with AutomaticKeepAliveClientMixin {
               return Column(
                 children: [
                   ListItem(
+                      fileType: lists[index].fileType,
                       title: lists[index].title,
                       url: lists[index].audioUrl,
                       disabled: isDownloading,
                       onPressed: () async {
-                        if (await fileService.doesFileExist(
+                        bool fileExists = await fileService.doesFileExist(
                             fileName:
-                                '${lists[index].title.replaceAll(' ', '_')}.wma')) {
+                                '${lists[index].title.replaceAll(' ', '_')}.${lists[index].fileType}');
+                        if (fileExists) {
                           Provider.of<BottomNavState>(context, listen: false)
                               .navigateToScreen2();
 
@@ -93,7 +95,7 @@ class _ListScreen extends State<ListScreen> with AutomaticKeepAliveClientMixin {
                               .downloadFile(
                                   url: lists[index].audioUrl,
                                   fileName: lists[index].title,
-                                  fileType: 'wma')
+                                  fileType: lists[index].fileType)
                               .then(
                                 (value) => {
                                   Provider.of<BottomNavState>(context,

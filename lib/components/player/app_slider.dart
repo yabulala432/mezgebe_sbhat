@@ -24,7 +24,7 @@ class AppSlider extends StatefulWidget {
 }
 
 class _AppSliderState extends State<AppSlider> {
-  double _currentSliderValue = 0;
+  // double _currentSliderValue = 0;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -46,21 +46,21 @@ class _AppSliderState extends State<AppSlider> {
           // label: _currentSliderValue.round().toString(),
           onChangeStart: (value) {
             widget.onChangeStart();
-            setState(() {
-              _currentSliderValue = value;
-            });
+            // setState(() {
+            //   _currentSliderValue = value;
+            // });
           },
           onChanged: (double value) {
             widget.onChanged(value);
-            setState(() {
-              _currentSliderValue = value;
-            });
+            // setState(() {
+            //   _currentSliderValue = value;
+            // });
           },
           onChangeEnd: (value) {
             widget.onChangeEnd(value);
-            setState(() {
-              _currentSliderValue = value;
-            });
+            // setState(() {
+            //   _currentSliderValue = value;
+            // });
           },
         ),
       ),
