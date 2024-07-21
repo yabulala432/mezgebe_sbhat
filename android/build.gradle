@@ -1,3 +1,15 @@
+buildscript {
+    ext {
+        flutterFFmpegPackage = 'audio' // Specify the flutter_ffmpeg package variant here
+    }
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        // Classpath dependencies for your project
+    }
+}
 allprojects {
     repositories {
         google()
