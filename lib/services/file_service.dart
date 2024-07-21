@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
+import 'package:flutter_ffmpeg/flutter_ffmpeg.dart';
 import 'package:path_provider/path_provider.dart';
 
 class FileService {
@@ -10,12 +11,23 @@ class FileService {
   Future<File?> downloadFile({
     required String url,
     required String fileName,
-    required String fileType,
   }) async {
+    print('********************** downloading file **********************');
+    final typeOfFile = url.split('/').last.split('.').last;
+
+    String fileType = typeOfFile;
+
+    if (typeOfFile != 'wma') {
+      fileType = 'mp3';
+    }
+
+    final wmaFilePath = '${fileName.replaceAll(' ', '_')}.wma';
     final filteredName = '${fileName.replaceAll(' ', '_')}.$fileType';
+
+    print('filtered name is $filteredName');
+
     final appStorage = await getPath();
     print('$appStorage is the path');
-    //await getApplicationDocumentsDirectory();
 
     final file = File('$appStorage/$filteredName');
 
@@ -36,6 +48,20 @@ class FileService {
       );
       raf.writeFromSync(response.data);
       await raf.close();
+
+      // if the file type is .wma convert it to .mp3
+      if (typeOfFile == 'wma') {
+        print(
+            '*************** wma detected. converting to mp3 ***********************');
+        await convertWmaToMp3(filteredName);
+        // delete the wma file
+
+        final wmaFile = File('$appStorage/$wmaFilePath');
+        if (await wmaFile.exists()) {
+          await wmaFile.delete();
+        }
+      }
+
       return file;
     } catch (e) {
       print(e);
@@ -61,5 +87,25 @@ class FileService {
   Future<String> getPath() async {
     final appStorage = await getApplicationSupportDirectory();
     return appStorage.path;
+  }
+
+  Future<void> convertWmaToMp3(String filePath) async {
+    final appStorage = await getPath();
+    final file = File('$appStorage/$filePath');
+    final newFile = File('$appStorage/${filePath.replaceAll('wma', 'mp3')}');
+
+    final FlutterFFmpeg flutterFFmpeg = FlutterFFmpeg();
+
+    await flutterFFmpeg
+        .execute('-i ${file.path} ${newFile.path}')
+        .then((returnCode) {
+      if (returnCode == 0) {
+        print('Conversion successful');
+      } else {
+        print('Conversion failed with return code: $returnCode');
+      }
+    }).catchError((error) {
+      print('Error: $error');
+    });
   }
 }

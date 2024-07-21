@@ -74,20 +74,22 @@ class PlayListProvider extends ChangeNotifier {
 
   Future<void> play() async {
     String path = await fileService.getPath();
+
+    print('play function called .............................');
+
     String fileName =
-        '${playList[_currentIndex].title.replaceAll(' ', '_')}.${playList[_currentIndex].fileType}';
-    File? file = File(
-        '$path/${playList[_currentIndex].title.replaceAll(' ', '_')}.${playList[_currentIndex].fileType}');
+        '${playList[_currentIndex].title.replaceAll(' ', '_')}.mp3';
+    File? file =
+        File('$path/${playList[_currentIndex].title.replaceAll(' ', '_')}.mp3');
     if (await fileService.doesFileExist(fileName: fileName)) {
-      print('playing from file');
-      playFile(file);
+      print('file exists and trying to play .............................');
+      await playFile(file);
     } else {
       _isDownloading = true;
       notifyListeners();
       file = await fileService.downloadFile(
         url: playList[_currentIndex].audioUrl,
         fileName: playList[_currentIndex].title.replaceAll(' ', '_'),
-        fileType: playList[_currentIndex].fileType,
       );
       if (file != null) {
         _isDownloading = false;
@@ -100,7 +102,8 @@ class PlayListProvider extends ChangeNotifier {
   Future<void> playFile(File file) async {
     try {
       await _audioPlayer.stop();
-      await _audioPlayer.play(DeviceFileSource(file.path, mimeType: 'audio/*'));
+      await _audioPlayer
+          .play(DeviceFileSource(file.path, mimeType: 'audio/mp3'));
     } catch (e) {
       print('error from playFile function: $e');
     }
@@ -115,9 +118,12 @@ class PlayListProvider extends ChangeNotifier {
   }
 
   Future<void> playPause() async {
+    print('playPause function called .............................');
     if (isPlaying) {
+      print('isPlaying true .............................');
       await pause();
     } else {
+      print('is playing false .............................');
       await resume();
     }
   }
@@ -138,7 +144,6 @@ class PlayListProvider extends ChangeNotifier {
 
   void next() async {
     _currentDuration = Duration.zero;
-    print('current duration: $_currentDuration');
     setCurrentIndex(_currentIndex + 1);
     await stop();
     await play();

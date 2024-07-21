@@ -8,7 +8,6 @@ import 'package:provider/provider.dart';
 class ListItem extends StatefulWidget {
   final String title;
   final String url;
-  final String fileType;
   final bool disabled;
   final void Function() onPressed;
 
@@ -20,7 +19,6 @@ class ListItem extends StatefulWidget {
     required this.url,
     this.disabled = false,
     required this.onPressed,
-    required this.fileType,
   });
 
   @override
@@ -122,7 +120,6 @@ class _ListItemState extends State<ListItem> {
         .downloadFile(
       url: widget.url,
       fileName: widget.title,
-      fileType: widget.fileType,
     )
         .then((value) {
       // value = null or File
@@ -147,7 +144,7 @@ class _ListItemState extends State<ListItem> {
 
   Future<bool> doesFileExist() async {
     bool value = await widget.fileService.doesFileExist(
-        fileName: '${widget.title.replaceAll(' ', '_')}.${widget.fileType}');
+        fileName: '${widget.title.replaceAll(' ', '_')}.mp3');
     if (value) {
       setState(() {
         fileExists = true;
