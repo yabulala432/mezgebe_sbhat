@@ -28,14 +28,14 @@ class NeumorphicContainer extends StatelessWidget {
           // Soft shadow on top-left
           BoxShadow(
             color: const Color.fromARGB(255, 133, 133, 133).withOpacity(0.2),
-            offset: const Offset(-1, -1),
+            offset: const Offset(-10, -10),
             blurRadius: 15,
             spreadRadius: 1,
           ),
           BoxShadow(
             color: const Color.fromARGB(255, 103, 97, 97)
                 .withOpacity(0.2), // Dark shadow color
-            offset: const Offset(1, 1),
+            offset: const Offset(10, 10),
             blurRadius: 15,
             spreadRadius: 1,
           ),
