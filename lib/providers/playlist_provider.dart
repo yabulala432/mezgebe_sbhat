@@ -71,23 +71,22 @@ class PlayListProvider extends ChangeNotifier {
       notifyListeners();
     });
   }
-
+// ignore: slash_for_doc_comments
+/** 
   Future<void> play() async {
     String path = await fileService.getPath();
     String fileName =
-        '${playList[_currentIndex].title.replaceAll(' ', '_')}.${playList[_currentIndex].fileType}';
-    File? file = File(
-        '$path/${playList[_currentIndex].title.replaceAll(' ', '_')}.${playList[_currentIndex].fileType}');
+        '${playList[_currentIndex].title.replaceAll(' ', '_')}.mp3';
+    File? file =
+        File('$path/${playList[_currentIndex].title.replaceAll(' ', '_')}.mp3');
     if (await fileService.doesFileExist(fileName: fileName)) {
-      print('playing from file');
-      playFile(file);
+      await playFile(file);
     } else {
       _isDownloading = true;
       notifyListeners();
       file = await fileService.downloadFile(
         url: playList[_currentIndex].audioUrl,
         fileName: playList[_currentIndex].title.replaceAll(' ', '_'),
-        fileType: playList[_currentIndex].fileType,
       );
       if (file != null) {
         _isDownloading = false;
@@ -100,7 +99,62 @@ class PlayListProvider extends ChangeNotifier {
   Future<void> playFile(File file) async {
     try {
       await _audioPlayer.stop();
-      await _audioPlayer.play(DeviceFileSource(file.path, mimeType: 'audio/*'));
+      await _audioPlayer
+          .play(DeviceFileSource(file.path, mimeType: 'audio/mp3'));
+    } catch (e) {
+      print('error from playFile function: $e');
+    }
+  }
+
+  */
+
+  Future<void> play() async {
+    final path = await fileService.getPath();
+    final fileName = getAudioFileName(playList[_currentIndex].title);
+    print('fileName is $fileName');
+    final file = await getAudioFile(path, fileName);
+
+    if (file != null) {
+      await playFile(file);
+    } else {
+      print('file is null');
+      _isDownloading = true;
+      notifyListeners();
+      await downloadAndPlayAudio(playList[_currentIndex].audioUrl, fileName);
+    }
+  }
+
+  String getAudioFileName(String title) => '${title.replaceAll(' ', '_')}.mp3';
+
+  Future<File?> getAudioFile(String path, String fileName) async {
+    // final fullPath = '$path/$fileName';
+    if (await fileService.doesFileExist(fileName: fileName)) {
+      print('file Exists bro !');
+      return fileService.getFile(fileName);
+    } else {
+      return null;
+    }
+  }
+
+  Future<void> downloadAndPlayAudio(String audioUrl, String fileName) async {
+    _isDownloading = true;
+    notifyListeners();
+    final file = await fileService.downloadFile(
+      url: audioUrl,
+      fileName: fileName,
+    );
+    if (file != null) {
+      _isDownloading = false;
+      notifyListeners();
+      await playFile(file);
+    }
+  }
+
+  Future<void> playFile(File file) async {
+    try {
+      await _audioPlayer.stop();
+      await _audioPlayer
+          .play(DeviceFileSource(file.path, mimeType: 'audio/mp3'));
     } catch (e) {
       print('error from playFile function: $e');
     }
@@ -111,13 +165,17 @@ class PlayListProvider extends ChangeNotifier {
   }
 
   Future<void> resume() async {
+    if (isStopped) {
+      print('audio was stopped');
+      return await play();
+    }
     await _audioPlayer.resume();
   }
 
   Future<void> playPause() async {
     if (isPlaying) {
       await pause();
-    } else {
+    } else if (!isPlaying) {
       await resume();
     }
   }
@@ -138,7 +196,6 @@ class PlayListProvider extends ChangeNotifier {
 
   void next() async {
     _currentDuration = Duration.zero;
-    print('current duration: $_currentDuration');
     setCurrentIndex(_currentIndex + 1);
     await stop();
     await play();
@@ -184,11 +241,11 @@ class PlayListProvider extends ChangeNotifier {
     play();
   }
 
-  @override
-  void dispose() {
-    _audioPlayer.dispose();
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   _audioPlayer.dispose();
+  //   super.dispose();
+  // }
 
   // helper methods
   String formatDuration(Duration duration) {

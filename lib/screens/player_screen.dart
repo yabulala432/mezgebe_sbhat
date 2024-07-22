@@ -179,7 +179,7 @@ class PlayerScreen extends StatelessWidget {
                           ],
                         ),
                       ),
-                      const SizedBox(height: 20.0),
+                      const SizedBox(height: 10.0),
                       Container(
                         height: 100,
                         constraints: const BoxConstraints(
@@ -235,55 +235,56 @@ class PlayerScreen extends StatelessWidget {
                               ),
                             ),
                             Consumer<PlayListProvider>(
-                                builder: (context, playListProvider, child) {
-                              return playListProvider.isDownloading
-                                  ? SizedBox(
-                                      height: 80,
-                                      width: 80,
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: CircularProgressIndicator(
-                                          color: Provider.of<ThemeProvider>(
-                                                  context)
-                                              .themeData
-                                              .colorScheme
-                                              .primary,
-                                        ),
-                                      ),
-                                    )
-                                  : IconButton(
-                                      onPressed: () {
-                                        Provider.of<PlayListProvider>(context,
-                                                listen: false)
-                                            .playPause();
-                                      },
-                                      icon: Container(
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(40),
-                                          color: Provider.of<ThemeProvider>(
-                                                  context)
-                                              .themeData
-                                              .colorScheme
-                                              .primary,
-                                        ),
+                              builder: (context, playListProvider, child) {
+                                return playListProvider.isDownloading
+                                    ? SizedBox(
+                                        height: 80,
+                                        width: 80,
                                         child: Padding(
                                           padding: const EdgeInsets.all(8.0),
-                                          child: Icon(
-                                            playListProvider.isPlaying
-                                                ? Icons.pause
-                                                : Icons.play_arrow,
+                                          child: CircularProgressIndicator(
                                             color: Provider.of<ThemeProvider>(
                                                     context)
                                                 .themeData
                                                 .colorScheme
-                                                .onPrimary,
-                                            size: 60.0,
+                                                .primary,
                                           ),
                                         ),
-                                      ),
-                                    );
-                            }),
+                                      )
+                                    : IconButton(
+                                        onPressed: () {
+                                          Provider.of<PlayListProvider>(context,
+                                                  listen: false)
+                                              .playPause();
+                                        },
+                                        icon: Container(
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(40),
+                                            color: Provider.of<ThemeProvider>(
+                                                    context)
+                                                .themeData
+                                                .colorScheme
+                                                .primary,
+                                          ),
+                                          child: Padding(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: Icon(
+                                              playListProvider.isPlaying
+                                                  ? Icons.pause
+                                                  : Icons.play_arrow,
+                                              color: Provider.of<ThemeProvider>(
+                                                      context)
+                                                  .themeData
+                                                  .colorScheme
+                                                  .onPrimary,
+                                              size: 60.0,
+                                            ),
+                                          ),
+                                        ),
+                                      );
+                              },
+                            ),
                             NeumorphicContainer(
                               color: Provider.of<ThemeProvider>(context)
                                   .themeData

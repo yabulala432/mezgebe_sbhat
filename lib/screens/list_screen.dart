@@ -30,6 +30,12 @@ class _ListScreen extends State<ListScreen> with AutomaticKeepAliveClientMixin {
   Widget build(BuildContext context) {
     super.build(context);
 
+    void navigateAndPlay(int index) {
+      Provider.of<BottomNavState>(context, listen: false).navigateToScreen2();
+
+      Provider.of<PlayListProvider>(context, listen: false).playIndex(index);
+    }
+
     final lists = Provider.of<PlayListProvider>(context).playList;
     return Material(
       child: Scaffold(
@@ -76,26 +82,21 @@ class _ListScreen extends State<ListScreen> with AutomaticKeepAliveClientMixin {
               return Column(
                 children: [
                   ListItem(
-                      fileType: lists[index].fileType,
                       title: lists[index].title,
                       url: lists[index].audioUrl,
                       disabled: isDownloading,
                       onPressed: () async {
                         bool fileExists = await fileService.doesFileExist(
                             fileName:
-                                '${lists[index].title.replaceAll(' ', '_')}.${lists[index].fileType}');
+                                '${lists[index].title.replaceAll(' ', '_')}.mp3');
                         if (fileExists) {
-                          Provider.of<BottomNavState>(context, listen: false)
-                              .navigateToScreen2();
-
-                          Provider.of<PlayListProvider>(context, listen: false)
-                              .playIndex(index);
+                          navigateAndPlay(index);
                         } else {
                           fileService
                               .downloadFile(
-                                  url: lists[index].audioUrl,
-                                  fileName: lists[index].title,
-                                  fileType: lists[index].fileType)
+                                url: lists[index].audioUrl,
+                                fileName: lists[index].title,
+                              )
                               .then(
                                 (value) => {
                                   Provider.of<BottomNavState>(context,
