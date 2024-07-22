@@ -74,15 +74,11 @@ class PlayListProvider extends ChangeNotifier {
 
   Future<void> play() async {
     String path = await fileService.getPath();
-
-    print('play function called .............................');
-
     String fileName =
         '${playList[_currentIndex].title.replaceAll(' ', '_')}.mp3';
     File? file =
         File('$path/${playList[_currentIndex].title.replaceAll(' ', '_')}.mp3');
     if (await fileService.doesFileExist(fileName: fileName)) {
-      print('file exists and trying to play .............................');
       await playFile(file);
     } else {
       _isDownloading = true;
@@ -114,16 +110,17 @@ class PlayListProvider extends ChangeNotifier {
   }
 
   Future<void> resume() async {
+    if (isStopped) {
+      print('audio was stopped');
+      return await play();
+    }
     await _audioPlayer.resume();
   }
 
   Future<void> playPause() async {
-    print('playPause function called .............................');
     if (isPlaying) {
-      print('isPlaying true .............................');
       await pause();
-    } else {
-      print('is playing false .............................');
+    } else if (!isPlaying) {
       await resume();
     }
   }
