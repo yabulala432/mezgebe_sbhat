@@ -30,6 +30,12 @@ class _ListScreen extends State<ListScreen> with AutomaticKeepAliveClientMixin {
   Widget build(BuildContext context) {
     super.build(context);
 
+    void navigateAndPlay(int index) {
+      Provider.of<BottomNavState>(context, listen: false).navigateToScreen2();
+
+      Provider.of<PlayListProvider>(context, listen: false).playIndex(index);
+    }
+
     final lists = Provider.of<PlayListProvider>(context).playList;
     return Material(
       child: Scaffold(
@@ -84,11 +90,7 @@ class _ListScreen extends State<ListScreen> with AutomaticKeepAliveClientMixin {
                             fileName:
                                 '${lists[index].title.replaceAll(' ', '_')}.mp3');
                         if (fileExists) {
-                          Provider.of<BottomNavState>(context, listen: false)
-                              .navigateToScreen2();
-
-                          Provider.of<PlayListProvider>(context, listen: false)
-                              .playIndex(index);
+                          navigateAndPlay(index);
                         } else {
                           fileService
                               .downloadFile(

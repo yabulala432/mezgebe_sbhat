@@ -12,7 +12,6 @@ class FileService {
     required String url,
     required String fileName,
   }) async {
-    print('********************** downloading file **********************');
     final typeOfFile = url.split('/').last.split('.').last;
 
     String fileType = typeOfFile;
@@ -21,7 +20,7 @@ class FileService {
       fileType = 'mp3';
     }
 
-    final wmaFilePath = '${fileName.replaceAll(' ', '_')}.wma';
+    final wmaFileName = '${fileName.replaceAll(' ', '_')}.wma';
     final filteredName = '${fileName.replaceAll(' ', '_')}.$fileType';
 
     print('filtered name is $filteredName');
@@ -56,7 +55,7 @@ class FileService {
         await convertWmaToMp3(filteredName);
         // delete the wma file
 
-        final wmaFile = File('$appStorage/$wmaFilePath');
+        final wmaFile = File('$appStorage/$wmaFileName');
         if (await wmaFile.exists()) {
           await wmaFile.delete();
         }
@@ -67,26 +66,6 @@ class FileService {
       print(e);
       return null;
     }
-  }
-
-  Future<bool> doesFileExist({required String fileName}) async {
-    String path = await getPath();
-    // print('$path/$fileName is the directory to check');
-    bool value = File('$path/$fileName').existsSync();
-
-    // print('$value,=== exist, value !!!');
-    return value;
-  }
-
-  Future<File?> getFile(String fileName) async {
-    final appStorage = await getApplicationDocumentsDirectory();
-    final file = File('${appStorage.path}/$fileName');
-    return file;
-  }
-
-  Future<String> getPath() async {
-    final appStorage = await getApplicationSupportDirectory();
-    return appStorage.path;
   }
 
   Future<void> convertWmaToMp3(String filePath) async {
@@ -107,5 +86,22 @@ class FileService {
     }).catchError((error) {
       print('Error: $error');
     });
+  }
+
+  Future<bool> doesFileExist({required String fileName}) async {
+    String path = await getPath();
+    bool value = File('$path/$fileName').existsSync();
+    return value;
+  }
+
+  Future<File?> getFile(String fileName) async {
+    final appStoragePath = await getPath();
+    final file = File('$appStoragePath/$fileName');
+    return file;
+  }
+
+  Future<String> getPath() async {
+    final appStorage = await getApplicationSupportDirectory();
+    return appStorage.path;
   }
 }
