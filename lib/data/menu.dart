@@ -1,3 +1,5 @@
+import 'package:mezgebe_sbhat/data/serawit_menu.list.dart';
+
 import 'kdase_menu_list.dart';
 import 'msbak_menu_list.dart';
 
@@ -17,7 +19,7 @@ class Menu {
       "imageUrl": "assets/images/seatat.jpeg",
       "subTitle": "ሰዓታት ዘበኣታ በየኔታ መጋቤ ኅሩያን የማነ ብርሃን ጌታሁን",
       "hasDay": false,
-      "playList": KdaseMenu().playList,
+      "playList": SerawitMenu().playList,
     },
     {
       "title": "ውዳሴ ማርያም",

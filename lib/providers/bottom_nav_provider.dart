@@ -3,6 +3,7 @@ import 'package:mezgebe_sbhat/models/song.dart';
 import 'package:mezgebe_sbhat/providers/playlist_provider.dart';
 import 'package:mezgebe_sbhat/screens/bottom_nav_app.dart';
 import 'package:mezgebe_sbhat/screens/bottom_nav_state.dart';
+import 'package:mezgebe_sbhat/services/file_service.dart';
 import 'package:provider/provider.dart';
 
 class BottomNavApp extends StatelessWidget {
@@ -21,8 +22,10 @@ class BottomNavApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (_) => PlayListProvider(
             playList: menu,
+            // fileservice is in the top level provider
+            fileService: Provider.of<FileService>(context, listen: false),
           ),
-        )
+        ),
       ],
       child: const BottomNavigator(),
     );

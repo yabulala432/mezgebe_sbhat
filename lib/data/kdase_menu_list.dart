@@ -544,9 +544,9 @@ class KdaseMenu extends MenuListParent {
             audioUrl: '${baseUri}part2kidaseetimhert/17elewuste niseha.MP3',
             amharicImagePath: 'assets/kdase/O_SLUS_KDUS_amharic.png',
             geezImagePath: 'assets/kdase/O_SLUS_KDUS_geez.png',
-            title: 'elewuste niseha.MP3'),
+            title: 'elewuste_niseha'),
         Song(
-          audioUrl: '${baseUri}part2kidaseetimhert/19selmleki',
+          audioUrl: '${baseUri}part2kidaseetimhert/19selmleki.MP3',
           amharicImagePath: 'assets/kdase/O_SLUS_KDUS_amharic.png',
           geezImagePath: 'assets/kdase/O_SLUS_KDUS_geez.png',
           title: 'selmleki',

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mezgebe_sbhat/components/player/app_slider.dart';
 import 'package:mezgebe_sbhat/components/player/flip_card.dart';
 import 'package:mezgebe_sbhat/components/player/neumorphic_container.dart';
@@ -43,10 +44,8 @@ class PlayerScreen extends StatelessWidget {
               ],
             ),
           ),
-          backgroundColor: Provider.of<ThemeProvider>(context)
-              .themeData
-              .colorScheme
-              .background,
+          backgroundColor:
+              Provider.of<ThemeProvider>(context).themeData.colorScheme.surface,
           leading: IconButton(
             onPressed: () {
               Provider.of<BottomNavState>(context, listen: false).currentIndex =
@@ -62,10 +61,8 @@ class PlayerScreen extends StatelessWidget {
             ),
           ),
         ),
-        backgroundColor: Provider.of<ThemeProvider>(context)
-            .themeData
-            .colorScheme
-            .background,
+        backgroundColor:
+            Provider.of<ThemeProvider>(context).themeData.colorScheme.surface,
         body: Padding(
           padding: const EdgeInsets.only(top: 8.0),
           child: Column(
@@ -73,7 +70,7 @@ class PlayerScreen extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.symmetric(
-                    horizontal: 16.0, vertical: 20.0),
+                    horizontal: 14.0, vertical: 10.0),
                 child: FlipCardContainer(
                   frontImagePath: Provider.of<PlayListProvider>(context)
                       .playList[
@@ -113,28 +110,34 @@ class PlayerScreen extends StatelessWidget {
                               flex: 1,
                               child: AppSlider(
                                 onChangeStart: () {
-                                  Provider.of<PlayListProvider>(context,
-                                          listen: false)
-                                      .pause();
+                                  try {
+                                    Provider.of<PlayListProvider>(context,
+                                            listen: false)
+                                        .pause();
+                                  } catch (e) {}
                                 },
                                 onChanged: (double value) {
                                   final Duration duration = Duration(
                                     milliseconds: value.toInt(),
                                   );
-                                  Provider.of<PlayListProvider>(context,
-                                          listen: false)
-                                      .seek(duration);
+                                  try {
+                                    Provider.of<PlayListProvider>(context,
+                                            listen: false)
+                                        .seek(duration);
+                                  } catch (e) {}
                                 },
                                 onChangeEnd: (double value) {
                                   final Duration duration = Duration(
                                     milliseconds: value.toInt(),
                                   );
-                                  Provider.of<PlayListProvider>(context,
-                                          listen: false)
-                                      .seek(duration);
-                                  Provider.of<PlayListProvider>(context,
-                                          listen: false)
-                                      .resume();
+                                  try {
+                                    Provider.of<PlayListProvider>(context,
+                                            listen: false)
+                                        .seek(duration);
+                                    Provider.of<PlayListProvider>(context,
+                                            listen: false)
+                                        .resume();
+                                  } catch (e) {}
                                 },
                                 max: Provider.of<PlayListProvider>(context)
                                     .totalDuration
@@ -199,7 +202,7 @@ class PlayerScreen extends StatelessWidget {
                                   : Provider.of<ThemeProvider>(context)
                                       .themeData
                                       .colorScheme
-                                      .background,
+                                      .surface,
                               child: IconButton(
                                 onPressed: () {
                                   Provider.of<PlayListProvider>(context,
@@ -217,7 +220,7 @@ class PlayerScreen extends StatelessWidget {
                               color: Provider.of<ThemeProvider>(context)
                                   .themeData
                                   .colorScheme
-                                  .background,
+                                  .surface,
                               child: IconButton(
                                 onPressed: () {
                                   Provider.of<PlayListProvider>(context,
@@ -236,65 +239,110 @@ class PlayerScreen extends StatelessWidget {
                             ),
                             Consumer<PlayListProvider>(
                               builder: (context, playListProvider, child) {
-                                return playListProvider.isDownloading
-                                    ? SizedBox(
-                                        height: 80,
-                                        width: 80,
-                                        child: Padding(
-                                          padding: const EdgeInsets.all(8.0),
-                                          child: CircularProgressIndicator(
-                                            color: Provider.of<ThemeProvider>(
-                                                    context)
-                                                .themeData
-                                                .colorScheme
-                                                .primary,
-                                          ),
-                                        ),
-                                      )
-                                    : IconButton(
-                                        onPressed: () {
-                                          Provider.of<PlayListProvider>(context,
-                                                  listen: false)
-                                              .playPause();
-                                        },
-                                        icon: Container(
-                                          decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(40),
-                                            color: Provider.of<ThemeProvider>(
-                                                    context)
-                                                .themeData
-                                                .colorScheme
-                                                .primary,
-                                          ),
+                                try {
+                                  return playListProvider.isDownloading
+                                      ? SizedBox(
+                                          height: 80,
+                                          width: 80,
                                           child: Padding(
                                             padding: const EdgeInsets.all(8.0),
-                                            child: Icon(
-                                              playListProvider.isPlaying
-                                                  ? Icons.pause
-                                                  : Icons.play_arrow,
+                                            child: CircularProgressIndicator(
                                               color: Provider.of<ThemeProvider>(
                                                       context)
                                                   .themeData
                                                   .colorScheme
-                                                  .onPrimary,
-                                              size: 60.0,
+                                                  .primary,
                                             ),
                                           ),
-                                        ),
-                                      );
+                                        )
+                                      : playListProvider.downloadError
+                                          ? IconButton(
+                                              onPressed: () {
+                                                try {
+                                                  Provider.of<PlayListProvider>(
+                                                          context,
+                                                          listen: false)
+                                                      .playPause();
+                                                } catch (e) {}
+                                              },
+                                              icon: NeumorphicContainer(
+                                                color:
+                                                    Provider.of<ThemeProvider>(
+                                                            context)
+                                                        .themeData
+                                                        .colorScheme
+                                                        .surface,
+                                                child: Padding(
+                                                  padding: const EdgeInsets.all(
+                                                      18.0),
+                                                  child: Icon(
+                                                    FontAwesomeIcons.download,
+                                                    color: Provider.of<
+                                                                ThemeProvider>(
+                                                            context)
+                                                        .themeData
+                                                        .colorScheme
+                                                        .onPrimary,
+                                                    size: 35.0,
+                                                  ),
+                                                ),
+                                              ),
+                                            )
+                                          : IconButton(
+                                              onPressed: () {
+                                                try {
+                                                  Provider.of<PlayListProvider>(
+                                                          context,
+                                                          listen: false)
+                                                      .playPause();
+                                                } catch (e) {}
+                                              },
+                                              icon: Container(
+                                                decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(40),
+                                                  color: Provider.of<
+                                                              ThemeProvider>(
+                                                          context)
+                                                      .themeData
+                                                      .colorScheme
+                                                      .primary,
+                                                ),
+                                                child: Padding(
+                                                  padding:
+                                                      const EdgeInsets.all(8.0),
+                                                  child: Icon(
+                                                    playListProvider.isPlaying
+                                                        ? Icons.pause
+                                                        : Icons.play_arrow,
+                                                    color: Provider.of<
+                                                                ThemeProvider>(
+                                                            context)
+                                                        .themeData
+                                                        .colorScheme
+                                                        .onPrimary,
+                                                    size: 60.0,
+                                                  ),
+                                                ),
+                                              ),
+                                            );
+                                } catch (e) {
+                                  return const SizedBox.shrink();
+                                }
                               },
                             ),
                             NeumorphicContainer(
                               color: Provider.of<ThemeProvider>(context)
                                   .themeData
                                   .colorScheme
-                                  .background,
+                                  .surface,
                               child: IconButton(
                                 onPressed: () {
-                                  Provider.of<PlayListProvider>(context,
-                                          listen: false)
-                                      .next();
+                                  try {
+                                    Provider.of<PlayListProvider>(context,
+                                            listen: false)
+                                        .next();
+                                  } catch (e) {}
                                 },
                                 icon: Icon(
                                   Icons.skip_next,
@@ -316,7 +364,7 @@ class PlayerScreen extends StatelessWidget {
                                   : Provider.of<ThemeProvider>(context)
                                       .themeData
                                       .colorScheme
-                                      .background,
+                                      .surface,
                               child: IconButton(
                                 onPressed: () {
                                   Provider.of<PlayListProvider>(context,

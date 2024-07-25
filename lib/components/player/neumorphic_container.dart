@@ -17,10 +17,8 @@ class NeumorphicContainer extends StatelessWidget {
       decoration: BoxDecoration(
         color: color,
         border: Border.all(
-          color: Provider.of<ThemeProvider>(context)
-              .themeData
-              .colorScheme
-              .background,
+          color:
+              Provider.of<ThemeProvider>(context).themeData.colorScheme.surface,
           width: 2.0,
         ),
         borderRadius: BorderRadius.circular(40.0),

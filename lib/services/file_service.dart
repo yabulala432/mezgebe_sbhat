@@ -1,16 +1,33 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_ffmpeg/flutter_ffmpeg.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:retry/retry.dart';
 
-class FileService {
-  FileService() {
-    getPath();
+class FileService extends ChangeNotifier {
+  final Map<String, double> _downloadProgress = {};
+
+  double getDownloadProgress({required String fileId}) =>
+      _downloadProgress[fileId] ?? 0.0;
+
+  void setDownloadProgress(String fileId, double value) {
+    // print('download progress of $fileId is $value');
+    _downloadProgress[fileId] = value;
+    notifyListeners(); // Notify all listeners of change.
   }
+
+  String removeExtraExtensions(String filename, String extension) {
+    List<String> parts = filename.split('.');
+    String baseName = parts.first;
+    return '$baseName.$extension';
+  }
+
   Future<File?> downloadFile({
     required String url,
     required String fileName,
+    required String fileId,
   }) async {
     final typeOfFile = url.split('/').last.split('.').last;
 
@@ -21,12 +38,12 @@ class FileService {
     }
 
     final wmaFileName = '${fileName.replaceAll(' ', '_')}.wma';
-    final filteredName = '${fileName.replaceAll(' ', '_')}.$fileType';
+    final filteredName =
+        removeExtraExtensions(fileName.replaceAll(' ', '_'), fileType);
 
     print('filtered name is $filteredName');
 
     final appStorage = await getPath();
-    print('$appStorage is the path');
 
     final file = File('$appStorage/$filteredName');
 
@@ -36,11 +53,24 @@ class FileService {
     }
 
     try {
-      final response = await Dio().get(
-        url,
-        options: Options(
-          responseType: ResponseType.bytes,
+      final dio = Dio();
+      dio.options.connectTimeout = const Duration(seconds: 5);
+
+      final response = await retry(
+        () => dio.get(
+          url,
+          options: Options(
+            responseType: ResponseType.bytes,
+          ),
+          onReceiveProgress: (count, total) {
+            if (total != -1) {
+              setDownloadProgress(fileId, count / total);
+            }
+          },
         ),
+        // retryIf: (e) =>
+        //     e is DioException && e.type == DioExceptionType.connectionTimeout,
+        maxAttempts: 5,
       );
       final raf = file.openSync(
         mode: FileMode.write,
@@ -48,13 +78,8 @@ class FileService {
       raf.writeFromSync(response.data);
       await raf.close();
 
-      // if the file type is .wma convert it to .mp3
       if (typeOfFile == 'wma') {
-        print(
-            '*************** wma detected. converting to mp3 ***********************');
         await convertWmaToMp3(filteredName);
-        // delete the wma file
-
         final wmaFile = File('$appStorage/$wmaFileName');
         if (await wmaFile.exists()) {
           await wmaFile.delete();
@@ -63,8 +88,10 @@ class FileService {
 
       return file;
     } catch (e) {
-      print(e);
-      return null;
+      print('line 68 fileService.dart error downloading file: $e');
+
+      // return null;
+      rethrow;
     }
   }
 

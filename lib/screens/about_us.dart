@@ -15,8 +15,7 @@ class AboutUs extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BackgroundColor(
-      color:
-          Provider.of<ThemeProvider>(context).themeData.colorScheme.background,
+      color: Provider.of<ThemeProvider>(context).themeData.colorScheme.surface,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 15.0),
         child: ListView(
@@ -59,7 +58,7 @@ class AboutUs extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              "Inspired by Qale Sbhat Version 1.0.0",
+                              "Version 1.0.0 \nInspired by Qale Sbhat",
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontSize: 16,
@@ -150,7 +149,7 @@ class AboutUs extends StatelessWidget {
                       color: Provider.of<ThemeProvider>(context)
                           .themeData
                           .colorScheme
-                          .background,
+                          .surface,
                     ),
                     shape: GFButtonShape.pills,
                     color: Provider.of<ThemeProvider>(context)
@@ -182,7 +181,7 @@ class AboutUs extends StatelessWidget {
                       color: Provider.of<ThemeProvider>(context)
                           .themeData
                           .colorScheme
-                          .background,
+                          .surface,
                     ),
                     size: 60,
                   ),

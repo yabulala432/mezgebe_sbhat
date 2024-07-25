@@ -55,7 +55,7 @@ class AppTile extends StatelessWidget {
                     color: Provider.of<ThemeProvider>(context)
                         .themeData
                         .colorScheme
-                        .background,
+                        .surface,
                   ),
                 ),
                 Text(
@@ -92,7 +92,7 @@ class AppTile extends StatelessWidget {
                         color: Provider.of<ThemeProvider>(context)
                             .themeData
                             .colorScheme
-                            .background,
+                            .surface,
                         width: 1.0,
                       ),
                     ),
@@ -104,7 +104,7 @@ class AppTile extends StatelessWidget {
                         color: Provider.of<ThemeProvider>(context)
                             .themeData
                             .colorScheme
-                            .background,
+                            .surface,
                       ),
                     ),
                   ),
@@ -118,7 +118,7 @@ class AppTile extends StatelessWidget {
                         color: Provider.of<ThemeProvider>(context)
                             .themeData
                             .colorScheme
-                            .background,
+                            .surface,
                         width: 1.0,
                       ),
                     ),
@@ -130,7 +130,7 @@ class AppTile extends StatelessWidget {
                         color: Provider.of<ThemeProvider>(context)
                             .themeData
                             .colorScheme
-                            .background,
+                            .surface,
                       ),
                     ),
                   ),
@@ -144,7 +144,7 @@ class AppTile extends StatelessWidget {
                         color: Provider.of<ThemeProvider>(context)
                             .themeData
                             .colorScheme
-                            .background,
+                            .surface,
                         width: 1.0,
                       ),
                     ),
@@ -156,7 +156,7 @@ class AppTile extends StatelessWidget {
                         color: Provider.of<ThemeProvider>(context)
                             .themeData
                             .colorScheme
-                            .background,
+                            .surface,
                       ),
                     ),
                   ),

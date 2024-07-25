@@ -24,10 +24,8 @@ class AboutApp extends StatelessWidget {
           ),
         ),
         centerTitle: true,
-        backgroundColor: Provider.of<ThemeProvider>(context)
-            .themeData
-            .colorScheme
-            .background,
+        backgroundColor:
+            Provider.of<ThemeProvider>(context).themeData.colorScheme.surface,
         elevation: 0.0,
         iconTheme: IconThemeData(
           color:
@@ -35,10 +33,8 @@ class AboutApp extends StatelessWidget {
         ),
       ),
       body: Material(
-        color: Provider.of<ThemeProvider>(context)
-            .themeData
-            .colorScheme
-            .background,
+        color:
+            Provider.of<ThemeProvider>(context).themeData.colorScheme.surface,
         child: Padding(
           padding: const EdgeInsets.only(bottom: 10.0),
           child: ListView(

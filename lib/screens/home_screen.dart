@@ -12,8 +12,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BackgroundColor(
-      color:
-          Provider.of<ThemeProvider>(context).themeData.colorScheme.background,
+      color: Provider.of<ThemeProvider>(context).themeData.colorScheme.surface,
       child: ListView.builder(
         itemCount: Menu.items.length,
         itemBuilder: (context, index) {

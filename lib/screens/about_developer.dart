@@ -12,10 +12,8 @@ class AboutDeveloper extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Material(
-        color: Provider.of<ThemeProvider>(context)
-            .themeData
-            .colorScheme
-            .background,
+        color:
+            Provider.of<ThemeProvider>(context).themeData.colorScheme.surface,
         child: Column(
           children: [
             ClipRRect(

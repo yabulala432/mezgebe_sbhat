@@ -13,7 +13,7 @@ class BottomNavigator extends StatefulWidget {
 }
 
 class _BottomNavigatorState extends State<BottomNavigator> {
-  final List<Widget> _screens = [ListScreen(), const PlayerScreen()];
+  final List<Widget> _screens = [const ListScreen(), const PlayerScreen()];
 
   @override
   Widget build(BuildContext context) {
@@ -42,10 +42,8 @@ class _BottomNavigatorState extends State<BottomNavigator> {
           onTap: (int index) {
             bottomNavState.currentIndex = index;
           },
-          backgroundColor: Provider.of<ThemeProvider>(context)
-              .themeData
-              .colorScheme
-              .background,
+          backgroundColor:
+              Provider.of<ThemeProvider>(context).themeData.colorScheme.surface,
           fixedColor:
               Provider.of<ThemeProvider>(context).themeData.colorScheme.primary,
           unselectedItemColor: Provider.of<ThemeProvider>(context)

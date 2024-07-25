@@ -63,10 +63,8 @@ class _DrawerScreenState extends State<DrawerScreen> {
       ),
       drawer: Drawer(
         width: 400,
-        backgroundColor: Provider.of<ThemeProvider>(context)
-            .themeData
-            .colorScheme
-            .background,
+        backgroundColor:
+            Provider.of<ThemeProvider>(context).themeData.colorScheme.surface,
         child: ListView(
           padding: EdgeInsets.zero,
           children: [

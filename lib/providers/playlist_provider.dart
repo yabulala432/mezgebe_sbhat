@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:audioplayers/audioplayers.dart';
@@ -6,12 +7,32 @@ import 'package:mezgebe_sbhat/models/song.dart';
 
 import 'package:mezgebe_sbhat/services/file_service.dart';
 
+import 'package:path/path.dart' as path;
+
 class PlayListProvider extends ChangeNotifier {
-  FileService fileService = FileService();
+  bool _isDisposed = false;
+  Completer<void>? _ongoingTask;
+
+  final FileService fileService;
+
+  @override
+  void dispose() {
+    _isDisposed = true;
+    _audioPlayer.dispose();
+
+    _ongoingTask = Completer();
+    if (!_ongoingTask!.isCompleted) {
+      _ongoingTask?.complete();
+    }
+
+    super.dispose();
+  }
+
   List<Song> playList = [];
 
   PlayListProvider({
     required this.playList,
+    required this.fileService,
   }) {
     listenToDuration();
   }
@@ -32,6 +53,9 @@ class PlayListProvider extends ChangeNotifier {
   bool _isDownloading = false;
   bool get isDownloading => _isDownloading;
 
+  bool _downloadError = false;
+  bool get downloadError => _downloadError;
+
   bool _loopAudio = false;
   bool _playNext = false;
 
@@ -48,79 +72,56 @@ class PlayListProvider extends ChangeNotifier {
   Duration _totalDuration = Duration.zero;
 
   void listenToDuration() {
-    _audioPlayer.onDurationChanged.listen((Duration duration) {
-      _totalDuration = duration;
-
-      notifyListeners();
-    });
-
-    _audioPlayer.onPositionChanged.listen((Duration position) {
-      _currentDuration = position;
-      notifyListeners();
-    });
-
-    _audioPlayer.onPlayerComplete.listen((event) {
-      if (_loopAudio) {
-        play();
-      } else if (_playNext) {
-        next();
-      } else {
-        stop();
-        _currentDuration = Duration.zero;
-      }
-      notifyListeners();
-    });
-  }
-// ignore: slash_for_doc_comments
-/** 
-  Future<void> play() async {
-    String path = await fileService.getPath();
-    String fileName =
-        '${playList[_currentIndex].title.replaceAll(' ', '_')}.mp3';
-    File? file =
-        File('$path/${playList[_currentIndex].title.replaceAll(' ', '_')}.mp3');
-    if (await fileService.doesFileExist(fileName: fileName)) {
-      await playFile(file);
-    } else {
-      _isDownloading = true;
-      notifyListeners();
-      file = await fileService.downloadFile(
-        url: playList[_currentIndex].audioUrl,
-        fileName: playList[_currentIndex].title.replaceAll(' ', '_'),
-      );
-      if (file != null) {
-        _isDownloading = false;
-        notifyListeners();
-        await playFile(file);
-      }
-    }
-  }
-
-  Future<void> playFile(File file) async {
+    if (_isDisposed) return;
     try {
-      await _audioPlayer.stop();
-      await _audioPlayer
-          .play(DeviceFileSource(file.path, mimeType: 'audio/mp3'));
-    } catch (e) {
-      print('error from playFile function: $e');
+      _audioPlayer.onDurationChanged.listen((Duration duration) {
+        _totalDuration = duration;
+
+        notifyListeners();
+      });
+
+      _audioPlayer.onPositionChanged.listen((Duration position) {
+        _currentDuration = position;
+        notifyListeners();
+      });
+
+      _audioPlayer.onPlayerComplete.listen((event) async {
+        if (_loopAudio) {
+          await play();
+        } else if (_playNext) {
+          await next();
+        } else {
+          await stop();
+          _currentDuration = Duration.zero;
+        }
+        notifyListeners();
+      });
+    } finally {
+      //if (!_ongoingTask!.isCompleted) _ongoingTask!.complete();
+      // _ongoingTask = Completer<void>();
     }
   }
 
-  */
-
   Future<void> play() async {
-    final path = await fileService.getPath();
-    final fileName = getAudioFileName(playList[_currentIndex].title);
-    print('fileName is $fileName');
-    final file = await getAudioFile(path, fileName);
+    if (_isDisposed) return;
 
-    if (file != null) {
-      await playFile(file);
-    } else {
-      print('file is null');
-      _isDownloading = true;
-      notifyListeners();
-      await downloadAndPlayAudio(playList[_currentIndex].audioUrl, fileName);
+    try {
+      final path = await fileService.getPath();
+      final fileName = getAudioFileName(playList[_currentIndex].title);
+
+      final file = await getAudioFile(path, fileName);
+
+      if (file != null) {
+        await playFile(file);
+      } else {
+        print('file is null');
+        _isDownloading = true;
+        notifyListeners();
+        await downloadAndPlayAudio(playList[_currentIndex].audioUrl, fileName);
+      }
+    } finally {
+      _ongoingTask = Completer<void>();
+      if (!_ongoingTask!.isCompleted) _ongoingTask!.complete();
     }
   }
 
@@ -128,43 +129,80 @@ class PlayListProvider extends ChangeNotifier {
 
   Future<File?> getAudioFile(String path, String fileName) async {
     // final fullPath = '$path/$fileName';
-    if (await fileService.doesFileExist(fileName: fileName)) {
-      print('file Exists bro !');
-      return fileService.getFile(fileName);
-    } else {
-      return null;
+    if (_isDisposed) return null;
+
+    try {
+      if (await fileService.doesFileExist(fileName: fileName)) {
+        print('file Exists bro !');
+        return fileService.getFile(fileName);
+      } else {
+        return null;
+      }
+    } finally {
+      _ongoingTask = Completer<void>();
+      if (!_ongoingTask!.isCompleted) _ongoingTask!.complete();
     }
   }
 
   Future<void> downloadAndPlayAudio(String audioUrl, String fileName) async {
-    _isDownloading = true;
-    notifyListeners();
-    final file = await fileService.downloadFile(
-      url: audioUrl,
-      fileName: fileName,
-    );
-    if (file != null) {
-      _isDownloading = false;
+    if (_isDisposed) return;
+
+    try {
+      _isDownloading = true;
+      _downloadError = false;
       notifyListeners();
-      await playFile(file);
+      try {
+        final file = await fileService.downloadFile(
+          url: audioUrl,
+          fileName: fileName,
+          fileId: audioUrl,
+        );
+        if (file != null) {
+          _isDownloading = false;
+          notifyListeners();
+          await playFile(file);
+        }
+      } catch (e) {
+        _isDownloading = false;
+        _downloadError = true;
+        notifyListeners();
+      }
+    } finally {
+      _ongoingTask = Completer<void>();
+      if (!_ongoingTask!.isCompleted) _ongoingTask!.complete();
     }
   }
 
+  String removeExtraExtensions(String filepath, String extension) {
+    final dirName = path.dirname(filepath);
+    final filename = path.basenameWithoutExtension(filepath);
+    final newFilename = path.join(dirName, filename);
+    return '$newFilename.$extension';
+  }
+
   Future<void> playFile(File file) async {
+    if (_isDisposed) return;
     try {
       await _audioPlayer.stop();
-      await _audioPlayer
-          .play(DeviceFileSource(file.path, mimeType: 'audio/mp3'));
+      await _audioPlayer.play(DeviceFileSource(
+          removeExtraExtensions(file.path, 'mp3'),
+          mimeType: 'audio/mp3'));
     } catch (e) {
       print('error from playFile function: $e');
+    } finally {
+      _ongoingTask = Completer<void>();
+      if (!_ongoingTask!.isCompleted) _ongoingTask!.complete();
     }
   }
 
   Future<void> pause() async {
+    if (_isDisposed) return;
     await _audioPlayer.pause();
   }
 
   Future<void> resume() async {
+    if (_isDisposed) return;
+
     if (isStopped) {
       print('audio was stopped');
       return await play();
@@ -173,18 +211,32 @@ class PlayListProvider extends ChangeNotifier {
   }
 
   Future<void> playPause() async {
-    if (isPlaying) {
-      await pause();
-    } else if (!isPlaying) {
-      await resume();
+    if (_isDisposed) return;
+    try {
+      if (isPlaying) {
+        await pause();
+      } else if (!isPlaying) {
+        await resume();
+      }
+    } finally {
+      _ongoingTask = Completer<void>();
+      if (!_ongoingTask!.isCompleted) _ongoingTask!.complete();
     }
   }
 
-  void seek(Duration duration) {
-    _audioPlayer.seek(duration);
+  Future<void> seek(Duration duration) async {
+    if (_isDisposed) return;
+    try {
+      await _audioPlayer.seek(duration);
+    } finally {
+      _ongoingTask = Completer<void>();
+      if (!_ongoingTask!.isCompleted) _ongoingTask!.complete();
+    }
   }
 
   void setCurrentIndex(int index) {
+    if (_isDisposed) return;
+
     if (index >= playList.length) {
       _currentIndex = 0;
     } else if (index < 0) {
@@ -194,30 +246,55 @@ class PlayListProvider extends ChangeNotifier {
     }
   }
 
-  void next() async {
-    _currentDuration = Duration.zero;
-    setCurrentIndex(_currentIndex + 1);
-    await stop();
-    await play();
+  Future<void> next() async {
+    try {
+      _currentDuration = Duration.zero;
+      setCurrentIndex(_currentIndex + 1);
+      await stop();
+      await play();
+    } finally {
+      _ongoingTask = Completer<void>();
+      if (!_ongoingTask!.isCompleted) _ongoingTask!.complete();
+    }
   }
 
   Future<void> previous() async {
-    _currentDuration = Duration.zero;
-    setCurrentIndex(_currentIndex - 1);
-    await stop();
-    await play();
+    try {
+      _currentDuration = Duration.zero;
+      setCurrentIndex(_currentIndex - 1);
+      await stop();
+      await play();
+    } finally {
+      _ongoingTask = Completer<void>();
+      if (!_ongoingTask!.isCompleted) _ongoingTask!.complete();
+    }
   }
 
   Future<void> stop() async {
-    await _audioPlayer.stop();
+    try {
+      await _audioPlayer.stop();
+    } finally {
+      _ongoingTask = Completer<void>();
+      if (!_ongoingTask!.isCompleted) _ongoingTask!.complete();
+    }
   }
 
   Future<void> fastForward() async {
-    await _audioPlayer.seek(_currentDuration + const Duration(seconds: 5));
+    try {
+      await _audioPlayer.seek(_currentDuration + const Duration(seconds: 5));
+    } finally {
+      _ongoingTask = Completer<void>();
+      if (!_ongoingTask!.isCompleted) _ongoingTask!.complete();
+    }
   }
 
   Future<void> rewind() async {
-    await _audioPlayer.seek(_currentDuration - const Duration(seconds: 5));
+    try {
+      await _audioPlayer.seek(_currentDuration - const Duration(seconds: 5));
+    } finally {
+      _ongoingTask = Completer<void>();
+      if (!_ongoingTask!.isCompleted) _ongoingTask!.complete();
+    }
   }
 
   void toggleLoop() {
@@ -241,13 +318,6 @@ class PlayListProvider extends ChangeNotifier {
     play();
   }
 
-  // @override
-  // void dispose() {
-  //   _audioPlayer.dispose();
-  //   super.dispose();
-  // }
-
-  // helper methods
   String formatDuration(Duration duration) {
     String twoDigits(int n) => n.toString().padLeft(2, '0');
     String minutes = twoDigits(duration.inMinutes.remainder(60));

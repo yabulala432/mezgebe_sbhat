@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mezgebe_sbhat/providers/theme_provider.dart';
 import 'package:mezgebe_sbhat/services/file_service.dart';
 import 'package:provider/provider.dart';
+import 'package:percent_indicator/percent_indicator.dart';
 
 // ignore: must_be_immutable
 class ListItem extends StatefulWidget {
@@ -11,9 +12,7 @@ class ListItem extends StatefulWidget {
   final bool disabled;
   final void Function() onPressed;
 
-  late FileService fileService = FileService();
-
-  ListItem({
+  const ListItem({
     super.key,
     required this.title,
     required this.url,
@@ -29,6 +28,8 @@ class _ListItemState extends State<ListItem> {
   bool isDownloading = false;
   @override
   Widget build(BuildContext context) {
+    // print(
+    //     'download Progress: ${Provider.of<FileService>(context, listen: true).downloadProgress}');
     return InkWell(
       onTap: () async {
         if (widget.disabled || isDownloading) {
@@ -68,12 +69,20 @@ class _ListItemState extends State<ListItem> {
             ),
             SizedBox(
               child: isDownloading
-                  ? CircularProgressIndicator(
-                      color: Provider.of<ThemeProvider>(context)
-                          .themeData
-                          .colorScheme
-                          .primary,
-                    )
+                  ? Consumer<FileService>(
+                      builder: (context, FileService fileService, child) {
+                      return CircularPercentIndicator(
+                        radius: 25,
+                        lineWidth: 4.0,
+                        percent:
+                            fileService.getDownloadProgress(fileId: widget.url),
+                        progressColor: Provider.of<ThemeProvider>(context)
+                            .themeData
+                            .colorScheme
+                            .primary,
+                        backgroundColor: Colors.white,
+                      );
+                    })
                   : fileExists
                       ? Icon(
                           const FaIcon(FontAwesomeIcons.play).icon,
@@ -83,18 +92,15 @@ class _ListItemState extends State<ListItem> {
                               .colorScheme
                               .primary,
                         )
-                      : IconButton(
+                      : Icon(
+                          const FaIcon(
+                            FontAwesomeIcons.download,
+                          ).icon,
+                          size: 35,
                           color: Provider.of<ThemeProvider>(context)
                               .themeData
                               .colorScheme
                               .primary,
-                          iconSize: 35,
-                          onPressed: () {},
-                          icon: Icon(
-                            const FaIcon(
-                              FontAwesomeIcons.download,
-                            ).icon,
-                          ),
                         ),
             ),
           ],
@@ -108,21 +114,21 @@ class _ListItemState extends State<ListItem> {
   @override
   void initState() {
     super.initState();
-    widget.fileService = FileService();
     doesFileExist();
   }
 
   void downloadFile() async {
+    if (!mounted) return;
     setState(() {
       isDownloading = true;
     });
-    await widget.fileService
+    await Provider.of<FileService>(context, listen: false)
         .downloadFile(
       url: widget.url,
       fileName: widget.title,
+      fileId: widget.url,
     )
         .then((value) {
-      // value = null or File
       if (value != null && mounted) {
         setState(() {
           fileExists = true;
@@ -143,9 +149,10 @@ class _ListItemState extends State<ListItem> {
   }
 
   Future<bool> doesFileExist() async {
-    bool value = await widget.fileService.doesFileExist(
-        fileName: '${widget.title.replaceAll(' ', '_')}.mp3');
+    bool value = await Provider.of<FileService>(context, listen: false)
+        .doesFileExist(fileName: '${widget.title.replaceAll(' ', '_')}.mp3');
     if (value) {
+      if (!mounted) return false;
       setState(() {
         fileExists = true;
       });
