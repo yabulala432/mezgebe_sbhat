@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mezgebe_sbhat/components/player/app_slider.dart';
+import 'package:mezgebe_sbhat/components/player/duration_text.dart';
 import 'package:mezgebe_sbhat/components/player/flip_card.dart';
-import 'package:mezgebe_sbhat/components/player/neumorphic_container.dart';
-import 'package:mezgebe_sbhat/providers/playlist_provider.dart';
+import 'package:mezgebe_sbhat/components/player/header_text.dart';
+import 'package:mezgebe_sbhat/components/player/next_previous_button.dart';
+import 'package:mezgebe_sbhat/components/player/play_pause_download_progress.dart';
+import 'package:mezgebe_sbhat/components/player/repeat_button.dart';
 import 'package:mezgebe_sbhat/providers/theme_provider.dart';
 import 'package:mezgebe_sbhat/screens/bottom_nav_state.dart';
 import 'package:provider/provider.dart';
@@ -13,33 +15,21 @@ class PlayerScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print('state updating');
     return PopScope(
       canPop: false,
       onPopInvoked: (didPop) {
+        print('pop Invoked');
         Provider.of<BottomNavState>(context, listen: false).navigateToScreen1();
       },
       child: Scaffold(
         appBar: AppBar(
-          title: Padding(
-            padding: const EdgeInsets.only(right: 30.0),
+          title: const Padding(
+            padding: EdgeInsets.only(right: 30.0),
             child: Row(
               children: [
                 Expanded(
-                  child: Text(
-                    Provider.of<PlayListProvider>(context)
-                        .playList[
-                            Provider.of<PlayListProvider>(context).currentIndex]
-                        .title,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Provider.of<ThemeProvider>(context)
-                          .themeData
-                          .colorScheme
-                          .primary,
-                      fontSize: 23.0,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                  child: HeaderText(),
                 ),
               ],
             ),
@@ -72,15 +62,15 @@ class PlayerScreen extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(
                     horizontal: 14.0, vertical: 10.0),
                 child: FlipCardContainer(
-                  frontImagePath: Provider.of<PlayListProvider>(context)
-                      .playList[
-                          Provider.of<PlayListProvider>(context).currentIndex]
-                      .geezImagePath,
-                  backImagePath: Provider.of<PlayListProvider>(context)
-                      .playList[
-                          Provider.of<PlayListProvider>(context).currentIndex]
-                      .amharicImagePath,
-                ),
+                    // frontImagePath: Provider.of<PlayListProvider>(context)
+                    //     .playList[
+                    //         Provider.of<PlayListProvider>(context).currentIndex]
+                    //     .geezImagePath,
+                    // backImagePath: Provider.of<PlayListProvider>(context)
+                    //     .playList[
+                    //         Provider.of<PlayListProvider>(context).currentIndex]
+                    //     .amharicImagePath,
+                    ),
               ),
               Padding(
                 padding: const EdgeInsets.only(
@@ -94,91 +84,14 @@ class PlayerScreen extends StatelessWidget {
                         constraints: const BoxConstraints(
                           maxWidth: 500.0,
                         ),
-                        child: Row(
+                        child: const Row(
                           children: [
-                            Text(
-                              Provider.of<PlayListProvider>(context)
-                                  .currentDurationString,
-                              style: TextStyle(
-                                color: Provider.of<ThemeProvider>(context)
-                                    .themeData
-                                    .colorScheme
-                                    .onPrimary,
-                              ),
-                            ),
+                            DurationText(isLeft: true),
                             Expanded(
-                              flex: 1,
-                              child: AppSlider(
-                                onChangeStart: () {
-                                  try {
-                                    Provider.of<PlayListProvider>(context,
-                                            listen: false)
-                                        .pause();
-                                  } catch (e) {}
-                                },
-                                onChanged: (double value) {
-                                  final Duration duration = Duration(
-                                    milliseconds: value.toInt(),
-                                  );
-                                  try {
-                                    Provider.of<PlayListProvider>(context,
-                                            listen: false)
-                                        .seek(duration);
-                                  } catch (e) {}
-                                },
-                                onChangeEnd: (double value) {
-                                  final Duration duration = Duration(
-                                    milliseconds: value.toInt(),
-                                  );
-                                  try {
-                                    Provider.of<PlayListProvider>(context,
-                                            listen: false)
-                                        .seek(duration);
-                                    Provider.of<PlayListProvider>(context,
-                                            listen: false)
-                                        .resume();
-                                  } catch (e) {}
-                                },
-                                max: Provider.of<PlayListProvider>(context)
-                                    .totalDuration
-                                    .inMilliseconds
-                                    .toDouble(),
-                                value: Provider.of<PlayListProvider>(context)
-                                            .currentDuration
-                                            .inMilliseconds
-                                            .toDouble() >
-                                        Provider.of<PlayListProvider>(context)
-                                            .totalDuration
-                                            .inMilliseconds
-                                            .toDouble()
-                                    ? 0
-                                    : Provider.of<PlayListProvider>(context)
-                                        .currentDuration
-                                        .inMilliseconds
-                                        .toDouble(),
-                                divisions:
-                                    Provider.of<PlayListProvider>(context)
-                                                .totalDuration
-                                                .inMilliseconds
-                                                .toInt() !=
-                                            0
-                                        ? Provider.of<PlayListProvider>(context)
-                                            .totalDuration
-                                            .inMilliseconds
-                                            .toInt()
-                                        : 1,
-                              ),
+                              // flex: 1,
+                              child: AppSlider(),
                             ),
-                            Text(
-                              Provider.of<PlayListProvider>(context)
-                                  .totalDurationString,
-                              style: TextStyle(
-                                color: Provider.of<ThemeProvider>(context)
-                                    .themeData
-                                    .colorScheme
-                                    .onPrimary,
-                              ),
-                            ),
+                            DurationText(isLeft: false),
                           ],
                         ),
                       ),
@@ -188,11 +101,11 @@ class PlayerScreen extends StatelessWidget {
                         constraints: const BoxConstraints(
                           maxWidth: 500.0,
                         ),
-                        child: Row(
+                        child: const Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             // icon button for repeat one song only
-                            NeumorphicContainer(
+                            /* NeumorphicContainer(
                               color: Provider.of<PlayListProvider>(context)
                                       .playNext
                                   ? Provider.of<ThemeProvider>(context)
@@ -216,7 +129,9 @@ class PlayerScreen extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            NeumorphicContainer(
+                           */
+                            RepeatButton(repeatOnce: false),
+                            /* NeumorphicContainer(
                               color: Provider.of<ThemeProvider>(context)
                                   .themeData
                                   .colorScheme
@@ -236,8 +151,11 @@ class PlayerScreen extends StatelessWidget {
                                   size: 30.0,
                                 ),
                               ),
-                            ),
-                            Consumer<PlayListProvider>(
+                            ),*/
+                            NextPreviousButton(next: false),
+
+                            PlayPauseDownloadProgress(),
+                            /* Consumer<PlayListProvider>(
                               builder: (context, playListProvider, child) {
                                 try {
                                   return playListProvider.isDownloading
@@ -331,7 +249,9 @@ class PlayerScreen extends StatelessWidget {
                                 }
                               },
                             ),
-                            NeumorphicContainer(
+                            */
+                            NextPreviousButton(next: true),
+                            /* NeumorphicContainer(
                               color: Provider.of<ThemeProvider>(context)
                                   .themeData
                                   .colorScheme
@@ -354,7 +274,9 @@ class PlayerScreen extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            NeumorphicContainer(
+                            */
+                            RepeatButton(repeatOnce: true),
+                            /*NeumorphicContainer(
                               color: Provider.of<PlayListProvider>(context)
                                       .loopAudio
                                   ? Provider.of<ThemeProvider>(context)
@@ -378,6 +300,7 @@ class PlayerScreen extends StatelessWidget {
                                 ),
                               ),
                             )
+                          */
                           ],
                         ),
                       ),

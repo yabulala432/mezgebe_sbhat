@@ -1,22 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:mezgebe_sbhat/providers/playlist_provider.dart';
 import 'package:mezgebe_sbhat/providers/theme_provider.dart';
 import 'package:provider/provider.dart';
 
 class AppSlider extends StatefulWidget {
-  final double max;
-  final double value;
-  final int divisions;
-  final Function onChangeEnd;
-  final Function onChanged;
-  final Function onChangeStart;
+  // final double max;
+  // final double value;
+  // final int divisions;
+  // final Function onChangeEnd;
+  // final Function onChanged;
+  // final Function onChangeStart;
   const AppSlider({
     super.key,
-    required this.max,
-    required this.value,
-    required this.divisions,
-    required this.onChangeEnd,
-    required this.onChangeStart,
-    required this.onChanged,
   });
 
   @override
@@ -39,29 +34,81 @@ class _AppSliderState extends State<AppSlider> {
           showValueIndicator: ShowValueIndicator.never,
         ),
         child: Slider(
-          value: widget.value,
-          min: 0,
-          max: widget.max,
-          divisions: widget.divisions,
+          // value: widget.value,
+          // min: 0,
+          // max: widget.max,
+          // divisions: widget.divisions,
           // label: _currentSliderValue.round().toString(),
+          // onChangeStart: (value) {
+          //   widget.onChangeStart();
+          //   // setState(() {
+          //   //   _currentSliderValue = value;
+          //   // });
+          // },
+          // onChanged: (double value) {
+          //   widget.onChanged(value);
+          //   // setState(() {
+          //   //   _currentSliderValue = value;
+          //   // });
+          // },
+          // onChangeEnd: (value) {
+          //   widget.onChangeEnd(value);
+          //   // setState(() {
+          //   //   _currentSliderValue = value;
+          //   // });
+          // },
+
           onChangeStart: (value) {
-            widget.onChangeStart();
-            // setState(() {
-            //   _currentSliderValue = value;
-            // });
+            try {
+              Provider.of<PlayListProvider>(context, listen: false).pause();
+            } catch (e) {}
           },
           onChanged: (double value) {
-            widget.onChanged(value);
-            // setState(() {
-            //   _currentSliderValue = value;
-            // });
+            final Duration duration = Duration(
+              milliseconds: value.toInt(),
+            );
+            try {
+              Provider.of<PlayListProvider>(context, listen: false)
+                  .seek(duration);
+            } catch (e) {}
           },
-          onChangeEnd: (value) {
-            widget.onChangeEnd(value);
-            // setState(() {
-            //   _currentSliderValue = value;
-            // });
+          onChangeEnd: (double value) {
+            final Duration duration = Duration(
+              milliseconds: value.toInt(),
+            );
+            try {
+              Provider.of<PlayListProvider>(context, listen: false)
+                  .seek(duration);
+              Provider.of<PlayListProvider>(context, listen: false).resume();
+            } catch (e) {}
           },
+          max: Provider.of<PlayListProvider>(context)
+              .totalDuration
+              .inMilliseconds
+              .toDouble(),
+          value: Provider.of<PlayListProvider>(context)
+                      .currentDuration
+                      .inMilliseconds
+                      .toDouble() >
+                  Provider.of<PlayListProvider>(context)
+                      .totalDuration
+                      .inMilliseconds
+                      .toDouble()
+              ? 0
+              : Provider.of<PlayListProvider>(context)
+                  .currentDuration
+                  .inMilliseconds
+                  .toDouble(),
+          divisions: Provider.of<PlayListProvider>(context)
+                      .totalDuration
+                      .inMilliseconds
+                      .toInt() !=
+                  0
+              ? Provider.of<PlayListProvider>(context)
+                  .totalDuration
+                  .inMilliseconds
+                  .toInt()
+              : 1,
         ),
       ),
     );
