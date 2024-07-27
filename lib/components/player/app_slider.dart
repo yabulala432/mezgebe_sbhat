@@ -61,7 +61,7 @@ class _AppSliderState extends State<AppSlider> {
           onChangeStart: (value) {
             try {
               Provider.of<PlayListProvider>(context, listen: false).pause();
-            } catch (e) {}
+            } finally {}
           },
           onChanged: (double value) {
             final Duration duration = Duration(
@@ -70,7 +70,7 @@ class _AppSliderState extends State<AppSlider> {
             try {
               Provider.of<PlayListProvider>(context, listen: false)
                   .seek(duration);
-            } catch (e) {}
+            } finally {}
           },
           onChangeEnd: (double value) {
             final Duration duration = Duration(
@@ -80,7 +80,7 @@ class _AppSliderState extends State<AppSlider> {
               Provider.of<PlayListProvider>(context, listen: false)
                   .seek(duration);
               Provider.of<PlayListProvider>(context, listen: false).resume();
-            } catch (e) {}
+            } finally {}
           },
           max: Provider.of<PlayListProvider>(context)
               .totalDuration
