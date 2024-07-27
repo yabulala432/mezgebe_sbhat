@@ -33,7 +33,7 @@ class PlayPauseDownloadProgress extends StatelessWidget {
                         try {
                           Provider.of<PlayListProvider>(context, listen: false)
                               .playPause();
-                        } catch (e) {}
+                        } finally {}
                       },
                       icon: NeumorphicContainer(
                         color: Provider.of<ThemeProvider>(context)
@@ -58,7 +58,7 @@ class PlayPauseDownloadProgress extends StatelessWidget {
                         try {
                           Provider.of<PlayListProvider>(context, listen: false)
                               .playPause();
-                        } catch (e) {}
+                        } finally {}
                       },
                       icon: Container(
                         decoration: BoxDecoration(

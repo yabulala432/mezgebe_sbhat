@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mezgebe_sbhat/models/song.dart';
+import 'package:mezgebe_sbhat/providers/pdf_url_provider.dart';
 import 'package:mezgebe_sbhat/providers/playlist_provider.dart';
 import 'package:mezgebe_sbhat/screens/bottom_nav_app.dart';
 import 'package:mezgebe_sbhat/screens/bottom_nav_state.dart';
@@ -25,6 +26,9 @@ class BottomNavApp extends StatelessWidget {
             // fileservice is in the top level provider
             fileService: Provider.of<FileService>(context, listen: false),
           ),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => PdfUrlProvider(),
         ),
       ],
       child: const BottomNavigator(),

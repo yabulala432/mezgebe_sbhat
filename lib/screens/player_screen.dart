@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mezgebe_sbhat/components/player/app_slider.dart';
 import 'package:mezgebe_sbhat/components/player/duration_text.dart';
-import 'package:mezgebe_sbhat/components/player/flip_card.dart';
+import 'package:mezgebe_sbhat/components/player/pdf_card.dart';
 import 'package:mezgebe_sbhat/components/player/header_text.dart';
 import 'package:mezgebe_sbhat/components/player/next_previous_button.dart';
 import 'package:mezgebe_sbhat/components/player/play_pause_download_progress.dart';
@@ -15,7 +15,7 @@ class PlayerScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('state updating');
+    print('state updating bro !');
     return PopScope(
       canPop: false,
       onPopInvoked: (didPop) {
@@ -58,10 +58,9 @@ class PlayerScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                    horizontal: 14.0, vertical: 10.0),
-                child: FlipCardContainer(
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 14.0, vertical: 10.0),
+                child: PdfCardContainer(
                     // frontImagePath: Provider.of<PlayListProvider>(context)
                     //     .playList[
                     //         Provider.of<PlayListProvider>(context).currentIndex]
