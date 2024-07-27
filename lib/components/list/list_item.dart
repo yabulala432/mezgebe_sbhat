@@ -3,7 +3,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mezgebe_sbhat/providers/theme_provider.dart';
 import 'package:mezgebe_sbhat/services/file_service.dart';
 import 'package:provider/provider.dart';
-import 'package:percent_indicator/percent_indicator.dart';
 
 // ignore: must_be_immutable
 class ListItem extends StatefulWidget {
@@ -71,12 +70,10 @@ class _ListItemState extends State<ListItem> {
               child: isDownloading
                   ? Consumer<FileService>(
                       builder: (context, FileService fileService, child) {
-                      return CircularPercentIndicator(
-                        radius: 25,
-                        lineWidth: 4.0,
-                        percent:
+                      return CircularProgressIndicator(
+                        value:
                             fileService.getDownloadProgress(fileId: widget.url),
-                        progressColor: Provider.of<ThemeProvider>(context)
+                        color: Provider.of<ThemeProvider>(context)
                             .themeData
                             .colorScheme
                             .primary,

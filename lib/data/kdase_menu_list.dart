@@ -237,7 +237,7 @@ class KdaseMenu extends MenuListParent {
           audioUrl: '${baseUri}part1kidasetimhert/42haleluya.MP3',
           amharicImagePath: 'assets/kdase/emne_beha_amharic.png',
           geezImagePath: 'assets/kdase/emne_beha_geez.png',
-          title: 'haleluya',
+          title: 'haleluya1',
         ),
         Song(
           audioUrl: '${baseUri}part1kidasetimhert/43haleluyaa.MP3',
