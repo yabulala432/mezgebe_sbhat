@@ -5,10 +5,16 @@ import 'package:provider/provider.dart';
 class NeumorphicContainer extends StatelessWidget {
   final Widget child;
   final Color color;
+
+  // optional parameter is border and shadow
+
+  final Border? border;
+
   const NeumorphicContainer({
     super.key,
     required this.child,
     required this.color,
+    this.border,
   });
 
   @override
@@ -16,11 +22,14 @@ class NeumorphicContainer extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: color,
-        border: Border.all(
-          color:
-              Provider.of<ThemeProvider>(context).themeData.colorScheme.surface,
-          width: 2.0,
-        ),
+        border: border ??
+            Border.all(
+              color: Provider.of<ThemeProvider>(context)
+                  .themeData
+                  .colorScheme
+                  .surface,
+              width: 2.0,
+            ),
         borderRadius: BorderRadius.circular(40.0),
         boxShadow: [
           // Soft shadow on top-left

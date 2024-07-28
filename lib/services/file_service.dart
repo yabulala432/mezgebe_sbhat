@@ -18,6 +18,21 @@ class FileService extends ChangeNotifier {
     notifyListeners(); // Notify all listeners of change.
   }
 
+  Future<bool> deleteFile({required String fileName}) async {
+    final appStorage = await getPath();
+
+    File file = File('$appStorage/$fileName');
+
+    print('${file.path} is the path to delete the file bro ');
+
+    if (await doesFileExist(fileName: fileName)) {
+      file.deleteSync();
+      return true;
+    }
+
+    return false;
+  }
+
   String removeExtraExtensions(String filename, String extension) {
     List<String> parts = filename.split('.');
     String baseName = parts.first;

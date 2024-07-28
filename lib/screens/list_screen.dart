@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mezgebe_sbhat/components/home/separator.dart';
 import 'package:mezgebe_sbhat/components/list/list_item.dart';
+import 'package:mezgebe_sbhat/providers/pdf_url_provider.dart';
 import 'package:mezgebe_sbhat/providers/playlist_provider.dart';
 import 'package:mezgebe_sbhat/providers/theme_provider.dart';
 import 'package:mezgebe_sbhat/screens/bottom_nav_state.dart';
@@ -72,6 +73,10 @@ class _ListScreen extends State<ListScreen> with AutomaticKeepAliveClientMixin {
                           .navigateToScreen2();
                       Provider.of<PlayListProvider>(context, listen: false)
                           .playIndex(index);
+                      if (lists[index].pageNumber != null) {
+                        Provider.of<PdfUrlProvider>(context, listen: false)
+                            .setPageNumber(lists[index].pageNumber!);
+                      }
                     },
                   ),
                   Separator(

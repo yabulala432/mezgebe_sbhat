@@ -4,7 +4,8 @@ import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 class PdfUrlProvider extends ChangeNotifier {
   final PdfViewerController pdfViewerController = PdfViewerController();
 
-  String _pdfUrl = 'https://icseindia.org/document/sample.pdf';
+  String _pdfUrl =
+      'https://www.ethiopianorthodox.org/amharic/yeqolotbet/zematimeheret/teseteo.pdf';
   // 'https://www.ethiopianorthodox.org/amharic/yezemametsheft/14%20kidasewoch/01%20sereat%20kidasse.pdf';
 
   String get pdfUrl => _pdfUrl;

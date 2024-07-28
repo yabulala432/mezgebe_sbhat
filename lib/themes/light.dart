@@ -8,6 +8,6 @@ ThemeData light = ThemeData(
     secondary: const Color.fromARGB(255, 79, 35, 35),
     inversePrimary: const Color.fromARGB(255, 176, 113, 63),
     onPrimary: Colors.white,
-    error: const Color.fromARGB(255, 238, 30, 30),
+    error: const Color.fromARGB(255, 125, 48, 48),
   ),
 );
