@@ -6,6 +6,9 @@ class KdaseMenu extends MenuListParent {
   Uri get baseUri =>
       Uri.parse("https://www.ethiopianorthodox.org/amharic/yeqolotbet/");
 
+  // String kdasePdf =
+  //     'https://www.ethiopianorthodox.org/amharic/yeqolotbet/zematimeheret/teseteo.pdf';
+
   @override
   List<Song> get playList => [
         Song(
