@@ -1,13 +1,13 @@
 class Song {
   final String title;
-  final String amharicImagePath;
-  final String geezImagePath;
   final String audioUrl;
+
+  // optional param is the page number for the pdf
+  final int? pageNumber;
 
   Song({
     required this.title,
-    required this.amharicImagePath,
-    required this.geezImagePath,
     required this.audioUrl,
+    this.pageNumber,
   });
 }

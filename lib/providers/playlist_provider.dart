@@ -13,6 +13,7 @@ class PlayListProvider extends ChangeNotifier {
   bool _isDisposed = false;
   Completer<void>? _ongoingTask;
 
+  List<Song> playList = [];
   final FileService fileService;
 
   @override
@@ -27,8 +28,6 @@ class PlayListProvider extends ChangeNotifier {
 
     super.dispose();
   }
-
-  List<Song> playList = [];
 
   PlayListProvider({
     required this.playList,
@@ -169,6 +168,7 @@ class PlayListProvider extends ChangeNotifier {
       }
     } finally {
       _ongoingTask = Completer<void>();
+      _isDownloading = false;
       if (!_ongoingTask!.isCompleted) _ongoingTask!.complete();
     }
   }
