@@ -246,6 +246,12 @@ class HomeScreen extends StatelessWidget {
           toolbarHeight: 0,
           bottom: TabBar(
             dividerColor: theme.surface,
+            overlayColor: WidgetStateColor.resolveWith((states) {
+              if (states.contains(WidgetState.pressed)) {
+                return theme.primary.withOpacity(0.1);
+              }
+              return theme.primary;
+            }),
             labelColor: theme.primary,
             unselectedLabelColor: theme.primary,
             labelStyle: const TextStyle(
