@@ -1,7 +1,7 @@
 import 'package:mezgebe_sbhat/data/menu_list_parent.dart';
 import '../models/song.dart';
 
-class KdaseMenu extends MenuListParent {
+class KdasePlaylist extends MenuListParent {
   @override
   Uri get baseUri =>
       Uri.parse("https://www.ethiopianorthodox.org/amharic/yeqolotbet/");
