@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mezgebe_sbhat/models/song.dart';
+import 'package:mezgebe_sbhat/data/menu_list_parent.dart';
 import 'package:mezgebe_sbhat/providers/pdf_url_provider.dart';
 import 'package:mezgebe_sbhat/providers/playlist_provider.dart';
 import 'package:mezgebe_sbhat/screens/bottom_nav_app.dart';
@@ -8,8 +8,8 @@ import 'package:mezgebe_sbhat/services/file_service.dart';
 import 'package:provider/provider.dart';
 
 class BottomNavApp extends StatelessWidget {
-  final List<Song> menu;
-  const BottomNavApp({super.key, required this.menu});
+  final MenuListParent menuClass;
+  const BottomNavApp({super.key, required this.menuClass});
 
   // final KdaseMenu kdaseMenu = KdaseMenu();
 
@@ -22,7 +22,7 @@ class BottomNavApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (_) => PlayListProvider(
-            playList: menu,
+            playListParent: menuClass,
             // fileservice is in the top level provider
             fileService: Provider.of<FileService>(context, listen: false),
           ),

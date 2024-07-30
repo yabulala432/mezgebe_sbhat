@@ -25,6 +25,7 @@ class PlayPauseDownloadProgress extends StatelessWidget {
                         return CircularProgressIndicator(
                           value: fileService.getDownloadProgress(
                               fileId: playListProvider
+                                  .playListParent
                                   .playList[playListProvider.currentIndex]
                                   .audioUrl),
                           color: Provider.of<ThemeProvider>(context)

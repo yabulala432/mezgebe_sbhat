@@ -10,7 +10,7 @@ class HeaderText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       Provider.of<PlayListProvider>(context)
-          .playList[Provider.of<PlayListProvider>(context).currentIndex]
+          .playListParent.playList[Provider.of<PlayListProvider>(context).currentIndex]
           .title,
       textAlign: TextAlign.center,
       style: TextStyle(

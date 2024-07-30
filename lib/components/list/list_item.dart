@@ -8,12 +8,14 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 class ListItem extends StatefulWidget {
   final String title;
   final String url;
+  final String folderName;
   final bool disabled;
   final void Function() onPressed;
 
   const ListItem({
     super.key,
     required this.title,
+    required this.folderName,
     required this.url,
     this.disabled = false,
     required this.onPressed,
@@ -30,6 +32,7 @@ class _ListItemState extends State<ListItem> {
     Future<bool> deleteFile(String title) async {
       return Provider.of<FileService>(context, listen: false).deleteFile(
         fileName: '${widget.title.replaceAll(' ', '_')}.mp3',
+        folderName: widget.folderName,
       );
     }
 
@@ -41,7 +44,6 @@ class _ListItemState extends State<ListItem> {
         key: ValueKey(widget.url),
         endActionPane: ActionPane(
           extentRatio: 0.3,
-          // Set the slide direction for delete action
           motion: const ScrollMotion(),
           children: [
             SlidableAction(
@@ -74,13 +76,14 @@ class _ListItemState extends State<ListItem> {
                     TextButton(
                       onPressed: () => popDialogue(),
                       child: Text(
-                          style: TextStyle(
-                            color: Provider.of<ThemeProvider>(context)
-                                .themeData
-                                .colorScheme
-                                .onPrimary,
-                          ),
-                          'Cancel'),
+                        style: TextStyle(
+                          color: Provider.of<ThemeProvider>(context)
+                              .themeData
+                              .colorScheme
+                              .onPrimary,
+                        ),
+                        'Cancel',
+                      ),
                     ),
                     TextButton(
                       onPressed: () async {
@@ -212,6 +215,7 @@ class _ListItemState extends State<ListItem> {
       url: widget.url,
       fileName: widget.title,
       fileId: widget.url,
+      folderName: widget.folderName,
     )
         .then((value) {
       if (value != null && mounted) {
@@ -234,8 +238,11 @@ class _ListItemState extends State<ListItem> {
   }
 
   Future<bool> doesFileExist() async {
-    bool value = await Provider.of<FileService>(context, listen: false)
-        .doesFileExist(fileName: '${widget.title.replaceAll(' ', '_')}.mp3');
+    bool value =
+        await Provider.of<FileService>(context, listen: false).doesFileExist(
+      fileName: '${widget.title.replaceAll(' ', '_')}.mp3',
+      folderName: widget.folderName,
+    );
     if (value) {
       if (!mounted) return false;
       setState(() {

@@ -3,7 +3,7 @@ import 'dart:io';
 
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/foundation.dart';
-import 'package:mezgebe_sbhat/models/song.dart';
+import 'package:mezgebe_sbhat/data/menu_list_parent.dart';
 
 import 'package:mezgebe_sbhat/services/file_service.dart';
 
@@ -13,7 +13,8 @@ class PlayListProvider extends ChangeNotifier {
   bool _isDisposed = false;
   Completer<void>? _ongoingTask;
 
-  List<Song> playList = [];
+  MenuListParent playListParent;
+
   final FileService fileService;
 
   @override
@@ -30,7 +31,7 @@ class PlayListProvider extends ChangeNotifier {
   }
 
   PlayListProvider({
-    required this.playList,
+    required this.playListParent,
     required this.fileService,
   }) {
     listenToDuration();
@@ -106,7 +107,8 @@ class PlayListProvider extends ChangeNotifier {
 
     try {
       final path = await fileService.getPath();
-      final fileName = getAudioFileName(playList[_currentIndex].title);
+      final fileName =
+          getAudioFileName(playListParent.playList[_currentIndex].title);
 
       final file = await getAudioFile(path, fileName);
 
@@ -116,7 +118,8 @@ class PlayListProvider extends ChangeNotifier {
         print('file is null');
         _isDownloading = true;
         notifyListeners();
-        await downloadAndPlayAudio(playList[_currentIndex].audioUrl, fileName);
+        await downloadAndPlayAudio(
+            playListParent.playList[_currentIndex].audioUrl, fileName);
       }
     } finally {
       _ongoingTask = Completer<void>();
@@ -131,9 +134,11 @@ class PlayListProvider extends ChangeNotifier {
     if (_isDisposed) return null;
 
     try {
-      if (await fileService.doesFileExist(fileName: fileName)) {
+      if (await fileService.doesFileExist(
+          fileName: fileName, folderName: playListParent.folderName)) {
         print('file Exists bro !');
-        return fileService.getFile(fileName);
+        return fileService.getFile(
+            fileName: fileName, folderName: playListParent.folderName);
       } else {
         return null;
       }
@@ -155,6 +160,7 @@ class PlayListProvider extends ChangeNotifier {
           url: audioUrl,
           fileName: fileName,
           fileId: audioUrl,
+          folderName: playListParent.folderName,
         );
         if (file != null) {
           _isDownloading = false;
@@ -237,10 +243,10 @@ class PlayListProvider extends ChangeNotifier {
   void setCurrentIndex(int index) {
     if (_isDisposed) return;
 
-    if (index >= playList.length) {
+    if (index >= playListParent.playList.length) {
       _currentIndex = 0;
     } else if (index < 0) {
-      _currentIndex = playList.length - 1;
+      _currentIndex = playListParent.playList.length - 1;
     } else {
       _currentIndex = index;
     }

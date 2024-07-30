@@ -19,23 +19,25 @@ class _ListScreen extends State<ListScreen> with AutomaticKeepAliveClientMixin {
 
   @override
   Widget build(BuildContext context) {
+    ThemeProvider themeProvider =
+        Provider.of<ThemeProvider>(context, listen: false);
+
+    PlayListProvider playListProvider =
+        Provider.of<PlayListProvider>(context, listen: false);
     super.build(context);
 
-    final lists = Provider.of<PlayListProvider>(context).playList;
+    final lists = Provider.of<PlayListProvider>(context, listen: false)
+        .playListParent
+        .playList;
     return Material(
       child: Scaffold(
-        backgroundColor:
-            Provider.of<ThemeProvider>(context).themeData.colorScheme.surface,
+        backgroundColor: themeProvider.themeData.colorScheme.surface,
         appBar: AppBar(
-          backgroundColor:
-              Provider.of<ThemeProvider>(context).themeData.colorScheme.primary,
+          backgroundColor: themeProvider.themeData.colorScheme.primary,
           title: Text(
             "መዝገበ ስብሐት",
             style: TextStyle(
-              color: Provider.of<ThemeProvider>(context)
-                  .themeData
-                  .colorScheme
-                  .onPrimary,
+              color: themeProvider.themeData.colorScheme.onPrimary,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -46,14 +48,11 @@ class _ListScreen extends State<ListScreen> with AutomaticKeepAliveClientMixin {
             child: IconButton(
               icon: Icon(
                 Icons.arrow_back,
-                color: Provider.of<ThemeProvider>(context)
-                    .themeData
-                    .colorScheme
-                    .onPrimary,
+                color: themeProvider.themeData.colorScheme.onPrimary,
                 size: 30.0,
               ),
               onPressed: () {
-                Provider.of<PlayListProvider>(context, listen: false).stop();
+                playListProvider.stop();
                 Navigator.of(context).pop();
               },
             ),
@@ -65,14 +64,14 @@ class _ListScreen extends State<ListScreen> with AutomaticKeepAliveClientMixin {
               return Column(
                 children: [
                   ListItem(
+                    folderName: playListProvider.playListParent.folderName,
                     title: lists[index].title,
                     url: lists[index].audioUrl,
                     disabled: isDownloading,
                     onPressed: () {
                       Provider.of<BottomNavState>(context, listen: false)
                           .navigateToScreen2();
-                      Provider.of<PlayListProvider>(context, listen: false)
-                          .playIndex(index);
+                      playListProvider.playIndex(index);
                       if (lists[index].pageNumber != null) {
                         Provider.of<PdfUrlProvider>(context, listen: false)
                             .setPageNumber(lists[index].pageNumber!);
@@ -80,10 +79,7 @@ class _ListScreen extends State<ListScreen> with AutomaticKeepAliveClientMixin {
                     },
                   ),
                   Separator(
-                    color: Provider.of<ThemeProvider>(context)
-                        .themeData
-                        .colorScheme
-                        .primary,
+                    color: themeProvider.themeData.colorScheme.primary,
                     indent: 65,
                     height: 0,
                   )

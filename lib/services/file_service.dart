@@ -8,24 +8,36 @@ import 'package:retry/retry.dart';
 
 class FileService extends ChangeNotifier {
   final Map<String, double> _downloadProgress = {};
+  final int _maxDownloadProgressEntries = 20; // Define a threshold
 
   double getDownloadProgress({required String fileId}) =>
       _downloadProgress[fileId] ?? 0.0;
 
   void setDownloadProgress(String fileId, double value) {
-    // print('download progress of $fileId is $value');
     _downloadProgress[fileId] = value;
-    notifyListeners(); // Notify all listeners of change.
+    notifyListeners();
+    // if downloadProgress is full then clear it
+    if (_downloadProgress.length >= _maxDownloadProgressEntries) {
+      clearDownloadProgress();
+    }
   }
 
-  Future<bool> deleteFile({required String fileName}) async {
+  void clearDownloadProgress() {
+    _downloadProgress.removeWhere((key, value) => value == 1.0);
+    notifyListeners();
+  }
+
+  Future<bool> deleteFile({
+    required String fileName,
+    required String folderName,
+  }) async {
     final appStorage = await getPath();
 
-    File file = File('$appStorage/$fileName');
+    File file = File('$appStorage/$folderName/$fileName');
 
-    print('${file.path} is the path to delete the file bro ');
+    // print('${file.path} is the path to delete the file bro ');
 
-    if (await doesFileExist(fileName: fileName)) {
+    if (await doesFileExist(fileName: fileName, folderName: folderName)) {
       file.deleteSync();
       return true;
     }
@@ -43,6 +55,7 @@ class FileService extends ChangeNotifier {
     required String url,
     required String fileName,
     required String fileId,
+    required String folderName,
   }) async {
     final typeOfFile = url.split('/').last.split('.').last;
 
@@ -56,14 +69,19 @@ class FileService extends ChangeNotifier {
     final filteredName =
         removeExtraExtensions(fileName.replaceAll(' ', '_'), fileType);
 
-    print('filtered name is $filteredName');
-
     final appStorage = await getPath();
+    final filePath = '$appStorage/$folderName';
 
-    final file = File('$appStorage/$filteredName');
+    // Ensure the directory exists
+    final directory = Directory(filePath);
+    if (!await directory.exists()) {
+      await directory.create(recursive: true);
+    }
+
+    final file = File('$filePath/$filteredName');
 
     // check if the file already exists
-    if (await doesFileExist(fileName: file.path)) {
+    if (await doesFileExist(fileName: file.path, folderName: folderName)) {
       return file;
     }
 
@@ -94,31 +112,28 @@ class FileService extends ChangeNotifier {
       await raf.close();
 
       if (typeOfFile == 'wma') {
-        await convertWmaToMp3(filteredName);
+        await convertWmaToMp3(fileName: filteredName, folderName: folderName);
         final wmaFile = File('$appStorage/$wmaFileName');
         if (await wmaFile.exists()) {
           await wmaFile.delete();
         }
       }
-
       return file;
     } catch (e) {
       print('line 68 fileService.dart error downloading file: $e');
-
-      // return null;
       rethrow;
     }
   }
 
-  Future<void> convertWmaToMp3(String filePath) async {
-    final appStorage = await getPath();
-    final file = File('$appStorage/$filePath');
-    final newFile = File('$appStorage/${filePath.replaceAll('wma', 'mp3')}');
+  Future<void> convertWmaToMp3(
+      {required String fileName, required String folderName}) async {
+    final file = await getFile(fileName: fileName, folderName: folderName);
+    final newFile = File(file!.path.replaceAll('wma', 'mp3'));
 
     final FlutterFFmpeg flutterFFmpeg = FlutterFFmpeg();
 
     await flutterFFmpeg
-        .execute('-i ${file.path} ${newFile.path}')
+        .execute('-i ${file!.path} ${newFile.path}')
         .then((returnCode) {
       if (returnCode == 0) {
         print('Conversion successful');
@@ -130,15 +145,21 @@ class FileService extends ChangeNotifier {
     });
   }
 
-  Future<bool> doesFileExist({required String fileName}) async {
+  Future<bool> doesFileExist({
+    required String fileName,
+    required String folderName,
+  }) async {
     String path = await getPath();
-    bool value = File('$path/$fileName').existsSync();
+    bool value = File('$path/$folderName/$fileName').existsSync();
     return value;
   }
 
-  Future<File?> getFile(String fileName) async {
+  Future<File?> getFile({
+    required String fileName,
+    required String folderName,
+  }) async {
     final appStoragePath = await getPath();
-    final file = File('$appStoragePath/$fileName');
+    final file = File('$appStoragePath/$folderName/$fileName');
     return file;
   }
 
