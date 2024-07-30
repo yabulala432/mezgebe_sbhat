@@ -142,4 +142,7 @@ class SerawitMenu extends MenuListParent {
           title: 'ezilgregorksecond',
         ),
       ];
+
+  @override
+  String get folderName => 'serawit';
 }

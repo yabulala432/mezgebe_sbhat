@@ -131,6 +131,9 @@ class MeskeremMsbak extends MenuListParent {
           title: "30nahusenaye",
         ),
       ];
+
+  @override
+  String get folderName => 'meskerem';
 }
 
 class TkmtMsbak extends MenuListParent {
@@ -260,6 +263,9 @@ class TkmtMsbak extends MenuListParent {
           title: "30_nahuyize",
         ),
       ];
+
+  @override
+  String get folderName => 'tkmt';
 }
 
 class HdarMsbak extends MenuListParent {
@@ -381,6 +387,9 @@ class HdarMsbak extends MenuListParent {
           title: "30kiberunigus",
         ),
       ];
+
+  @override
+  String get folderName => 'hdar';
 }
 
 class TahsasMsbak extends MenuListParent {
@@ -520,6 +529,9 @@ class TahsasMsbak extends MenuListParent {
           title: "29_Tahesas",
         ),
       ];
+
+  @override
+  String get folderName => 'tahsas';
 }
 
 class TirMsbak extends MenuListParent {
@@ -654,6 +666,9 @@ class TirMsbak extends MenuListParent {
           title: "30_tir",
         ),
       ];
+
+  @override
+  String get folderName => 'tir';
 }
 
 class YekatitMsbak extends MenuListParent {
@@ -793,6 +808,9 @@ class YekatitMsbak extends MenuListParent {
           title: "30_yeka",
         ),
       ];
+
+  @override
+  String get folderName => 'yekatit';
 }
 
 class MegabitMsbak extends MenuListParent {
@@ -947,6 +965,9 @@ class MegabitMsbak extends MenuListParent {
           title: "30_megabit",
         ),
       ];
+
+  @override
+  String get folderName => 'megabit';
 }
 
 class MiyazyaMsbak extends MenuListParent {
@@ -1081,6 +1102,9 @@ class MiyazyaMsbak extends MenuListParent {
           title: "28_miazia",
         ),
       ];
+
+  @override
+  String get folderName => 'miyazya';
 }
 
 class GnbotMsbak extends MenuListParent {
@@ -1230,6 +1254,9 @@ class GnbotMsbak extends MenuListParent {
           title: "29_ginbot",
         ),
       ];
+
+  @override
+  String get folderName => 'gnbot';
 }
 
 class SeneMsbak extends MenuListParent {
@@ -1384,6 +1411,9 @@ class SeneMsbak extends MenuListParent {
           title: "30_sene ",
         ),
       ];
+
+  @override
+  String get folderName => 'sene';
 }
 
 class HamleMsbak extends MenuListParent {
@@ -1518,6 +1548,9 @@ class HamleMsbak extends MenuListParent {
           title: "30_hamle",
         ),
       ];
+
+  @override
+  String get folderName => 'hamle';
 }
 
 class NehaseMsbak extends MenuListParent {
@@ -1645,6 +1678,9 @@ class NehaseMsbak extends MenuListParent {
           title: "30menkertelahiya",
         ),
       ];
+
+  @override
+  String get folderName => 'nehase';
 }
 
 class PuagmenMsbak extends MenuListParent {
@@ -1678,4 +1714,7 @@ class PuagmenMsbak extends MenuListParent {
           title: "06wetezeyanewuemelet",
         ),
       ];
+
+  @override
+  String get folderName => 'puagmen';
 }

@@ -552,4 +552,7 @@ class KdasePlaylist extends MenuListParent {
           pageNumber: 52,
         )
       ];
+
+  @override
+  String get folderName => 'kdases';
 }
