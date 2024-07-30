@@ -1,11 +1,12 @@
 import 'package:mezgebe_sbhat/data/menu_list_parent.dart';
+import 'package:mezgebe_sbhat/models/song.dart';
 
-import '../models/song.dart';
+final msbakBaseUri =
+    Uri.parse('https://www.ethiopianorthodox.org/amharic/yeqolotbet/');
 
-class MsbakMenu extends MenuListParent {
+class MeskeremMsbak extends MenuListParent {
   @override
-  Uri get baseUri =>
-      Uri.parse("https://www.ethiopianorthodox.org/amharic/yeqolotbet/");
+  Uri get baseUri => msbakBaseUri;
 
   @override
   List<Song> get playList => [
@@ -129,6 +130,15 @@ class MsbakMenu extends MenuListParent {
           audioUrl: "${baseUri}gitsawe/30nahusenaye.wma",
           title: "30nahusenaye",
         ),
+      ];
+}
+
+class TkmtMsbak extends MenuListParent {
+  @override
+  Uri get baseUri => msbakBaseUri;
+
+  @override
+  List<Song> get playList => [
         Song(
           audioUrl: "${baseUri}gitsawe/tikemet/01 tezeker.wma",
           title: "01_tezeker",
@@ -249,6 +259,15 @@ class MsbakMenu extends MenuListParent {
           audioUrl: "${baseUri}gitsawe/tikemet/30 nahuyize.wma",
           title: "30_nahuyize",
         ),
+      ];
+}
+
+class HdarMsbak extends MenuListParent {
+  @override
+  Uri get baseUri => msbakBaseUri;
+
+  @override
+  List<Song> get playList => [
         Song(
           audioUrl: "${baseUri}gitsawe/hidarmisbak/01weenegersemeke.wma",
           title: "01weenegersemeke",
@@ -361,6 +380,15 @@ class MsbakMenu extends MenuListParent {
           audioUrl: "${baseUri}gitsawe/hidarmisbak/30kiberunigus.wma",
           title: "30kiberunigus",
         ),
+      ];
+}
+
+class TahsasMsbak extends MenuListParent {
+  @override
+  Uri get baseUri => msbakBaseUri;
+
+  @override
+  List<Song> get playList => [
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/tahesas/daily/01 Tahesas.mp3",
@@ -491,6 +519,15 @@ class MsbakMenu extends MenuListParent {
               "$baseUri../../churchmusic/zema timehert bet/Misbak/tahesas/daily/29 Tahesas.mp3",
           title: "29_Tahesas",
         ),
+      ];
+}
+
+class TirMsbak extends MenuListParent {
+  @override
+  Uri get baseUri => msbakBaseUri;
+
+  @override
+  List<Song> get playList => [
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/tir/daily/01 tir.mp3",
@@ -616,6 +653,15 @@ class MsbakMenu extends MenuListParent {
               "$baseUri../../churchmusic/zema timehert bet/Misbak/tir/daily/30 tir.mp3",
           title: "30_tir",
         ),
+      ];
+}
+
+class YekatitMsbak extends MenuListParent {
+  @override
+  Uri get baseUri => msbakBaseUri;
+
+  @override
+  List<Song> get playList => [
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/yekatit/daily/01 yeka.mp3",
@@ -746,6 +792,15 @@ class MsbakMenu extends MenuListParent {
               "$baseUri../../churchmusic/zema timehert bet/Misbak/yekatit/daily/30 yeka.mp3",
           title: "30_yeka",
         ),
+      ];
+}
+
+class MegabitMsbak extends MenuListParent {
+  @override
+  Uri get baseUri => msbakBaseUri;
+
+  @override
+  List<Song> get playList => [
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/megabit/daily/01 megabit.mp3",
@@ -891,6 +946,15 @@ class MsbakMenu extends MenuListParent {
               "$baseUri../../churchmusic/zema timehert bet/Misbak/megabit/daily/30 megabit.mp3",
           title: "30_megabit",
         ),
+      ];
+}
+
+class MiyazyaMsbak extends MenuListParent {
+  @override
+  Uri get baseUri => msbakBaseUri;
+
+  @override
+  List<Song> get playList => [
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/miazia/daily/01 miazia.mp3",
@@ -1016,6 +1080,15 @@ class MsbakMenu extends MenuListParent {
               "$baseUri../../churchmusic/zema timehert bet/Misbak/miazia/daily/28 miazia.mp3",
           title: "28_miazia",
         ),
+      ];
+}
+
+class GnbotMsbak extends MenuListParent {
+  @override
+  Uri get baseUri => msbakBaseUri;
+
+  @override
+  List<Song> get playList => [
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/ginbot/daily/01 ginbot.mp3",
@@ -1156,6 +1229,15 @@ class MsbakMenu extends MenuListParent {
               "$baseUri../../churchmusic/zema timehert bet/Misbak/ginbot/daily/29 ginbot.mp3",
           title: "29_ginbot",
         ),
+      ];
+}
+
+class SeneMsbak extends MenuListParent {
+  @override
+  Uri get baseUri => msbakBaseUri;
+
+  @override
+  List<Song> get playList => [
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/sene/daily/01sene .mp3",
@@ -1301,6 +1383,15 @@ class MsbakMenu extends MenuListParent {
               "$baseUri../../churchmusic/zema timehert bet/Misbak/sene/daily/30 sene .mp3",
           title: "30_sene ",
         ),
+      ];
+}
+
+class HamleMsbak extends MenuListParent {
+  @override
+  Uri get baseUri => msbakBaseUri;
+
+  @override
+  List<Song> get playList => [
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/hamle/daily/01 hamle.mp3",
@@ -1426,6 +1517,15 @@ class MsbakMenu extends MenuListParent {
               "$baseUri../../churchmusic/zema timehert bet/Misbak/hamle/daily/30 hamle.mp3",
           title: "30_hamle",
         ),
+      ];
+}
+
+class NehaseMsbak extends MenuListParent {
+  @override
+  Uri get baseUri => msbakBaseUri;
+
+  @override
+  List<Song> get playList => [
         Song(
           audioUrl: "${baseUri}gitsawe/nehasemisbak/01weengersemake.wma",
           title: "01weengersemake",
@@ -1544,6 +1644,15 @@ class MsbakMenu extends MenuListParent {
           audioUrl: "${baseUri}gitsawe/nehasemisbak/30menkertelahiya.wma",
           title: "30menkertelahiya",
         ),
+      ];
+}
+
+class PuagmenMsbak extends MenuListParent {
+  @override
+  Uri get baseUri => msbakBaseUri;
+
+  @override
+  List<Song> get playList => [
         Song(
           audioUrl: "${baseUri}gitsawe/pagumenmisbak/01esmetsedkewemeswate.wma",
           title: "01esmetsedkewemeswate",
