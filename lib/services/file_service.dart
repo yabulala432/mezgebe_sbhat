@@ -133,7 +133,7 @@ class FileService extends ChangeNotifier {
     final FlutterFFmpeg flutterFFmpeg = FlutterFFmpeg();
 
     await flutterFFmpeg
-        .execute('-i ${file!.path} ${newFile.path}')
+        .execute('-i ${file.path} ${newFile.path}')
         .then((returnCode) {
       if (returnCode == 0) {
         print('Conversion successful');
