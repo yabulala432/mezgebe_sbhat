@@ -1,10 +1,10 @@
-import 'package:mezgebe_sbhat/data/menu_list_parent.dart';
+import 'package:mezgebe_sbhat/models/menu_list_parent.dart';
 import 'package:mezgebe_sbhat/models/song.dart';
 
 final msbakBaseUri =
     Uri.parse('https://www.ethiopianorthodox.org/amharic/yeqolotbet/');
 
-class MeskeremMsbak extends MenuListParent {
+class MeskeremMsbak extends PlayListParent {
   @override
   Uri get baseUri => msbakBaseUri;
 
@@ -136,7 +136,7 @@ class MeskeremMsbak extends MenuListParent {
   String get folderName => 'meskerem';
 }
 
-class TkmtMsbak extends MenuListParent {
+class TkmtMsbak extends PlayListParent {
   @override
   Uri get baseUri => msbakBaseUri;
 
@@ -268,7 +268,7 @@ class TkmtMsbak extends MenuListParent {
   String get folderName => 'tkmt';
 }
 
-class HdarMsbak extends MenuListParent {
+class HdarMsbak extends PlayListParent {
   @override
   Uri get baseUri => msbakBaseUri;
 
@@ -392,7 +392,7 @@ class HdarMsbak extends MenuListParent {
   String get folderName => 'hdar';
 }
 
-class TahsasMsbak extends MenuListParent {
+class TahsasMsbak extends PlayListParent {
   @override
   Uri get baseUri => msbakBaseUri;
 
@@ -534,7 +534,7 @@ class TahsasMsbak extends MenuListParent {
   String get folderName => 'tahsas';
 }
 
-class TirMsbak extends MenuListParent {
+class TirMsbak extends PlayListParent {
   @override
   Uri get baseUri => msbakBaseUri;
 
@@ -671,7 +671,7 @@ class TirMsbak extends MenuListParent {
   String get folderName => 'tir';
 }
 
-class YekatitMsbak extends MenuListParent {
+class YekatitMsbak extends PlayListParent {
   @override
   Uri get baseUri => msbakBaseUri;
 
@@ -813,7 +813,7 @@ class YekatitMsbak extends MenuListParent {
   String get folderName => 'yekatit';
 }
 
-class MegabitMsbak extends MenuListParent {
+class MegabitMsbak extends PlayListParent {
   @override
   Uri get baseUri => msbakBaseUri;
 
@@ -970,7 +970,7 @@ class MegabitMsbak extends MenuListParent {
   String get folderName => 'megabit';
 }
 
-class MiyazyaMsbak extends MenuListParent {
+class MiyazyaMsbak extends PlayListParent {
   @override
   Uri get baseUri => msbakBaseUri;
 
@@ -1107,7 +1107,7 @@ class MiyazyaMsbak extends MenuListParent {
   String get folderName => 'miyazya';
 }
 
-class GnbotMsbak extends MenuListParent {
+class GnbotMsbak extends PlayListParent {
   @override
   Uri get baseUri => msbakBaseUri;
 
@@ -1259,7 +1259,7 @@ class GnbotMsbak extends MenuListParent {
   String get folderName => 'gnbot';
 }
 
-class SeneMsbak extends MenuListParent {
+class SeneMsbak extends PlayListParent {
   @override
   Uri get baseUri => msbakBaseUri;
 
@@ -1416,7 +1416,7 @@ class SeneMsbak extends MenuListParent {
   String get folderName => 'sene';
 }
 
-class HamleMsbak extends MenuListParent {
+class HamleMsbak extends PlayListParent {
   @override
   Uri get baseUri => msbakBaseUri;
 
@@ -1553,7 +1553,7 @@ class HamleMsbak extends MenuListParent {
   String get folderName => 'hamle';
 }
 
-class NehaseMsbak extends MenuListParent {
+class NehaseMsbak extends PlayListParent {
   @override
   Uri get baseUri => msbakBaseUri;
 
@@ -1683,7 +1683,7 @@ class NehaseMsbak extends MenuListParent {
   String get folderName => 'nehase';
 }
 
-class PuagmenMsbak extends MenuListParent {
+class PuagmenMsbak extends PlayListParent {
   @override
   Uri get baseUri => msbakBaseUri;
 

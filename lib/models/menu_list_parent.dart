@@ -1,6 +1,6 @@
 import 'package:mezgebe_sbhat/models/song.dart';
 
-abstract class MenuListParent {
+abstract class PlayListParent {
   Uri get baseUri;
   List<Song> get playList;
   String get folderName;

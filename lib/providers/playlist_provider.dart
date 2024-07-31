@@ -3,7 +3,7 @@ import 'dart:io';
 
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/foundation.dart';
-import 'package:mezgebe_sbhat/data/menu_list_parent.dart';
+import 'package:mezgebe_sbhat/models/menu_list_parent.dart';
 
 import 'package:mezgebe_sbhat/services/file_service.dart';
 
@@ -13,7 +13,7 @@ class PlayListProvider extends ChangeNotifier {
   bool _isDisposed = false;
   Completer<void>? _ongoingTask;
 
-  MenuListParent playListParent;
+  PlayListParent playListParent;
 
   final FileService fileService;
 
