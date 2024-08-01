@@ -1,4 +1,5 @@
 import 'package:mezgebe_sbhat/models/menu_list_parent.dart';
+import 'package:mezgebe_sbhat/models/pdf.dart';
 import 'package:mezgebe_sbhat/models/song.dart';
 
 class GeezKdaseEgzi extends PlayListParent {
@@ -284,6 +285,10 @@ class GeezKdaseEgzi extends PlayListParent {
           audioUrl: "${baseUri}68.mp3",
         ),
       ];
+
+  @override
+  // TODO: implement pdf
+  Pdf get pdf => throw UnimplementedError();
 }
 
 class EzlKdaseEgzi extends PlayListParent {
@@ -573,4 +578,8 @@ class EzlKdaseEgzi extends PlayListParent {
           audioUrl: "${baseUri}68.mp3",
         ),
       ];
+
+  @override
+  // TODO: implement pdf
+  Pdf get pdf => throw UnimplementedError();
 }

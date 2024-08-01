@@ -26,6 +26,8 @@ class _ListScreen extends State<ListScreen> with AutomaticKeepAliveClientMixin {
         Provider.of<PlayListProvider>(context, listen: false);
     super.build(context);
 
+    print(playListProvider.playListParent.pdf.name);
+
     final lists = Provider.of<PlayListProvider>(context, listen: false)
         .playListParent
         .playList;

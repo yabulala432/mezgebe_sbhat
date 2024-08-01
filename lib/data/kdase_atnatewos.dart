@@ -1,4 +1,6 @@
+import 'package:mezgebe_sbhat/data/pdf_list.dart';
 import 'package:mezgebe_sbhat/models/menu_list_parent.dart';
+import 'package:mezgebe_sbhat/models/pdf.dart';
 import 'package:mezgebe_sbhat/models/song.dart';
 
 class GeezKdaseAtnatewos extends PlayListParent {
@@ -600,6 +602,9 @@ class GeezKdaseAtnatewos extends PlayListParent {
           audioUrl: "${baseUri}147.mp3",
         ),
       ];
+
+  @override
+  Pdf get pdf => kdaseAtnatewosPdf;
 }
 
 class EzlKdaseAtnatewos extends PlayListParent {
@@ -1205,4 +1210,7 @@ class EzlKdaseAtnatewos extends PlayListParent {
           audioUrl: "${baseUri}148.mp3",
         ),
       ];
+
+  @override
+  Pdf get pdf => kdaseAtnatewosPdf;
 }

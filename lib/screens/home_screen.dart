@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mezgebe_sbhat/components/home/background_color.dart';
 import 'package:mezgebe_sbhat/components/home/touchable_item.dart';
-import 'package:mezgebe_sbhat/data/kidans_playlist.dart';
-import 'package:mezgebe_sbhat/data/msbak_months.dart';
 import 'package:mezgebe_sbhat/menus/kdase_menu.dart';
 import 'package:mezgebe_sbhat/menus/kidan_menu.dart';
 import 'package:mezgebe_sbhat/menus/msbak_menu.dart';
