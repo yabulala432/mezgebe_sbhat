@@ -1,7 +1,8 @@
-import 'package:mezgebe_sbhat/data/menu_list_parent.dart';
+import 'package:mezgebe_sbhat/models/menu_list_parent.dart';
+import 'package:mezgebe_sbhat/models/pdf.dart';
 import '../models/song.dart';
 
-class SerawitMenu extends MenuListParent {
+class SerawitMenu extends PlayListParent {
   @override
   Uri get baseUri => Uri.parse(
       "https://www.ethiopianorthodox.org/amharic/yeqolotbet/serawitemelaekt/");
@@ -145,4 +146,8 @@ class SerawitMenu extends MenuListParent {
 
   @override
   String get folderName => 'serawit';
+
+  @override
+  // TODO: implement pdf
+  Pdf get pdf => throw UnimplementedError();
 }

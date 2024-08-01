@@ -1,0 +1,96 @@
+import 'package:mezgebe_sbhat/data/msbak_months.dart';
+import 'package:mezgebe_sbhat/models/menu.dart';
+
+List<Menu> msbakMenu = [
+  Menu(
+    title: 'መስከረም ምስባክ',
+    name: 'meskerem',
+    imageUrl: 'assets/images/kdase.jpg',
+    subTitle: "ሥርዓተ ቅዳሴ ዘደብረ ዓባይ",
+    playList: MeskeremMsbak(),
+  ),
+  Menu(
+    title: 'ጥቅምት ምስባክ',
+    name: 'tikimit',
+    imageUrl: 'assets/images/kdase.jpg',
+    subTitle: "ሥርዓተ ቅዳሴ ዘደብረ ዓባይ",
+    playList: TkmtMsbak(),
+  ),
+  Menu(
+    title: 'ህዳር ምስባክ',
+    name: 'hidar',
+    imageUrl: 'assets/images/kdase.jpg',
+    subTitle: "ሥርዓተ ቅዳሴ ዘደብረ ዓባይ",
+    playList: HdarMsbak(),
+  ),
+  Menu(
+    title: 'ታህሳስ ምስባክ',
+    name: 'tahisas',
+    imageUrl: 'assets/images/kdase.jpg',
+    subTitle: "ሥርዓተ ቅዳሴ ዘደብረ ዓባይ",
+    playList: TahsasMsbak(),
+  ),
+  Menu(
+    title: 'ጥር ምስባክ',
+    name: 'tir',
+    imageUrl: 'assets/images/kdase.jpg',
+    subTitle: "ሥርዓተ ቅዳሴ ዘደብረ ዓባይ",
+    playList: TirMsbak(),
+  ),
+  Menu(
+    title: 'የካቲት ምስባክ',
+    name: 'yekatit',
+    imageUrl: 'assets/images/kdase.jpg',
+    subTitle: "ሥርዓተ ቅዳሴ ዘደብረ ዓባይ",
+    playList: YekatitMsbak(),
+  ),
+  Menu(
+    title: 'መጋቢት ምስባክ',
+    name: 'megabit',
+    imageUrl: 'assets/images/kdase.jpg',
+    subTitle: "ሥርዓተ ቅዳሴ ዘደብረ ዓባይ",
+    playList: MegabitMsbak(),
+  ),
+  Menu(
+    title: 'ሚያዝያ ምስባክ',
+    name: 'miyazya',
+    imageUrl: 'assets/images/kdase.jpg',
+    subTitle: "ሥርዓተ ቅዳሴ ዘደብረ ዓባይ",
+    playList: MiyazyaMsbak(),
+  ),
+  Menu(
+    title: 'ግንቦት ምስባክ',
+    name: 'ginbot',
+    imageUrl: 'assets/images/kdase.jpg',
+    subTitle: "ሥርዓተ ቅዳሴ ዘደብረ ዓባይ",
+    playList: GnbotMsbak(),
+  ),
+  Menu(
+    title: 'ሰኔ ምስባክ',
+    name: 'sene',
+    imageUrl: 'assets/images/kdase.jpg',
+    subTitle: "ሥርዓተ ቅዳሴ ዘደብረ ዓባይ",
+    playList: SeneMsbak(),
+  ),
+  Menu(
+    title: 'ሐምሌ ምስባክ',
+    name: 'hamle',
+    imageUrl: 'assets/images/kdase.jpg',
+    subTitle: "ሥርዓተ ቅዳሴ ዘደብረ ዓባይ",
+    playList: HamleMsbak(),
+  ),
+  Menu(
+    title: 'ነሐሴ ምስባክ',
+    name: 'nehase',
+    imageUrl: 'assets/images/kdase.jpg',
+    subTitle: "ሥርዓተ ቅዳሴ ዘደብረ ዓባይ",
+    playList: NehaseMsbak(),
+  ),
+  Menu(
+    title: 'ጳጉሜን ምስባክ',
+    name: 'puagmen',
+    imageUrl: 'assets/images/kdase.jpg',
+    subTitle: "ሥርዓተ ቅዳሴ ዘደብረ ዓባይ",
+    playList: PuagmenMsbak(),
+  ),
+];
