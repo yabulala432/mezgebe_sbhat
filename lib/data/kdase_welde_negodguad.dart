@@ -1,3 +1,4 @@
+import 'package:mezgebe_sbhat/data/pdf_list.dart';
 import 'package:mezgebe_sbhat/models/menu_list_parent.dart';
 import 'package:mezgebe_sbhat/models/pdf.dart';
 import 'package:mezgebe_sbhat/models/song.dart';
@@ -431,8 +432,7 @@ class GeezKdaseWeldeNegodguad extends PlayListParent {
       ];
 
   @override
-  // TODO: implement pdf
-  Pdf get pdf => throw UnimplementedError();
+  Pdf get pdf => kdaseWeldeNegodguadPdf;
 }
 
 class EzlKdaseWeldeNegodguad extends PlayListParent {
@@ -860,6 +860,5 @@ class EzlKdaseWeldeNegodguad extends PlayListParent {
       ];
 
   @override
-  // TODO: implement pdf
-  Pdf get pdf => throw UnimplementedError();
+  Pdf get pdf => kdaseWeldeNegodguadPdf;
 }

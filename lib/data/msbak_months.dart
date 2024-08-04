@@ -1,3 +1,4 @@
+import 'package:mezgebe_sbhat/data/pdf_list.dart';
 import 'package:mezgebe_sbhat/models/menu_list_parent.dart';
 import 'package:mezgebe_sbhat/models/pdf.dart';
 import 'package:mezgebe_sbhat/models/song.dart';
@@ -137,8 +138,7 @@ class MeskeremMsbak extends PlayListParent {
   String get folderName => 'meskerem';
 
   @override
-  // TODO: implement pdf
-  Pdf get pdf => throw UnimplementedError();
+  Pdf get pdf => meskeremPdf;
 }
 
 class TkmtMsbak extends PlayListParent {
@@ -273,8 +273,7 @@ class TkmtMsbak extends PlayListParent {
   String get folderName => 'tkmt';
 
   @override
-  // TODO: implement pdf
-  Pdf get pdf => throw UnimplementedError();
+  Pdf get pdf => tkmtPdf;
 }
 
 class HdarMsbak extends PlayListParent {
@@ -401,8 +400,7 @@ class HdarMsbak extends PlayListParent {
   String get folderName => 'hdar';
 
   @override
-  // TODO: implement pdf
-  Pdf get pdf => throw UnimplementedError();
+  Pdf get pdf => hdarPdf;
 }
 
 class TahsasMsbak extends PlayListParent {
@@ -547,8 +545,7 @@ class TahsasMsbak extends PlayListParent {
   String get folderName => 'tahsas';
 
   @override
-  // TODO: implement pdf
-  Pdf get pdf => throw UnimplementedError();
+  Pdf get pdf => tahsasPdf;
 }
 
 class TirMsbak extends PlayListParent {
@@ -688,8 +685,7 @@ class TirMsbak extends PlayListParent {
   String get folderName => 'tir';
 
   @override
-  // TODO: implement pdf
-  Pdf get pdf => throw UnimplementedError();
+  Pdf get pdf => tirPdf;
 }
 
 class YekatitMsbak extends PlayListParent {
@@ -834,8 +830,7 @@ class YekatitMsbak extends PlayListParent {
   String get folderName => 'yekatit';
 
   @override
-  // TODO: implement pdf
-  Pdf get pdf => throw UnimplementedError();
+  Pdf get pdf => yekatitPdf;
 }
 
 class MegabitMsbak extends PlayListParent {
@@ -995,8 +990,7 @@ class MegabitMsbak extends PlayListParent {
   String get folderName => 'megabit';
 
   @override
-  // TODO: implement pdf
-  Pdf get pdf => throw UnimplementedError();
+  Pdf get pdf => megabitPdf;
 }
 
 class MiyazyaMsbak extends PlayListParent {
@@ -1136,8 +1130,7 @@ class MiyazyaMsbak extends PlayListParent {
   String get folderName => 'miyazya';
 
   @override
-  // TODO: implement pdf
-  Pdf get pdf => throw UnimplementedError();
+  Pdf get pdf => miyazyaPdf;
 }
 
 class GnbotMsbak extends PlayListParent {
@@ -1292,8 +1285,7 @@ class GnbotMsbak extends PlayListParent {
   String get folderName => 'gnbot';
 
   @override
-  // TODO: implement pdf
-  Pdf get pdf => throw UnimplementedError();
+  Pdf get pdf => gnbotPdf;
 }
 
 class SeneMsbak extends PlayListParent {
@@ -1453,8 +1445,7 @@ class SeneMsbak extends PlayListParent {
   String get folderName => 'sene';
 
   @override
-  // TODO: implement pdf
-  Pdf get pdf => throw UnimplementedError();
+  Pdf get pdf => senePdf;
 }
 
 class HamleMsbak extends PlayListParent {
@@ -1594,8 +1585,7 @@ class HamleMsbak extends PlayListParent {
   String get folderName => 'hamle';
 
   @override
-  // TODO: implement pdf
-  Pdf get pdf => throw UnimplementedError();
+  Pdf get pdf => hamlePdf;
 }
 
 class NehaseMsbak extends PlayListParent {
@@ -1728,8 +1718,7 @@ class NehaseMsbak extends PlayListParent {
   String get folderName => 'nehase';
 
   @override
-  // TODO: implement pdf
-  Pdf get pdf => throw UnimplementedError();
+  Pdf get pdf => nehasePdf;
 }
 
 class PuagmenMsbak extends PlayListParent {
@@ -1768,6 +1757,5 @@ class PuagmenMsbak extends PlayListParent {
   String get folderName => 'puagmen';
 
   @override
-  // TODO: implement pdf
-  Pdf get pdf => throw UnimplementedError();
+  Pdf get pdf => puagmenPdf;
 }

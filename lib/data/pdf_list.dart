@@ -5,12 +5,12 @@ final Pdf kidaseMegbiyaPdf = Pdf(
   url:
       'https://www.ethiopianorthodox.org/amharic/yezemametsheft/14%20kidasewoch/01%20sereat%20kidasse.pdf',
 );
-final Pdf kidaseHawaryatPdf = Pdf(
+final Pdf kdaseHawaryatPdf = Pdf(
   name: 'kidaseHawaryatPdf',
   url:
       'https://www.ethiopianorthodox.org/amharic/yezemametsheft/14%20kidasewoch/02%20zehawariyat.pdf',
 );
-final Pdf kidaseEgziPdf = Pdf(
+final Pdf kdaseEgziPdf = Pdf(
   name: 'kidaseEgziPdf',
   url:
       'https://www.ethiopianorthodox.org/amharic/yezemametsheft/14%20kidasewoch/03%20zeegezene.pdf',
@@ -35,8 +35,8 @@ final Pdf kdaseAtnatewosPdf = Pdf(
   url:
       'https://www.ethiopianorthodox.org/amharic/yezemametsheft/14%20kidasewoch/07%20athnatheous.pdf',
 );
-final Pdf kdaseBalyosPdf = Pdf(
-  name: 'kdaseBalyosPdf',
+final Pdf kdaseBaslyosPdf = Pdf(
+  name: 'kdaseBaslyosPdf',
   url:
       'https://www.ethiopianorthodox.org/amharic/yezemametsheft/14%20kidasewoch/08%20basilos.pdf',
 );
@@ -65,7 +65,7 @@ final Pdf kdaseYaekobZeSrugPdf = Pdf(
   url:
       'https://www.ethiopianorthodox.org/amharic/yezemametsheft/14%20kidasewoch/13%20yacoub%20zesergug.pdf',
 );
-final Pdf kdaseDiyoskorosPdf = Pdf(
+final Pdf kdaseDiyoscorosPdf = Pdf(
   name: 'kdaseDiyoskorosPdf',
   url:
       'https://www.ethiopianorthodox.org/amharic/yezemametsheft/14%20kidasewoch/14%20dioscorous.pdf',
@@ -81,12 +81,12 @@ final Pdf meskeremPdf = Pdf(
   url:
       "https://www.ethiopianorthodox.org/amharic/holybooks/readings/meskeremgitaswe.pdf",
 );
-final Pdf tikmtPdf = Pdf(
+final Pdf tkmtPdf = Pdf(
   name: 'tikmtPdf',
   url:
       "https://www.ethiopianorthodox.org/amharic/holybooks/readings/tikemetgitsawe.pdf",
 );
-final Pdf hidarPdf = Pdf(
+final Pdf hdarPdf = Pdf(
   name: 'hidarPdf',
   url:
       "https://www.ethiopianorthodox.org/amharic/holybooks/readings/hidargitsawe.pdf",
@@ -146,3 +146,8 @@ final Pdf kidanPdf = Pdf(
     name: 'kidanPdf',
     url:
         'https://www.ethiopianorthodox.org/amharic/yezemametsheft/14%20kidasewoch/kidan%20balemeliketu.pdf');
+
+final Pdf serawitAndMelkaQurbanPdf = Pdf(
+    name: 'serawitAndMelkaQurbanPdf',
+    url:
+        'https://www.kidanemihiret.org/wp-content/uploads/2016/05/SERAWIT-MEL-QURBAN.pdf');

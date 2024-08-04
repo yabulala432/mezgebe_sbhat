@@ -1,7 +1,9 @@
 import 'package:mezgebe_sbhat/models/menu_list_parent.dart';
 import 'package:mezgebe_sbhat/models/pdf.dart';
 import 'package:mezgebe_sbhat/models/song.dart';
+import 'pdf_list.dart';
 
+/*
 class GeezKidan extends PlayListParent {
   @override
   Uri get baseUri => Uri.parse(
@@ -12,109 +14,273 @@ class GeezKidan extends PlayListParent {
 
   @override
   List<Song> get playList => [
+        // ሰላም ዘኪዳን ዘዘወትር
+
         Song(
-          title: '1 tesehalke',
-          audioUrl:
-              '${baseUri}kidan/zemawoch/1 selam zekidan zezeweter/1 tesehalke.mp3',
+          title: 'ተሣሃልከ_እግዚኦ_ምድረከ-ይትፌሣሕ  ልብኪ',
+          audioUrl: '${baseUri}1 tesehalke.mp3',
         ),
         Song(
-          title: '2wemit',
-          audioUrl:
-              '${baseUri}kidan/zemawoch/1 selam zekidan zezeweter/2wemit.mp3',
+          title: 'ወሚጥ_መዓተከ-ይእቲ_ማርያም_እምነ',
+          audioUrl: '${baseUri}2wemit.mp3',
         ),
         Song(
-          title: '3 egezio',
-          audioUrl:
-              '${baseUri}kidan/zemawoch/1 selam zekidan zezeweter/3 egezio.mp3',
+          title: 'እግዚኦ_መሐረነ_ክርስቶስ',
+          audioUrl: '${baseUri}3 egezio.mp3',
         ),
+
+        // ሰላም ዘኪዳን በዘመነ ጽጌ ዘዘወትር
+
         Song(
-          title: 'wemit',
+          title: 'ወሚጥ_መዓተከ_እምኔነ-ተመየጢ_ተመየጢ',
           audioUrl:
               '${baseUri}kidan/zemawoch/3 selam zekidan zezemene tsige zezeweter/wemit.mp3',
         ),
+
+        // ዘመንፈቀ ሌሊት
+
         Song(
-          title: '1',
-          audioUrl: '${baseUri}kidan/zemawoch/6 zemenefeke leleit geeze/1.mp3',
+          title: 'መኃትው_ዘጸሎተ_ኪዳን_ዘ፫_ጊዚያት-ቅዱስ',
+          audioUrl: '${baseUri}1.mp3',
         ),
         Song(
-          title: '2',
-          audioUrl: '${baseUri}kidan/zemawoch/6 zemenefeke leleit geeze/2.mp3',
+          title: 'ስብሐት_ለእግዚአብሔር',
+          audioUrl: '${baseUri}2.mp3',
         ),
         Song(
-          title: '3',
-          audioUrl: '${baseUri}kidan/zemawoch/6 zemenefeke leleit geeze/3.mp3',
+          title: 'ርቱዕ_ይደሉ',
+          audioUrl: '${baseUri}3.mp3',
         ),
         Song(
-          title: '4',
-          audioUrl: '${baseUri}kidan/zemawoch/6 zemenefeke leleit geeze/4.mp3',
+          title: 'ለከ_እግዚኦ_ለገባሬ_ኵሉ',
+          audioUrl: '${baseUri}4.mp3',
         ),
         Song(
-          title: '5',
-          audioUrl: '${baseUri}kidan/zemawoch/6 zemenefeke leleit geeze/5.mp3',
+          title: 'ኪያከ_ንሴብሕ_እግዚኦ',
+          audioUrl: '${baseUri}5.mp3',
         ),
         Song(
-          title: '6',
-          audioUrl: '${baseUri}kidan/zemawoch/6 zemenefeke leleit geeze/6.mp3',
+          title: 'አምላከ_ብርሃን',
+          audioUrl: '${baseUri}6.mp3',
         ),
         Song(
-          title: '7',
-          audioUrl: '${baseUri}kidan/zemawoch/6 zemenefeke leleit geeze/7.mp3',
+          title: 'ኪያከ_ንዌድስ_እግዚኦ',
+          audioUrl: '${baseUri}7.mp3',
         ),
         Song(
-          title: '8',
-          audioUrl: '${baseUri}kidan/zemawoch/6 zemenefeke leleit geeze/8.mp3',
+          title: 'ንሤልስ_ለከ',
+          audioUrl: '${baseUri}8.mp3',
+        ),
+
+        // ዘነግህ
+
+        Song(
+          title: 'ጸጋ_ዘእግዚአብሔር_የሀሉ_ምስለ_ኵልክሙ',
+          audioUrl: '${baseUri}1.mp3',
         ),
         Song(
-          title: '1',
-          audioUrl: '${baseUri}kidan/zemawoch/7 zenegeh geeze/1.mp3',
+          title: 'ምስለ_መንፈስከ',
+          audioUrl: '${baseUri}2.mp3',
         ),
         Song(
-          title: '2',
-          audioUrl: '${baseUri}kidan/zemawoch/7 zenegeh geeze/2.mp3',
+          title: 'ንሰብሖ_ለአምላክነ',
+          audioUrl: '${baseUri}3.mp3',
         ),
         Song(
-          title: '3',
-          audioUrl: '${baseUri}kidan/zemawoch/7 zenegeh geeze/3.mp3',
+          title: 'ርቱዕ_ይደሉ',
+          audioUrl: '${baseUri}4.mp3',
         ),
         Song(
-          title: '4',
-          audioUrl: '${baseUri}kidan/zemawoch/7 zenegeh geeze/4.mp3',
+          title: 'አፅንዑ_ሕሊና_ልብክሙ',
+          audioUrl: '${baseUri}5.mp3',
         ),
         Song(
-          title: '5',
-          audioUrl: '${baseUri}kidan/zemawoch/7 zenegeh geeze/5.mp3',
+          title: 'ብነ_ኀበ_እግዚአብሔር',
+          audioUrl: '${baseUri}6.mp3',
         ),
         Song(
-          title: '6',
-          audioUrl: '${baseUri}kidan/zemawoch/7 zenegeh geeze/6.mp3',
+          title: 'እግዚአብሔር_አብ_ወሀቤ_ብርሃን',
+          audioUrl: '${baseUri}7.mp3',
         ),
         Song(
-          title: '7',
-          audioUrl: '${baseUri}kidan/zemawoch/7 zenegeh geeze/7.mp3',
+          title: 'ኪያከ_ንሴብሕ_እግዚኦ',
+          audioUrl: '${baseUri}8.mp3',
         ),
         Song(
-          title: '8',
-          audioUrl: '${baseUri}kidan/zemawoch/7 zenegeh geeze/8.mp3',
+          title: 'እግዚኦ_ኢየሱስ_ክርስቶስ',
+          audioUrl: '${baseUri}9.mp3',
         ),
         Song(
-          title: '9',
-          audioUrl: '${baseUri}kidan/zemawoch/7 zenegeh geeze/9.mp3',
+          title: 'ኪያከ_ንዌድስ_እግዚኦ',
+          audioUrl: '${baseUri}10.mp3',
         ),
         Song(
-          title: '10',
-          audioUrl: '${baseUri}kidan/zemawoch/7 zenegeh geeze/10.mp3',
-        ),
-        Song(
-          title: '11',
-          audioUrl: '${baseUri}kidan/zemawoch/7 zenegeh geeze/11.mp3',
+          title: 'ንሤልስ_ለከ_ዘንተ_ቅዱስ',
+          audioUrl: '${baseUri}11.mp3',
         ),
       ];
 
   @override
-  // TODO: implement pdf
-  Pdf get pdf => throw UnimplementedError();
+  Pdf get pdf => kidanPdf;
+}
+*/
+class GeezKidanZezewetr extends PlayListParent {
+  @override
+  Uri get baseUri => Uri.parse(
+      'https://www.ethiopianorthodox.org/churchmusic/zema%20timehert%20bet/kidan/zemawoch/1 selam zekidan zezeweter/');
+
+  @override
+  String get folderName => 'geez_kidan_zezeweter';
+
+  @override
+  Pdf get pdf => kidanPdf;
+
+  @override
+  List<Song> get playList => [
+        Song(
+          title: 'ተሣሃልከ_እግዚኦ_ምድረከ-ይትፌሣሕ  ልብኪ',
+          audioUrl: '${baseUri}1 tesehalke.mp3',
+        ),
+        Song(
+          title: 'ወሚጥ_መዓተከ-ይእቲ_ማርያም_እምነ',
+          audioUrl: '${baseUri}2wemit.mp3',
+        ),
+        Song(
+          title: 'እግዚኦ_መሐረነ_ክርስቶስ',
+          audioUrl: '${baseUri}3 egezio.mp3',
+        ),
+      ];
 }
 
+class GeezKidanZezemeneTsge extends PlayListParent {
+  @override
+  Uri get baseUri => Uri.parse(
+      'https://www.ethiopianorthodox.org/churchmusic/zema%20timehert%20bet/kidan/zemawoch/3 selam zekidan zezemene tsige zezeweter/');
+
+  @override
+  String get folderName => 'geez_kidan_zezemene_tsge';
+
+  @override
+  Pdf get pdf => kidanPdf;
+
+  @override
+  List<Song> get playList => [
+        Song(
+          title: 'ወሚጥ_መዓተከ_እምኔነ-ተመየጢ_ተመየጢ',
+          audioUrl: '${baseUri}wemit.mp3',
+        ),
+      ];
+}
+
+class GeezKidanZemenfekeLelit extends PlayListParent {
+  @override
+  Uri get baseUri => Uri.parse(
+      'https://www.ethiopianorthodox.org/churchmusic/zema%20timehert%20bet/kidan/zemawoch/6 zemenefeke leleit geeze/');
+
+  @override
+  String get folderName => 'geez_kidan_zemenfeke_lelit';
+
+  @override
+  Pdf get pdf => kidanPdf;
+
+  @override
+  List<Song> get playList => [
+        Song(
+          title: 'መኃትው_ዘጸሎተ_ኪዳን_ዘ፫_ጊዚያት-ቅዱስ',
+          audioUrl: '${baseUri}1.mp3',
+        ),
+        Song(
+          title: 'ስብሐት_ለእግዚአብሔር',
+          audioUrl: '${baseUri}2.mp3',
+        ),
+        Song(
+          title: 'ርቱዕ_ይደሉ',
+          audioUrl: '${baseUri}3.mp3',
+        ),
+        Song(
+          title: 'ለከ_እግዚኦ_ለገባሬ_ኵሉ',
+          audioUrl: '${baseUri}4.mp3',
+        ),
+        Song(
+          title: 'ኪያከ_ንሴብሕ_እግዚኦ',
+          audioUrl: '${baseUri}5.mp3',
+        ),
+        Song(
+          title: 'አምላከ_ብርሃን',
+          audioUrl: '${baseUri}6.mp3',
+        ),
+        Song(
+          title: 'ኪያከ_ንዌድስ_እግዚኦ',
+          audioUrl: '${baseUri}7.mp3',
+        ),
+        Song(
+          title: 'ንሤልስ_ለከ',
+          audioUrl: '${baseUri}8.mp3',
+        ),
+      ];
+}
+
+class GeezKidanZenegh extends PlayListParent {
+  @override
+  Uri get baseUri => Uri.parse(
+      'https://www.ethiopianorthodox.org/churchmusic/zema%20timehert%20bet/kidan/zemawoch/7 zenegeh geeze/');
+
+  @override
+  String get folderName => 'geez_kidan_zenegh';
+
+  @override
+  Pdf get pdf => kidanPdf;
+
+  @override
+  List<Song> get playList => [
+        Song(
+          title: 'ጸጋ_ዘእግዚአብሔር_የሀሉ_ምስለ_ኵልክሙ',
+          audioUrl: '${baseUri}1.mp3',
+        ),
+        Song(
+          title: 'ምስለ_መንፈስከ',
+          audioUrl: '${baseUri}2.mp3',
+        ),
+        Song(
+          title: 'ንሰብሖ_ለአምላክነ',
+          audioUrl: '${baseUri}3.mp3',
+        ),
+        Song(
+          title: 'ርቱዕ_ይደሉ',
+          audioUrl: '${baseUri}4.mp3',
+        ),
+        Song(
+          title: 'አፅንዑ_ሕሊና_ልብክሙ',
+          audioUrl: '${baseUri}5.mp3',
+        ),
+        Song(
+          title: 'ብነ_ኀበ_እግዚአብሔር',
+          audioUrl: '${baseUri}6.mp3',
+        ),
+        Song(
+          title: 'እግዚአብሔር_አብ_ወሀቤ_ብርሃን',
+          audioUrl: '${baseUri}7.mp3',
+        ),
+        Song(
+          title: 'ኪያከ_ንሴብሕ_እግዚኦ',
+          audioUrl: '${baseUri}8.mp3',
+        ),
+        Song(
+          title: 'እግዚኦ_ኢየሱስ_ክርስቶስ',
+          audioUrl: '${baseUri}9.mp3',
+        ),
+        Song(
+          title: 'ኪያከ_ንዌድስ_እግዚኦ',
+          audioUrl: '${baseUri}10.mp3',
+        ),
+        Song(
+          title: 'ንሤልስ_ለከ_ዘንተ_ቅዱስ',
+          audioUrl: '${baseUri}11.mp3',
+        ),
+      ];
+}
+
+/*
 class EzlKidan extends PlayListParent {
   @override
   Uri get baseUri => Uri.parse(
@@ -125,111 +291,282 @@ class EzlKidan extends PlayListParent {
 
   @override
   List<Song> get playList => [
+        // ሰላም ዘኪዳን ዘዘወትር
+
         Song(
-          title: '1 tesehalke',
+          title: 'ተሣሃልከ_እግዚኦ_ምድረከ-ይትፌሣሕ_ልብኪ',
           audioUrl:
               '${baseUri}kidan/zemawoch/2  selam zekidan ezil/1 tesehalke.mp3',
         ),
+        //ሰላም ዘኪዳን ዘእሑድ በዘመነ ጽጌ
+
         Song(
-          title: '1  areyene',
+          title: 'አርእየነ_እግዚኦ-በ፫-ናሁ_አስተርአየ_ጽጌ',
           audioUrl:
               '${baseUri}kidan/zemawoch/4  selam zekidan bezemene tsige ehud_ezil)/1  areyene.mp3',
         ),
+        // ዘመንፈቀ ሌሊት
+
         Song(
-          title: '1',
+          title: 'ቅዱስ',
           audioUrl: '${baseUri}kidan/zemawoch/8  kidan zezeweter ezil/1.mp3',
         ),
         Song(
-          title: '2',
+          title: 'እግዚአብሔር_ቅዱስ_ኃያል',
           audioUrl: '${baseUri}kidan/zemawoch/8  kidan zezeweter ezil/2.mp3',
         ),
         Song(
-          title: '3',
+          title: 'ስብሐት_ለእግዚአብሔር',
           audioUrl: '${baseUri}kidan/zemawoch/8  kidan zezeweter ezil/3.mp3',
         ),
         Song(
-          title: '4',
+          title: 'ርቱዕ_ይደሉ',
           audioUrl: '${baseUri}kidan/zemawoch/8  kidan zezeweter ezil/4.mp3',
         ),
         Song(
-          title: '5',
+          title: 'ለከ_እግዚኦ_ለገባሬ_ኵሉ',
           audioUrl: '${baseUri}kidan/zemawoch/8  kidan zezeweter ezil/5.mp3',
         ),
         Song(
-          title: '6',
+          title: 'ኪያከ_ንሴብሕ_እግዚኦ',
           audioUrl: '${baseUri}kidan/zemawoch/8  kidan zezeweter ezil/6.mp3',
         ),
         Song(
-          title: '7',
+          title: 'አምላከ_ብርሃን',
           audioUrl: '${baseUri}kidan/zemawoch/8  kidan zezeweter ezil/7.mp3',
         ),
         Song(
-          title: '8',
+          title: 'ኪያከ_ንዌድስ_እግዚኦ',
           audioUrl: '${baseUri}kidan/zemawoch/8  kidan zezeweter ezil/8.mp3',
         ),
         Song(
-          title: '9',
+          title: 'ንሤልስ_ለከ',
           audioUrl: '${baseUri}kidan/zemawoch/8  kidan zezeweter ezil/9.mp3',
         ),
         Song(
-          title: '10',
+          title: 'አሜን',
           audioUrl: '${baseUri}kidan/zemawoch/8  kidan zezeweter ezil/10.mp3',
         ),
+
+        // ዘነግህ
+
         Song(
-          title: '1',
+          title: 'ጸጋ_ዘእግዚአብሔር_የሀሉ_ምስለ_ኵልክሙ',
           audioUrl: '${baseUri}kidan/zemawoch/9 zenegeh ezil/1.mp3',
         ),
         Song(
-          title: '2',
+          title: 'ምስለ_መንፈስከ',
           audioUrl: '${baseUri}kidan/zemawoch/9 zenegeh ezil/2.mp3',
         ),
         Song(
-          title: '3',
+          title: 'ንሰብሖ_ለአምላክነ',
           audioUrl: '${baseUri}kidan/zemawoch/9 zenegeh ezil/3.mp3',
         ),
         Song(
-          title: '4',
+          title: 'ርቱዕ_ይደሉ',
           audioUrl: '${baseUri}kidan/zemawoch/9 zenegeh ezil/4.mp3',
         ),
         Song(
-          title: '5',
+          title: 'አፅንዑ_ሕሊና_ልብክሙ',
           audioUrl: '${baseUri}kidan/zemawoch/9 zenegeh ezil/5.mp3',
         ),
         Song(
-          title: '6',
+          title: 'ብነ_ኀበ_እግዚአብሔር',
           audioUrl: '${baseUri}kidan/zemawoch/9 zenegeh ezil/6.mp3',
         ),
         Song(
-          title: '7',
+          title: 'እግዚአብሔር_አብ_ወሀቤ_ብርሃን',
           audioUrl: '${baseUri}kidan/zemawoch/9 zenegeh ezil/7.mp3',
         ),
         Song(
-          title: '8',
+          title: 'ኪያከ_ንሴብሕ_እግዚኦ',
           audioUrl: '${baseUri}kidan/zemawoch/9 zenegeh ezil/8.mp3',
         ),
         Song(
-          title: '9',
+          title: 'እግዚኦ_ኢየሱስ_ክርስቶስ',
           audioUrl: '${baseUri}kidan/zemawoch/9 zenegeh ezil/9.mp3',
         ),
         Song(
-          title: '10',
+          title: 'ኪያከ_ንዌድስ_እግዚኦ',
           audioUrl: '${baseUri}kidan/zemawoch/9 zenegeh ezil/10.mp3',
         ),
         Song(
-          title: '11',
+          title: 'ንሤልስ_ለከ_ዘንተ_ቅዱስ',
           audioUrl: '${baseUri}kidan/zemawoch/9 zenegeh ezil/11.mp3',
         ),
         Song(
-          title: '12',
+          title: 'አሜን',
           audioUrl: '${baseUri}kidan/zemawoch/9 zenegeh ezil/12.mp3',
         ),
       ];
 
   @override
-  // TODO: implement pdf
-  Pdf get pdf => throw UnimplementedError();
+  Pdf get pdf => kidanPdf;
+}
+*/
+class EzlKidanZezewetr extends PlayListParent {
+  @override
+  Uri get baseUri => Uri.parse(
+      'https://www.ethiopianorthodox.org/churchmusic/zema%20timehert%20bet/');
+
+  @override
+  String get folderName => 'ezl_kidan_zezewetr';
+
+  @override
+  Pdf get pdf => kidanPdf;
+
+  @override
+  List<Song> get playList => [
+        Song(
+          title: 'ተሣሃልከ_እግዚኦ_ምድረከ-ይትፌሣሕ_ልብኪ',
+          audioUrl:
+              '${baseUri}kidan/zemawoch/2  selam zekidan ezil/1 tesehalke.mp3',
+        ),
+      ];
 }
 
+class EzlKidanZezemeneTsge extends PlayListParent {
+  @override
+  Uri get baseUri => Uri.parse(
+      'https://www.ethiopianorthodox.org/churchmusic/zema%20timehert%20bet/');
+
+  @override
+  String get folderName => 'ezl_kidan_zezemene_tsge';
+
+  @override
+  Pdf get pdf => kidanPdf;
+
+  @override
+  List<Song> get playList => [
+        Song(
+          title: 'አርእየነ_እግዚኦ-በ፫-ናሁ_አስተርአየ_ጽጌ',
+          audioUrl:
+              '${baseUri}kidan/zemawoch/4  selam zekidan bezemene tsige ehud_ezil)/1  areyene.mp3',
+        ),
+      ];
+}
+
+class EzlKidanZezemenfekeLelit extends PlayListParent {
+  @override
+  Uri get baseUri => Uri.parse(
+      'https://www.ethiopianorthodox.org/churchmusic/zema%20timehert%20bet/');
+
+  @override
+  String get folderName => 'ezl_kidan_zemenfeke_lelit';
+
+  @override
+  Pdf get pdf => kidanPdf;
+
+  @override
+  List<Song> get playList => [
+        Song(
+          title: 'ቅዱስ',
+          audioUrl: '${baseUri}kidan/zemawoch/8  kidan zezeweter ezil/1.mp3',
+        ),
+        Song(
+          title: 'እግዚአብሔር_ቅዱስ_ኃያል',
+          audioUrl: '${baseUri}kidan/zemawoch/8  kidan zezeweter ezil/2.mp3',
+        ),
+        Song(
+          title: 'ስብሐት_ለእግዚአብሔር',
+          audioUrl: '${baseUri}kidan/zemawoch/8  kidan zezeweter ezil/3.mp3',
+        ),
+        Song(
+          title: 'ርቱዕ_ይደሉ',
+          audioUrl: '${baseUri}kidan/zemawoch/8  kidan zezeweter ezil/4.mp3',
+        ),
+        Song(
+          title: 'ለከ_እግዚኦ_ለገባሬ_ኵሉ',
+          audioUrl: '${baseUri}kidan/zemawoch/8  kidan zezeweter ezil/5.mp3',
+        ),
+        Song(
+          title: 'ኪያከ_ንሴብሕ_እግዚኦ',
+          audioUrl: '${baseUri}kidan/zemawoch/8  kidan zezeweter ezil/6.mp3',
+        ),
+        Song(
+          title: 'አምላከ_ብርሃን',
+          audioUrl: '${baseUri}kidan/zemawoch/8  kidan zezeweter ezil/7.mp3',
+        ),
+        Song(
+          title: 'ኪያከ_ንዌድስ_እግዚኦ',
+          audioUrl: '${baseUri}kidan/zemawoch/8  kidan zezeweter ezil/8.mp3',
+        ),
+        Song(
+          title: 'ንሤልስ_ለከ',
+          audioUrl: '${baseUri}kidan/zemawoch/8  kidan zezeweter ezil/9.mp3',
+        ),
+        Song(
+          title: 'አሜን',
+          audioUrl: '${baseUri}kidan/zemawoch/8  kidan zezeweter ezil/10.mp3',
+        ),
+      ];
+}
+
+class EzlKidanZenegh extends PlayListParent {
+  @override
+  Uri get baseUri => Uri.parse(
+      'https://www.ethiopianorthodox.org/churchmusic/zema%20timehert%20bet/');
+
+  @override
+  String get folderName => 'ezl_kidan_zenegh';
+
+  @override
+  Pdf get pdf => kidanPdf;
+
+  @override
+  List<Song> get playList => [
+        Song(
+          title: 'ጸጋ_ዘእግዚአብሔር_የሀሉ_ምስለ_ኵልክሙ',
+          audioUrl: '${baseUri}kidan/zemawoch/9 zenegeh ezil/1.mp3',
+        ),
+        Song(
+          title: 'ምስለ_መንፈስከ',
+          audioUrl: '${baseUri}kidan/zemawoch/9 zenegeh ezil/2.mp3',
+        ),
+        Song(
+          title: 'ንሰብሖ_ለአምላክነ',
+          audioUrl: '${baseUri}kidan/zemawoch/9 zenegeh ezil/3.mp3',
+        ),
+        Song(
+          title: 'ርቱዕ_ይደሉ',
+          audioUrl: '${baseUri}kidan/zemawoch/9 zenegeh ezil/4.mp3',
+        ),
+        Song(
+          title: 'አፅንዑ_ሕሊና_ልብክሙ',
+          audioUrl: '${baseUri}kidan/zemawoch/9 zenegeh ezil/5.mp3',
+        ),
+        Song(
+          title: 'ብነ_ኀበ_እግዚአብሔር',
+          audioUrl: '${baseUri}kidan/zemawoch/9 zenegeh ezil/6.mp3',
+        ),
+        Song(
+          title: 'እግዚአብሔር_አብ_ወሀቤ_ብርሃን',
+          audioUrl: '${baseUri}kidan/zemawoch/9 zenegeh ezil/7.mp3',
+        ),
+        Song(
+          title: 'ኪያከ_ንሴብሕ_እግዚኦ',
+          audioUrl: '${baseUri}kidan/zemawoch/9 zenegeh ezil/8.mp3',
+        ),
+        Song(
+          title: 'እግዚኦ_ኢየሱስ_ክርስቶስ',
+          audioUrl: '${baseUri}kidan/zemawoch/9 zenegeh ezil/9.mp3',
+        ),
+        Song(
+          title: 'ኪያከ_ንዌድስ_እግዚኦ',
+          audioUrl: '${baseUri}kidan/zemawoch/9 zenegeh ezil/10.mp3',
+        ),
+        Song(
+          title: 'ንሤልስ_ለከ_ዘንተ_ቅዱስ',
+          audioUrl: '${baseUri}kidan/zemawoch/9 zenegeh ezil/11.mp3',
+        ),
+        Song(
+          title: 'አሜን',
+          audioUrl: '${baseUri}kidan/zemawoch/9 zenegeh ezil/12.mp3',
+        ),
+      ];
+}
+
+/*
 class ArarayKidan extends PlayListParent {
   @override
   Uri get baseUri => Uri.parse(
@@ -240,111 +577,264 @@ class ArarayKidan extends PlayListParent {
 
   @override
   List<Song> get playList => [
+        // ሰላም ዘኪዳን ዘሰንበት
+
         Song(
-          title: '1 araray be 6',
-          audioUrl:
-              '${baseUri}kidan/zemawoch/5  selam zekidan zesenebet -araray/1 araray be 6.mp3',
+          title: 'ዓራራይ_በ፮-ይእቲ_ማርያም_እምነ',
+          audioUrl: '${baseUri}1 araray be 6.mp3',
         ),
         Song(
-          title: '2 egezio',
-          audioUrl:
-              '${baseUri}kidan/zemawoch/5  selam zekidan zesenebet -araray/2 egezio.mp3',
+          title: 'እግዚኦ_መሐረነ_ክርስቶስ',
+          audioUrl: '${baseUri}2 egezio.mp3',
+        ),
+
+        // ዘነግህ
+
+        Song(
+          title: 'ቅዱስ_እግዚአብሔር',
+          audioUrl: '${baseUri}1.mp3',
         ),
         Song(
-          title: '1',
-          audioUrl: '${baseUri}kidan/zemawoch/10  zeserk araraye/1.mp3',
+          title: 'ጸጋ_ዘእግዚአብሔር_የሀሉ_ምስለ_ኵልክሙ',
+          audioUrl: '${baseUri}2.mp3',
         ),
         Song(
-          title: '2',
-          audioUrl: '${baseUri}kidan/zemawoch/10  zeserk araraye/2.mp3',
+          title: 'ምስለ_መንፈስከ',
+          audioUrl: '${baseUri}3.mp3',
         ),
         Song(
-          title: '3',
-          audioUrl: '${baseUri}kidan/zemawoch/10  zeserk araraye/3.mp3',
+          title: 'ንሰብሖ_ለአምላክነ',
+          audioUrl: '${baseUri}4.mp3',
         ),
         Song(
-          title: '4',
-          audioUrl: '${baseUri}kidan/zemawoch/10  zeserk araraye/4.mp3',
+          title: 'ርቱዕ_ይደሉ',
+          audioUrl: '${baseUri}5.mp3',
         ),
         Song(
-          title: '5',
-          audioUrl: '${baseUri}kidan/zemawoch/10  zeserk araraye/5.mp3',
+          title: 'አፅንዑ_ሕሊና_ልብክሙ',
+          audioUrl: '${baseUri}6.mp3',
         ),
         Song(
-          title: '6',
-          audioUrl: '${baseUri}kidan/zemawoch/10  zeserk araraye/6.mp3',
+          title: 'ብነ_ኀበ_እግዚአብሔር',
+          audioUrl: '${baseUri}7.mp3',
         ),
         Song(
-          title: '7',
-          audioUrl: '${baseUri}kidan/zemawoch/10  zeserk araraye/7.mp3',
+          title: 'እግዚአብሔር_አብ_ወሀቤ_ብርሃን',
+          audioUrl: '${baseUri}8.mp3',
         ),
         Song(
-          title: '8',
-          audioUrl: '${baseUri}kidan/zemawoch/10  zeserk araraye/8.mp3',
+          title: 'ኪያከ_ንሴብሕ_እግዚኦ',
+          audioUrl: '${baseUri}9.mp3',
         ),
         Song(
-          title: '9',
-          audioUrl: '${baseUri}kidan/zemawoch/10  zeserk araraye/9.mp3',
+          title: 'እግዚኦ_ኢየሱስ_ክርስቶስ',
+          audioUrl: '${baseUri}10.mp3',
         ),
         Song(
-          title: '10',
-          audioUrl: '${baseUri}kidan/zemawoch/10  zeserk araraye/10.mp3',
+          title: 'ኪያከ_ንዌድስ_እግዚኦ',
+          audioUrl: '${baseUri}11.mp3',
         ),
         Song(
-          title: '11',
-          audioUrl: '${baseUri}kidan/zemawoch/10  zeserk araraye/11.mp3',
+          title: 'ንሤልስ_ለከ_ዘንተ_ቅዱስ',
+          audioUrl: '${baseUri}12.mp3',
         ),
         Song(
-          title: '12',
-          audioUrl: '${baseUri}kidan/zemawoch/10  zeserk araraye/12.mp3',
+          title: 'አሜን',
+          audioUrl: '${baseUri}13.mp3',
+        ),
+
+        // ዘሠርክ
+
+        Song(
+          title: 'ጸጋሁ_ለእግዚአብሔር',
+          audioUrl: '${baseUri}1.mp3',
         ),
         Song(
-          title: '13',
-          audioUrl: '${baseUri}kidan/zemawoch/10  zeserk araraye/13.mp3',
+          title: 'ምስለ_መንፈስከ',
+          audioUrl: '${baseUri}2.mp3',
         ),
         Song(
-          title: '1',
-          audioUrl: '${baseUri}kidan/zemawoch/11  zeserk araray/1.mp3',
+          title: 'አእኵትዎ_ለአምላክነ',
+          audioUrl: '${baseUri}3.mp3',
         ),
         Song(
-          title: '2',
-          audioUrl: '${baseUri}kidan/zemawoch/11  zeserk araray/2.mp3',
+          title: 'ርቱዕ_ይደሉ',
+          audioUrl: '${baseUri}4.mp3',
         ),
         Song(
-          title: '3',
-          audioUrl: '${baseUri}kidan/zemawoch/11  zeserk araray/3.mp3',
+          title: 'ለከ_ለአብ',
+          audioUrl: '${baseUri}5.mp3',
         ),
         Song(
-          title: '4',
-          audioUrl: '${baseUri}kidan/zemawoch/11  zeserk araray/4.mp3',
+          title: 'ንሴብሐከ_እግዚኦ',
+          audioUrl: '${baseUri}6.mp3',
         ),
         Song(
-          title: '5',
-          audioUrl: '${baseUri}kidan/zemawoch/11  zeserk araray/5.mp3',
+          title: 'ንዌድሰከ_እግዚኦ_ዘወትረ',
+          audioUrl: '${baseUri}7.mp3',
         ),
         Song(
-          title: '6',
-          audioUrl: '${baseUri}kidan/zemawoch/11  zeserk araray/6.mp3',
+          title: 'ንዌድሰከ_እግዚኦ',
+          audioUrl: '${baseUri}8.mp3',
         ),
         Song(
-          title: '7',
-          audioUrl: '${baseUri}kidan/zemawoch/11  zeserk araray/7.mp3',
+          title: 'ለከ_ዘእምልብነ',
+          audioUrl: '${baseUri}9.mp3',
         ),
         Song(
-          title: '8',
-          audioUrl: '${baseUri}kidan/zemawoch/11  zeserk araray/8.mp3',
-        ),
-        Song(
-          title: '9',
-          audioUrl: '${baseUri}kidan/zemawoch/11  zeserk araray/9.mp3',
-        ),
-        Song(
-          title: '10',
-          audioUrl: '${baseUri}kidan/zemawoch/11  zeserk araray/10.mp3',
+          title: 'አሜን',
+          audioUrl: '${baseUri}10.mp3',
         ),
       ];
 
   @override
-  // TODO: implement pdf
-  Pdf get pdf => throw UnimplementedError();
+  Pdf get pdf => kidanPdf;
+}
+*/
+class ArarayKidanZesenbet extends PlayListParent {
+  @override
+  Uri get baseUri => Uri.parse(
+      'https://www.ethiopianorthodox.org/churchmusic/zema%20timehert%20bet/kidan/zemawoch/5  selam zekidan zesenebet -araray/');
+
+  @override
+  String get folderName => 'araray_zesenbet';
+
+  @override
+  Pdf get pdf => kidanPdf;
+
+  @override
+  List<Song> get playList => [
+        Song(
+          title: 'ዓራራይ_በ፮-ይእቲ_ማርያም_እምነ',
+          audioUrl: '${baseUri}1 araray be 6.mp3',
+        ),
+        Song(
+          title: 'እግዚኦ_መሐረነ_ክርስቶስ',
+          audioUrl: '${baseUri}2 egezio.mp3',
+        ),
+      ];
+}
+
+class ArarayKidanZenegh extends PlayListParent {
+  @override
+  Uri get baseUri => Uri.parse(
+      'https://www.ethiopianorthodox.org/churchmusic/zema%20timehert%20bet/kidan/zemawoch/10%20%20zeserk%20araraye/');
+
+  @override
+  String get folderName => 'araray_zenegh';
+
+  @override
+  Pdf get pdf => kidanPdf;
+
+  @override
+  List<Song> get playList => [
+        Song(
+          title: 'ቅዱስ_እግዚአብሔር',
+          audioUrl: '${baseUri}1.mp3',
+        ),
+        Song(
+          title: 'ጸጋ_ዘእግዚአብሔር_የሀሉ_ምስለ_ኵልክሙ',
+          audioUrl: '${baseUri}2.mp3',
+        ),
+        Song(
+          title: 'ምስለ_መንፈስከ',
+          audioUrl: '${baseUri}3.mp3',
+        ),
+        Song(
+          title: 'ንሰብሖ_ለአምላክነ',
+          audioUrl: '${baseUri}4.mp3',
+        ),
+        Song(
+          title: 'ርቱዕ_ይደሉ',
+          audioUrl: '${baseUri}5.mp3',
+        ),
+        Song(
+          title: 'አፅንዑ_ሕሊና_ልብክሙ',
+          audioUrl: '${baseUri}6.mp3',
+        ),
+        Song(
+          title: 'ብነ_ኀበ_እግዚአብሔር',
+          audioUrl: '${baseUri}7.mp3',
+        ),
+        Song(
+          title: 'እግዚአብሔር_አብ_ወሀቤ_ብርሃን',
+          audioUrl: '${baseUri}8.mp3',
+        ),
+        Song(
+          title: 'ኪያከ_ንሴብሕ_እግዚኦ',
+          audioUrl: '${baseUri}9.mp3',
+        ),
+        Song(
+          title: 'እግዚኦ_ኢየሱስ_ክርስቶስ',
+          audioUrl: '${baseUri}10.mp3',
+        ),
+        Song(
+          title: 'ኪያከ_ንዌድስ_እግዚኦ',
+          audioUrl: '${baseUri}11.mp3',
+        ),
+        Song(
+          title: 'ንሤልስ_ለከ_ዘንተ_ቅዱስ',
+          audioUrl: '${baseUri}12.mp3',
+        ),
+        Song(
+          title: 'አሜን',
+          audioUrl: '${baseUri}13.mp3',
+        ),
+      ];
+}
+
+class ArarayKidanZeserk extends PlayListParent {
+  @override
+  Uri get baseUri => Uri.parse(
+      'https://www.ethiopianorthodox.org/churchmusic/zema%20timehert%20bet/kidan/zemawoch/11%20%20zeserk%20araray/');
+
+  @override
+  String get folderName => 'araray_zeserk';
+
+  @override
+  Pdf get pdf => kidanPdf;
+
+  @override
+  List<Song> get playList => [
+        Song(
+          title: 'ጸጋሁ_ለእግዚአብሔር',
+          audioUrl: '${baseUri}1.mp3',
+        ),
+        Song(
+          title: 'ምስለ_መንፈስከ',
+          audioUrl: '${baseUri}2.mp3',
+        ),
+        Song(
+          title: 'አእኵትዎ_ለአምላክነ',
+          audioUrl: '${baseUri}3.mp3',
+        ),
+        Song(
+          title: 'ርቱዕ_ይደሉ',
+          audioUrl: '${baseUri}4.mp3',
+        ),
+        Song(
+          title: 'ለከ_ለአብ',
+          audioUrl: '${baseUri}5.mp3',
+        ),
+        Song(
+          title: 'ንሴብሐከ_እግዚኦ',
+          audioUrl: '${baseUri}6.mp3',
+        ),
+        Song(
+          title: 'ንዌድሰከ_እግዚኦ_ዘወትረ',
+          audioUrl: '${baseUri}7.mp3',
+        ),
+        Song(
+          title: 'ንዌድሰከ_እግዚኦ',
+          audioUrl: '${baseUri}8.mp3',
+        ),
+        Song(
+          title: 'ለከ_ዘእምልብነ',
+          audioUrl: '${baseUri}9.mp3',
+        ),
+        Song(
+          title: 'አሜን',
+          audioUrl: '${baseUri}10.mp3',
+        ),
+      ];
 }

@@ -1,3 +1,4 @@
+import 'package:mezgebe_sbhat/data/pdf_list.dart';
 import 'package:mezgebe_sbhat/models/menu_list_parent.dart';
 import 'package:mezgebe_sbhat/models/pdf.dart';
 import '../models/song.dart';
@@ -148,6 +149,5 @@ class SerawitMenu extends PlayListParent {
   String get folderName => 'serawit';
 
   @override
-  // TODO: implement pdf
-  Pdf get pdf => throw UnimplementedError();
+  Pdf get pdf => serawitAndMelkaQurbanPdf;
 }
