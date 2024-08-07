@@ -16,7 +16,7 @@ class FileService extends ChangeNotifier {
   void setDownloadProgress(String fileId, double value) {
     _downloadProgress[fileId] = value;
     notifyListeners();
-    // if downloadProgress is full then clear it
+
     if (_downloadProgress.length >= _maxDownloadProgressEntries) {
       clearDownloadProgress();
     }
@@ -120,7 +120,7 @@ class FileService extends ChangeNotifier {
       }
       return file;
     } catch (e) {
-      print('line 68 fileService.dart error downloading file: $e');
+      // print('line 68 fileService.dart error downloading file: $e');
       rethrow;
     }
   }
@@ -136,12 +136,15 @@ class FileService extends ChangeNotifier {
         .execute('-i ${file.path} ${newFile.path}')
         .then((returnCode) {
       if (returnCode == 0) {
-        print('Conversion successful');
+        return;
+        // print('Conversion successful');
       } else {
-        print('Conversion failed with return code: $returnCode');
+        return;
+        // print('Conversion failed with return code: $returnCode');
       }
     }).catchError((error) {
-      print('Error: $error');
+      // print('Error: $error');
+      throw error;
     });
   }
 

@@ -11,8 +11,6 @@ class BottomNavApp extends StatelessWidget {
   final PlayListParent menuClass;
   const BottomNavApp({super.key, required this.menuClass});
 
-  // final KdaseMenu kdaseMenu = KdaseMenu();
-
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -23,12 +21,11 @@ class BottomNavApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (_) => PlayListProvider(
             playListParent: menuClass,
-            // fileservice is in the top level provider
             fileService: Provider.of<FileService>(context, listen: false),
           ),
         ),
         ChangeNotifierProvider(
-          create: (_) => PdfUrlProvider(),
+          create: (_) => PdfUrlProvider(filePdf: menuClass.pdf),
         ),
       ],
       child: const BottomNavigator(),

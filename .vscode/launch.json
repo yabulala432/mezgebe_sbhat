@@ -35,6 +35,14 @@
       "request": "launch",
       "preLaunchTask": "Run Flutter with Filtered Logs",
       "program": "lib/main.dart"
+    },
+    {
+      "name": "mezgebe_sbhat_android",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "args": ["-d", "android"],
+      "cwd": "${workspaceFolder}"
     }
   ]
 }

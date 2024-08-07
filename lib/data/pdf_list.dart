@@ -1,153 +1,153 @@
 import 'package:mezgebe_sbhat/models/pdf.dart';
 
 final Pdf kidaseMegbiyaPdf = Pdf(
-  name: 'kidaseMegbiyaPdf',
+  name: 'kidaseMegbiya',
   url:
       'https://www.ethiopianorthodox.org/amharic/yezemametsheft/14%20kidasewoch/01%20sereat%20kidasse.pdf',
 );
 final Pdf kdaseHawaryatPdf = Pdf(
-  name: 'kidaseHawaryatPdf',
+  name: 'kidaseHawaryat',
   url:
       'https://www.ethiopianorthodox.org/amharic/yezemametsheft/14%20kidasewoch/02%20zehawariyat.pdf',
 );
 final Pdf kdaseEgziPdf = Pdf(
-  name: 'kidaseEgziPdf',
+  name: 'kidaseEgzi',
   url:
       'https://www.ethiopianorthodox.org/amharic/yezemametsheft/14%20kidasewoch/03%20zeegezene.pdf',
 );
 
 final Pdf kdaseMaryamPdf = Pdf(
-    name: 'kdaseMaryamPdf',
+    name: 'kdaseMaryam',
     url:
         'https://www.ethiopianorthodox.org/amharic/yezemametsheft/14%20kidasewoch/04%20zeegezetene.pdf');
 final Pdf kdaseWeldeNegodguadPdf = Pdf(
-  name: 'kdaseWeldeNegodguadPdf',
+  name: 'kdaseWeldeNegodguad',
   url:
       'https://www.ethiopianorthodox.org/amharic/yezemametsheft/14%20kidasewoch/05%20yohannes%20weldenegodguade.pdf',
 );
 final Pdf kdaseSelestuMietPdf = Pdf(
-  name: 'kdaseSelestuMietPdf',
+  name: 'kdaseSelestuMiet',
   url:
       'https://www.ethiopianorthodox.org/amharic/yezemametsheft/14%20kidasewoch/06%20zeselesetumeate.pdf',
 );
 final Pdf kdaseAtnatewosPdf = Pdf(
-  name: 'kdaseAtnatewosPdf',
+  name: 'kdaseAtnatewos',
   url:
       'https://www.ethiopianorthodox.org/amharic/yezemametsheft/14%20kidasewoch/07%20athnatheous.pdf',
 );
 final Pdf kdaseBaslyosPdf = Pdf(
-  name: 'kdaseBaslyosPdf',
+  name: 'kdaseBaslyos',
   url:
       'https://www.ethiopianorthodox.org/amharic/yezemametsheft/14%20kidasewoch/08%20basilos.pdf',
 );
 final Pdf kdaseGorgoryosPdf = Pdf(
-  name: 'kdaseGorgoryosPdf',
+  name: 'kdaseGorgoryos',
   url:
       'https://www.ethiopianorthodox.org/amharic/yezemametsheft/14%20kidasewoch/09%20gregory.pdf',
 );
 final Pdf kdaseEpifanewosPdf = Pdf(
-  name: 'kdaseEpifanewosPdf',
+  name: 'kdaseEpifanewos',
   url:
       'https://www.ethiopianorthodox.org/amharic/yezemametsheft/14%20kidasewoch/10%20epiphaneous.pdf',
 );
 final Pdf kdaseYohansAfewerkPdf = Pdf(
-  name: 'kdaseYohansAfewerkPdf',
+  name: 'kdaseYohansAfewerk',
   url:
       'https://www.ethiopianorthodox.org/amharic/yezemametsheft/14%20kidasewoch/11%20yohannes%20afework.pdf',
 );
 final Pdf kdaseKerlosPdf = Pdf(
-  name: 'kdaseKerlosPdf',
+  name: 'kdaseKerlos',
   url:
       'https://www.ethiopianorthodox.org/amharic/yezemametsheft/14%20kidasewoch/12%20querilos.pdf',
 );
 final Pdf kdaseYaekobZeSrugPdf = Pdf(
-  name: 'kdaseYaekobZeSrugPdf',
+  name: 'kdaseYaekobZeSrug',
   url:
       'https://www.ethiopianorthodox.org/amharic/yezemametsheft/14%20kidasewoch/13%20yacoub%20zesergug.pdf',
 );
 final Pdf kdaseDiyoscorosPdf = Pdf(
-  name: 'kdaseDiyoskorosPdf',
+  name: 'kdaseDiyoskoros',
   url:
       'https://www.ethiopianorthodox.org/amharic/yezemametsheft/14%20kidasewoch/14%20dioscorous.pdf',
 );
 final Pdf kdaseGorgoryosKaliePdf = Pdf(
-  name: 'kdaseGorgoryosKaliePdf',
+  name: 'kdaseGorgoryosKalie',
   url:
       'https://www.ethiopianorthodox.org/amharic/yezemametsheft/14%20kidasewoch/15%20gregory%20calea.pdf',
 );
 
 final Pdf meskeremPdf = Pdf(
-  name: 'meskeremPdf',
+  name: 'meskerem',
   url:
       "https://www.ethiopianorthodox.org/amharic/holybooks/readings/meskeremgitaswe.pdf",
 );
 final Pdf tkmtPdf = Pdf(
-  name: 'tikmtPdf',
+  name: 'tikmt',
   url:
       "https://www.ethiopianorthodox.org/amharic/holybooks/readings/tikemetgitsawe.pdf",
 );
 final Pdf hdarPdf = Pdf(
-  name: 'hidarPdf',
+  name: 'hidar',
   url:
       "https://www.ethiopianorthodox.org/amharic/holybooks/readings/hidargitsawe.pdf",
 );
 final Pdf tahsasPdf = Pdf(
-  name: 'tahsasPdf',
+  name: 'tahsas',
   url:
       "https://www.ethiopianorthodox.org/amharic/holybooks/readings/tahesasgitsawe.pdf",
 );
 final Pdf tirPdf = Pdf(
-  name: 'tirPdf',
+  name: 'tir',
   url:
       "https://www.ethiopianorthodox.org/amharic/holybooks/readings/tirgitsawe.pdf",
 );
 final Pdf yekatitPdf = Pdf(
-  name: 'yekatitPdf',
+  name: 'yekatit',
   url:
       "https://www.ethiopianorthodox.org/amharic/holybooks/readings/yekatitgitsawe.pdf",
 );
 final Pdf megabitPdf = Pdf(
-  name: 'megabitPdf',
+  name: 'megabit',
   url:
       "https://www.ethiopianorthodox.org/amharic/holybooks/readings/megabitgitsawe.pdf",
 );
 final Pdf miyazyaPdf = Pdf(
-  name: 'miyazyaPdf',
+  name: 'miyazya',
   url:
       "https://www.ethiopianorthodox.org/amharic/holybooks/readings/miaziagitsawe.pdf",
 );
 final Pdf gnbotPdf = Pdf(
-  name: 'gnbotPdf',
+  name: 'gnbot',
   url:
       "https://www.ethiopianorthodox.org/amharic/holybooks/readings/ginbotgitsawe.pdf",
 );
 final Pdf senePdf = Pdf(
-  name: 'senePdf',
+  name: 'sene',
   url:
       "https://www.ethiopianorthodox.org/amharic/holybooks/readings/senegitsawe.pdf",
 );
 final Pdf hamlePdf = Pdf(
-  name: 'hamlePdf',
+  name: 'hamle',
   url:
       "https://www.ethiopianorthodox.org/amharic/holybooks/readings/hamelegitsawe.pdf",
 );
 final Pdf nehasePdf = Pdf(
-  name: 'nehasePdf',
+  name: 'nehase',
   url:
       "https://www.ethiopianorthodox.org/amharic/holybooks/readings/nehasegitsawe.pdf",
 );
 final Pdf puagmenPdf = Pdf(
-  name: 'puagmenPdf',
+  name: 'puagmen',
   url:
       "https://www.ethiopianorthodox.org/amharic/holybooks/readings/pagumengitsawe.pdf",
 );
 
 final Pdf kidanPdf = Pdf(
-    name: 'kidanPdf',
+    name: 'kidan',
     url:
         'https://www.ethiopianorthodox.org/amharic/yezemametsheft/14%20kidasewoch/kidan%20balemeliketu.pdf');
 
 final Pdf serawitAndMelkaQurbanPdf = Pdf(
-    name: 'serawitAndMelkaQurbanPdf',
+    name: 'serawitAndMelkaQurban',
     url:
         'https://www.kidanemihiret.org/wp-content/uploads/2016/05/SERAWIT-MEL-QURBAN.pdf');
