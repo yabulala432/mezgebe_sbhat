@@ -7,21 +7,34 @@ import 'package:mezgebe_sbhat/providers/theme_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
-class PdfCardContainer extends StatefulWidget {
-  const PdfCardContainer({super.key});
+class PdfCard extends StatefulWidget {
+  const PdfCard({super.key});
 
   @override
-  State<PdfCardContainer> createState() => _PdfCardContainerState();
+  State<PdfCard> createState() => _PdfCardState();
 }
 
-class _PdfCardContainerState extends State<PdfCardContainer> {
-  late Future<File?> _pdfDownloadFuture;
+class _PdfCardState extends State<PdfCard> {
+  Future<File?>? _pdfDownloadFuture;
+  bool _loadFailed = false;
 
   @override
   void initState() {
     super.initState();
+    _checkFileExists();
+  }
+
+  _checkFileExists() async {
     final pdfProvider = Provider.of<PdfUrlProvider>(context, listen: false);
-    _pdfDownloadFuture = pdfProvider.downloadPdf();
+    _pdfDownloadFuture = pdfProvider.checkFileExists();
+  }
+
+  void _downloadPdf() {
+    final pdfProvider = Provider.of<PdfUrlProvider>(context, listen: false);
+    setState(() {
+      _pdfDownloadFuture = pdfProvider.downloadPdf();
+      _loadFailed = false;
+    });
   }
 
   @override
@@ -32,27 +45,31 @@ class _PdfCardContainerState extends State<PdfCardContainer> {
 
     final screenHeight = MediaQuery.of(context).size.height;
 
-    return FutureBuilder<File?>(
-      future: _pdfDownloadFuture,
-      builder: (context, snapshot) {
-        return NeumorphicContainer(
-          border: Border.all(
-            color: themeProvider.primary,
-            width: 2.0,
-          ),
-          color: Colors.transparent,
-          child: Container(
-            constraints: BoxConstraints(
-              maxHeight: screenHeight * 0.59,
-            ),
-            width: double.infinity,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(38),
-              child: _buildContent(snapshot, pdfProvider, themeProvider),
-            ),
-          ),
-        );
-      },
+    return Column(
+      children: [
+        FutureBuilder<File?>(
+          future: _pdfDownloadFuture,
+          builder: (context, snapshot) {
+            return NeumorphicContainer(
+              border: Border.all(
+                color: themeProvider.primary,
+                width: 2.0,
+              ),
+              color: Colors.transparent,
+              child: Container(
+                constraints: BoxConstraints(
+                  maxHeight: screenHeight * 0.59,
+                ),
+                width: double.infinity,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(38),
+                  child: _buildContent(snapshot, pdfProvider, themeProvider),
+                ),
+              ),
+            );
+          },
+        ),
+      ],
     );
   }
 
@@ -77,21 +94,16 @@ class _PdfCardContainerState extends State<PdfCardContainer> {
           ],
         ),
       );
-    } else if (snapshot.hasError) {
+    } else if (snapshot.hasError || _loadFailed) {
       return Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const Text('Error loading PDF'),
           ElevatedButton(
             style: ButtonStyle(
-              backgroundColor:
-                  colorScheme.primary as WidgetStateProperty<Color>,
+              backgroundColor: WidgetStateProperty.all(colorScheme.primary),
             ),
-            onPressed: () {
-              setState(() {
-                _pdfDownloadFuture = pdfProvider.downloadPdf();
-              });
-            },
+            onPressed: _downloadPdf,
             child: Text(
               'Retry',
               style: TextStyle(
@@ -107,25 +119,47 @@ class _PdfCardContainerState extends State<PdfCardContainer> {
         controller: pdfProvider.pdfViewerController,
         onDocumentLoadFailed: (details) {
           ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text('Failed to load PDF: ${details.error}')));
+            SnackBar(
+              content: Text('Failed to load PDF: ${details.error}'),
+            ),
+          );
+          setState(() {
+            _loadFailed = true;
+          });
         },
+      );
+    } //else if the snapshot has no data
+    else if (snapshot.data == null) {
+      return Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const Text('No PDF Found.\nPlease download PDF'),
+          ElevatedButton(
+            style: ButtonStyle(
+              backgroundColor: WidgetStateProperty.all(colorScheme.primary),
+            ),
+            onPressed: _downloadPdf,
+            child: Text(
+              'Download PDF',
+              style: TextStyle(
+                color: colorScheme.onPrimary,
+              ),
+            ),
+          ),
+        ],
       );
     } else {
       return Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text('Error loading PDF'),
+          const Text('No PDF downloaded'),
           ElevatedButton(
             style: ButtonStyle(
               backgroundColor: WidgetStateProperty.all(colorScheme.primary),
             ),
-            onPressed: () {
-              setState(() {
-                _pdfDownloadFuture = pdfProvider.downloadPdf();
-              });
-            },
+            onPressed: _downloadPdf,
             child: Text(
-              'Retry',
+              'Download PDF',
               style: TextStyle(
                 color: colorScheme.onPrimary,
               ),
@@ -135,14 +169,4 @@ class _PdfCardContainerState extends State<PdfCardContainer> {
       );
     }
   }
-}
-
-double formatProgress(double value) {
-  // Ensure the value is between 0 and 1
-  double clampedValue = value.clamp(0.0, 1.0);
-
-  // Round to two decimal places
-  double roundedValue = double.parse(clampedValue.toStringAsFixed(2));
-
-  return roundedValue;
 }

@@ -60,7 +60,7 @@ class PlayerScreen extends StatelessWidget {
             children: [
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 14.0, vertical: 10.0),
-                child: PdfCardContainer(),
+                child: PdfCard(),
               ),
               Padding(
                 padding: const EdgeInsets.only(

@@ -16,9 +16,7 @@ class PdfUrlProvider extends ChangeNotifier {
   bool isDownloading = false;
   bool downloadFailed = false;
 
-  PdfUrlProvider({required this.filePdf}) {
-    print('url is ${filePdf.url} and file name is ${filePdf.name}');
-  }
+  PdfUrlProvider({required this.filePdf});
 
   double getDownloadProgress({required String fileId}) =>
       _pdfDownloadProgress[fileId] ?? 0.0;
@@ -35,6 +33,23 @@ class PdfUrlProvider extends ChangeNotifier {
   void clearDownloadProgress() {
     _pdfDownloadProgress.removeWhere((key, value) => value == 1.0);
     notifyListeners();
+  }
+
+  Future<File?> checkFileExists() async {
+    Directory supportDirectory = await getApplicationSupportDirectory();
+    String path = '${supportDirectory.path}/pdfs';
+
+    final directory = Directory(path);
+    if (!await directory.exists()) {
+      await directory.create(recursive: true);
+    }
+
+    String fileName = filePdf.name;
+    var file = File('${directory.path}/$fileName.pdf');
+    if (file.existsSync()) {
+      return file;
+    }
+    return null;
   }
 
   Future<File?> downloadPdf() async {
@@ -54,18 +69,14 @@ class PdfUrlProvider extends ChangeNotifier {
 
       var file = File('${directory.path}/$fileName.pdf');
       if (file.existsSync()) {
-        print('************ file exists *************');
-        print(file.path);
         isDownloading = false;
         downloadFailed = false;
         return file;
       }
 
-      print('************ recieving *************');
-
       try {
         final Dio dio = Dio();
-        dio.options.connectTimeout = const Duration(seconds: 5);
+        dio.options.connectTimeout = const Duration(seconds: 10);
         await retry(
           () => dio.download(
             url,
@@ -79,29 +90,27 @@ class PdfUrlProvider extends ChangeNotifier {
           ),
           maxAttempts: 5,
         );
-      } catch (e) {}
-/** 
-      await Dio().download(
-        url,
-        file.path,
-        options: Options(responseType: ResponseType.bytes),
-        onReceiveProgress: (received, total) {
-          if (total != -1) {
-            setDownloadProgress(fileName, received / total);
-          }
-        },
-      );
- */
+      } catch (e) {
+        // ignore: avoid_print
+        print(e);
+      }
+
       isDownloading = false;
       downloadFailed = false;
-      print(file);
       return file;
     } catch (e) {
-      print(e);
       downloadFailed = true;
       isDownloading = false;
     }
     return null;
+  }
+
+  Future<double> getFileSize() async {
+    final Dio dio = Dio();
+    final response = await dio.head(filePdf.url);
+    int totalFileSize = int.parse(response.headers.value('content-length')!);
+
+    return totalFileSize / (1024 * 1024).round();
   }
 
   setPageNumber(int value) {

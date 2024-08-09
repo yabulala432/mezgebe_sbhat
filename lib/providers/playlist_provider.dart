@@ -3,11 +3,13 @@ import 'dart:io';
 
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:mezgebe_sbhat/models/menu_list_parent.dart';
 
 import 'package:mezgebe_sbhat/services/file_service.dart';
 
 import 'package:path/path.dart' as path;
+// import 'package:flutter_audio_session/flutter_audio_session.dart';
 
 class PlayListProvider extends ChangeNotifier {
   bool _isDisposed = false;
@@ -40,7 +42,6 @@ class PlayListProvider extends ChangeNotifier {
   int _currentIndex = 0;
 
   // getters
-  // List<Song> get playList => playList;
   int get currentIndex => _currentIndex;
 
   Duration get currentDuration => _currentDuration;
@@ -66,6 +67,7 @@ class PlayListProvider extends ChangeNotifier {
   String get totalDurationString => formatDuration(_totalDuration);
 
   // setters
+
   final AudioPlayer _audioPlayer = AudioPlayer();
 
   Duration _currentDuration = Duration.zero;
@@ -115,7 +117,6 @@ class PlayListProvider extends ChangeNotifier {
       if (file != null) {
         await playFile(file);
       } else {
-        print('file is null');
         _isDownloading = true;
         notifyListeners();
         await downloadAndPlayAudio(
@@ -136,7 +137,6 @@ class PlayListProvider extends ChangeNotifier {
     try {
       if (await fileService.doesFileExist(
           fileName: fileName, folderName: playListParent.folderName)) {
-        print('file Exists bro !');
         return fileService.getFile(
             fileName: fileName, folderName: playListParent.folderName);
       } else {
@@ -193,8 +193,6 @@ class PlayListProvider extends ChangeNotifier {
       await _audioPlayer.play(DeviceFileSource(
           removeExtraExtensions(file.path, 'mp3'),
           mimeType: 'audio/mp3'));
-    } catch (e) {
-      print('error from playFile function: $e');
     } finally {
       _ongoingTask = Completer<void>();
       if (!_ongoingTask!.isCompleted) _ongoingTask!.complete();
@@ -210,7 +208,6 @@ class PlayListProvider extends ChangeNotifier {
     if (_isDisposed) return;
 
     if (isStopped) {
-      print('audio was stopped');
       return await play();
     }
     await _audioPlayer.resume();
