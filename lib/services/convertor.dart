@@ -12,8 +12,6 @@ Future<void> convertWmaToMp3Second() async {
   final wmaFile = File(wmaPath);
 
   if (!wmaFile.existsSync()) {
-    print(
-        '******************************File does not exist********************************');
     return;
   }
 
@@ -22,9 +20,9 @@ Future<void> convertWmaToMp3Second() async {
   // Execute the command to convert .wma to .mp3
   await flutterFFmpeg.execute('-i $wmaPath $mp3Path').then((returnCode) {
     if (returnCode == 0) {
-      print('Conversion successful');
+      // print('Conversion successful');
     } else {
-      print('Conversion failed with return code: $returnCode');
+      // print('Conversion failed with return code: $returnCode');
     }
   });
 
@@ -33,10 +31,10 @@ Future<void> convertWmaToMp3Second() async {
   final newPath =
       '${(await getApplicationDocumentsDirectory()).path}/wetebarek.mp3';
   await file.copy(newPath);
-  print('File saved to: $newPath');
+  // print('File saved to: $newPath');
 
   // Delete the original file
   await wmaFile.delete();
 
-  print('Original file deleted');
+  // print('Original file deleted');
 }

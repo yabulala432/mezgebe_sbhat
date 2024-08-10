@@ -52,7 +52,6 @@ class HomeScreen extends StatelessWidget {
                           reverseTransitionDuration: const Duration(seconds: 0),
                         ),
                       );
-                      print("Tapped on $index");
                     },
                   ),
                 );
