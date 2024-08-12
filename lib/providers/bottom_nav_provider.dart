@@ -9,7 +9,8 @@ import 'package:provider/provider.dart';
 
 class BottomNavApp extends StatelessWidget {
   final PlayListParent menuClass;
-  const BottomNavApp({super.key, required this.menuClass});
+  final String title;
+  const BottomNavApp({super.key, required this.menuClass, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +29,7 @@ class BottomNavApp extends StatelessWidget {
           create: (_) => PdfUrlProvider(filePdf: menuClass.pdf),
         ),
       ],
-      child: const BottomNavigator(),
+      child: BottomNavigator(title: title),
     );
   }
 }

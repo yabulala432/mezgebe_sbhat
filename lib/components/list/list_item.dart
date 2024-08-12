@@ -29,6 +29,8 @@ class _ListItemState extends State<ListItem> {
   bool isDownloading = false;
   @override
   Widget build(BuildContext context) {
+    final ColorScheme themeProvider =
+        Provider.of<ThemeProvider>(context).themeData.colorScheme;
     Future<bool> deleteFile(String title) async {
       return Provider.of<FileService>(context, listen: false).deleteFile(
         fileName: '${widget.title.replaceAll(' ', '_')}.mp3',
@@ -50,25 +52,16 @@ class _ListItemState extends State<ListItem> {
               onPressed: (context) => showDialog(
                 context: context,
                 builder: (context) => AlertDialog(
-                  backgroundColor: Provider.of<ThemeProvider>(context)
-                      .themeData
-                      .colorScheme
-                      .surface,
+                  backgroundColor: themeProvider.surface,
                   title: Text(
                     style: TextStyle(
-                      color: Provider.of<ThemeProvider>(context)
-                          .themeData
-                          .colorScheme
-                          .onPrimary,
+                      color: themeProvider.onPrimary,
                     ),
                     'መሰረዝን ያረጋግጡ',
                   ),
                   content: Text(
                     style: TextStyle(
-                      color: Provider.of<ThemeProvider>(context)
-                          .themeData
-                          .colorScheme
-                          .onPrimary,
+                      color: themeProvider.onPrimary,
                     ),
                     'እርግጠኛ ኖት "${widget.title}"ን መሰረዝ ይፈልጋሉ"?',
                   ),
@@ -77,10 +70,7 @@ class _ListItemState extends State<ListItem> {
                       onPressed: () => popDialogue(),
                       child: Text(
                         style: TextStyle(
-                          color: Provider.of<ThemeProvider>(context)
-                              .themeData
-                              .colorScheme
-                              .onPrimary,
+                          color: themeProvider.onPrimary,
                         ),
                         'Cancel',
                       ),
@@ -88,6 +78,7 @@ class _ListItemState extends State<ListItem> {
                     TextButton(
                       onPressed: () async {
                         final response = await deleteFile(widget.title);
+                        if (!mounted) return;
                         if (response) {
                           setState(() {
                             fileExists = false;
@@ -97,10 +88,7 @@ class _ListItemState extends State<ListItem> {
                       },
                       child: Text(
                           style: TextStyle(
-                            color: Provider.of<ThemeProvider>(context)
-                                .themeData
-                                .colorScheme
-                                .primary,
+                            color: themeProvider.primary,
                           ),
                           'Delete'),
                     ),
@@ -108,14 +96,8 @@ class _ListItemState extends State<ListItem> {
                 ),
               ),
               label: 'አጥፋ',
-              backgroundColor: Provider.of<ThemeProvider>(context)
-                  .themeData
-                  .colorScheme
-                  .error,
-              foregroundColor: Provider.of<ThemeProvider>(context)
-                  .themeData
-                  .colorScheme
-                  .onPrimary,
+              backgroundColor: themeProvider.error,
+              foregroundColor: themeProvider.onPrimary,
               icon: Icons.delete,
             )
           ],
@@ -146,10 +128,7 @@ class _ListItemState extends State<ListItem> {
                       Text(
                         widget.title,
                         style: TextStyle(
-                          color: Provider.of<ThemeProvider>(context)
-                              .themeData
-                              .colorScheme
-                              .primary,
+                          color: themeProvider.primary,
                           fontSize: 23.0,
                           fontWeight: FontWeight.bold,
                         ),
@@ -164,10 +143,7 @@ class _ListItemState extends State<ListItem> {
                           return CircularProgressIndicator(
                             value: fileService.getDownloadProgress(
                                 fileId: widget.url),
-                            color: Provider.of<ThemeProvider>(context)
-                                .themeData
-                                .colorScheme
-                                .primary,
+                            color: themeProvider.primary,
                             backgroundColor: Colors.white,
                           );
                         })
@@ -175,20 +151,14 @@ class _ListItemState extends State<ListItem> {
                           ? Icon(
                               const FaIcon(FontAwesomeIcons.play).icon,
                               size: 40,
-                              color: Provider.of<ThemeProvider>(context)
-                                  .themeData
-                                  .colorScheme
-                                  .primary,
+                              color: themeProvider.primary,
                             )
                           : Icon(
                               const FaIcon(
                                 FontAwesomeIcons.download,
                               ).icon,
                               size: 35,
-                              color: Provider.of<ThemeProvider>(context)
-                                  .themeData
-                                  .colorScheme
-                                  .primary,
+                              color: themeProvider.primary,
                             ),
                 ),
               ],

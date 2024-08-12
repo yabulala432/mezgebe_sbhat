@@ -10,6 +10,8 @@ class AboutApp extends StatelessWidget {
 // sbhat =  hameru ha = ሐመሩ
   @override
   Widget build(BuildContext context) {
+    final ColorScheme themeProvider =
+        Provider.of<ThemeProvider>(context).themeData.colorScheme;
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -17,24 +19,18 @@ class AboutApp extends StatelessWidget {
           style: TextStyle(
             fontSize: 25,
             fontWeight: FontWeight.bold,
-            color: Provider.of<ThemeProvider>(context)
-                .themeData
-                .colorScheme
-                .primary,
+            color: themeProvider.primary,
           ),
         ),
         centerTitle: true,
-        backgroundColor:
-            Provider.of<ThemeProvider>(context).themeData.colorScheme.surface,
+        backgroundColor: themeProvider.surface,
         elevation: 0.0,
         iconTheme: IconThemeData(
-          color:
-              Provider.of<ThemeProvider>(context).themeData.colorScheme.primary,
+          color: themeProvider.primary,
         ),
       ),
       body: Material(
-        color:
-            Provider.of<ThemeProvider>(context).themeData.colorScheme.surface,
+        color: themeProvider.surface,
         child: Padding(
           padding: const EdgeInsets.only(bottom: 10.0),
           child: ListView(
@@ -53,24 +49,18 @@ class AboutApp extends StatelessWidget {
                     Icon(
                       FaIcon(FontAwesomeIcons.church).icon,
                       size: 50,
-                      color: Provider.of<ThemeProvider>(context)
-                          .themeData
-                          .colorScheme
-                          .primary,
+                      color: themeProvider.primary,
                     ),
                     SizedBox(width: 30),
                     Flexible(
                       child: Text(
-                        'በአዲስ አበባ ሳይንስና ቴክኖሎጂ ዩኒቨርሲቲ የ5ኛ ዓመት የሶፍትዌር ምህንድስና ተማሪ እና የሶፍትዌር መሀንዲስ',
+                        'ይህ አፕሊኬሽን የተዘጋጀው የኢትዮጵያ ኦርቶዶክስ ተዋሕዶ ቤተ ክርስቲያንን ዜማ ለመማር ለሚፈልጉ ተማሪዎች ነው። በውስጡ ሦስት ዓይነት ዜማዎች አሉት። \n፩. ቅዳሴ   ፪. ምስባክ   ፫. ኪዳን',
                         softWrap: true,
                         textAlign: TextAlign.justify,
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
-                          color: Provider.of<ThemeProvider>(context)
-                              .themeData
-                              .colorScheme
-                              .primary,
+                          color: themeProvider.primary,
                         ),
                       ),
                     ),
@@ -81,10 +71,7 @@ class AboutApp extends StatelessWidget {
               Divider(
                 thickness: 3.0,
                 height: 20.0,
-                color: Provider.of<ThemeProvider>(context)
-                    .themeData
-                    .colorScheme
-                    .primary,
+                color: themeProvider.primary,
                 indent: 40.0,
                 endIndent: 40.0,
               ),
@@ -101,10 +88,7 @@ class AboutApp extends StatelessWidget {
                         Icon(
                           FaIcon(FontAwesomeIcons.cross).icon,
                           size: 35,
-                          color: Provider.of<ThemeProvider>(context)
-                              .themeData
-                              .colorScheme
-                              .primary,
+                          color: themeProvider.primary,
                         ),
                         SizedBox(width: 30),
                         Flexible(
@@ -114,10 +98,7 @@ class AboutApp extends StatelessWidget {
                             style: TextStyle(
                               fontSize: 25,
                               fontWeight: FontWeight.bold,
-                              color: Provider.of<ThemeProvider>(context)
-                                  .themeData
-                                  .colorScheme
-                                  .primary,
+                              color: themeProvider.primary,
                             ),
                           ),
                         ),
@@ -125,23 +106,17 @@ class AboutApp extends StatelessWidget {
                         Icon(
                           FaIcon(FontAwesomeIcons.cross).icon,
                           size: 35,
-                          color: Provider.of<ThemeProvider>(context)
-                              .themeData
-                              .colorScheme
-                              .primary,
+                          color: themeProvider.primary,
                         ),
                       ],
                     ),
                     SizedBox(height: 30),
                     Text(
-                      "እግዚአብሔር",
+                      "ለእግዚአብሔር",
                       style: TextStyle(
                         fontSize: 23,
                         fontWeight: FontWeight.bold,
-                        color: Provider.of<ThemeProvider>(context)
-                            .themeData
-                            .colorScheme
-                            .primary,
+                        color: themeProvider.primary,
                       ),
                     )
                   ],
@@ -151,10 +126,7 @@ class AboutApp extends StatelessWidget {
               Divider(
                 thickness: 3.0,
                 height: 20.0,
-                color: Provider.of<ThemeProvider>(context)
-                    .themeData
-                    .colorScheme
-                    .primary,
+                color: themeProvider.primary,
                 indent: 40.0,
                 endIndent: 40.0,
               ),
@@ -167,10 +139,7 @@ class AboutApp extends StatelessWidget {
                       Icon(
                         FaIcon(FontAwesomeIcons.solidBookmark).icon,
                         size: 35,
-                        color: Provider.of<ThemeProvider>(context)
-                            .themeData
-                            .colorScheme
-                            .primary,
+                        color: themeProvider.primary,
                       ),
                       SizedBox(width: 30),
                       Flexible(
@@ -179,10 +148,7 @@ class AboutApp extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 25,
                             fontWeight: FontWeight.bold,
-                            color: Provider.of<ThemeProvider>(context)
-                                .themeData
-                                .colorScheme
-                                .primary,
+                            color: themeProvider.primary,
                           ),
                         ),
                       ),
@@ -190,23 +156,22 @@ class AboutApp extends StatelessWidget {
                       Icon(
                         FaIcon(FontAwesomeIcons.solidBookmark).icon,
                         size: 35,
-                        color: Provider.of<ThemeProvider>(context)
-                            .themeData
-                            .colorScheme
-                            .primary,
+                        color: themeProvider.primary,
                       ),
                     ],
                   ),
                   SizedBox(height: 30),
-                  Text(
-                    "እግዚአብሔር",
-                    style: TextStyle(
-                      fontSize: 23,
-                      fontWeight: FontWeight.bold,
-                      color: Provider.of<ThemeProvider>(context)
-                          .themeData
-                          .colorScheme
-                          .primary,
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    child: Text(
+                      "ለኢትዮጵያ ኦርቶዶክስ ተዋሕዶ ቤተ ክርስቲያን አገልጋይ ካህናት በሙሉ ::",
+                      // ye yu yi ya ye y yo = የዩአይያየዮ
+                      style: TextStyle(
+                        fontSize: 23,
+                        fontWeight: FontWeight.bold,
+                        color: themeProvider.primary,
+                      ),
+                      textAlign: TextAlign.center,
                     ),
                   )
                 ],

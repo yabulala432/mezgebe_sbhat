@@ -1,14 +1,19 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: use_build_context_synchronously
 
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mezgebe_sbhat/providers/theme_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AppTile extends StatelessWidget {
   final AssetImage image;
   final String name;
   final String title;
   final String description;
+  final String telegramHandle;
+  final String website;
+  final String email;
 
   const AppTile({
     super.key,
@@ -16,19 +21,23 @@ class AppTile extends StatelessWidget {
     required this.name,
     required this.title,
     required this.description,
+    required this.telegramHandle,
+    required this.website,
+    required this.email,
   });
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider =
+        Provider.of<ThemeProvider>(context).themeData.colorScheme;
     return Container(
-      constraints: BoxConstraints(
-        minHeight: 120,
-        maxHeight: 150,
+      constraints: const BoxConstraints(
+        minHeight: 90,
+        maxHeight: 110,
         maxWidth: 500,
       ),
       decoration: BoxDecoration(
-        color:
-            Provider.of<ThemeProvider>(context).themeData.colorScheme.primary,
+        color: themeProvider.primary,
         borderRadius: BorderRadius.circular(10),
       ),
       clipBehavior: Clip.hardEdge,
@@ -37,8 +46,9 @@ class AppTile extends StatelessWidget {
         children: [
           Image(
             image: image,
-            height: double.infinity,
-            fit: BoxFit.contain,
+            width: 100,
+            height: 110,
+            fit: BoxFit.fitHeight,
           ),
           Expanded(
             child: Column(
@@ -61,7 +71,7 @@ class AppTile extends StatelessWidget {
                 Text(
                   title,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.white,
                     overflow: TextOverflow.ellipsis,
                     fontSize: 13,
@@ -71,7 +81,7 @@ class AppTile extends StatelessWidget {
                   child: Text(
                     description,
                     textAlign: TextAlign.center,
-                    style: TextStyle(color: Colors.white, fontSize: 14),
+                    style: const TextStyle(color: Colors.white, fontSize: 14),
                   ),
                 ),
               ],
@@ -80,85 +90,71 @@ class AppTile extends StatelessWidget {
           Flexible(
             child: Wrap(
               alignment: WrapAlignment.center,
-              spacing: 8.0,
-              runSpacing: 4.0,
+              spacing: 0.0,
+              runSpacing: 2.0,
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(3.0),
-                  child: DecoratedBox(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5),
-                      border: Border.all(
-                        color: Provider.of<ThemeProvider>(context)
-                            .themeData
-                            .colorScheme
-                            .surface,
-                        width: 1.0,
-                      ),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(3.0),
-                      child: Icon(
-                        Icons.telegram,
-                        size: 30.0,
-                        color: Provider.of<ThemeProvider>(context)
-                            .themeData
-                            .colorScheme
-                            .surface,
-                      ),
-                    ),
+                IconButton(
+                  onPressed: () async {
+                    try {
+                      await _launchUrl(
+                        Uri.parse('tg://resolve?domain=$telegramHandle'),
+                        Uri.parse('https://t.me/$telegramHandle'),
+                      );
+                    } catch (e) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text('አልተሳካምም'),
+                        ),
+                      );
+                    }
+                  },
+                  icon: Icon(
+                    FontAwesomeIcons.telegram,
+                    size: 30.0,
+                    color: themeProvider.surface,
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(3.0),
-                  child: DecoratedBox(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5),
-                      border: Border.all(
-                        color: Provider.of<ThemeProvider>(context)
-                            .themeData
-                            .colorScheme
-                            .surface,
-                        width: 1.0,
-                      ),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(3.0),
-                      child: Icon(
-                        Icons.laptop,
-                        size: 30.0,
-                        color: Provider.of<ThemeProvider>(context)
-                            .themeData
-                            .colorScheme
-                            .surface,
-                      ),
-                    ),
+                IconButton(
+                  onPressed: () async {
+                    try {
+                      await _launchUrl(
+                        // uri for email
+                        Uri.parse('mailto:$email'),
+                        Uri.parse('mailto:$email'),
+                      );
+                    } catch (e) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text('አልተሳካምም'),
+                        ),
+                      );
+                    }
+                  },
+                  icon: Icon(
+                    FontAwesomeIcons.envelope,
+                    size: 30.0,
+                    color: themeProvider.surface,
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(3.0),
-                  child: DecoratedBox(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
-                      border: Border.all(
-                        color: Provider.of<ThemeProvider>(context)
-                            .themeData
-                            .colorScheme
-                            .surface,
-                        width: 1.0,
-                      ),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(3.0),
-                      child: Icon(
-                        Icons.web,
-                        size: 30.0,
-                        color: Provider.of<ThemeProvider>(context)
-                            .themeData
-                            .colorScheme
-                            .surface,
-                      ),
-                    ),
+                IconButton(
+                  onPressed: () async {
+                    try {
+                      await _launchUrl(
+                        Uri.parse(website),
+                        Uri.parse(website),
+                      );
+                    } catch (e) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text('አልተሳካምም'),
+                        ),
+                      );
+                    }
+                  },
+                  icon: Icon(
+                    FontAwesomeIcons.globe,
+                    size: 30.0,
+                    color: themeProvider.surface,
                   ),
                 ),
               ],
@@ -167,5 +163,15 @@ class AppTile extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  Future<void> _launchUrl(Uri url, Uri fallbackUrl) async {
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url);
+    } else if (await canLaunchUrl(fallbackUrl)) {
+      await launchUrl(fallbackUrl);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }

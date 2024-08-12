@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mezgebe_sbhat/components/player/neumorphic_container.dart';
 import 'package:mezgebe_sbhat/providers/pdf_url_provider.dart';
 import 'package:mezgebe_sbhat/providers/theme_provider.dart';
@@ -17,24 +18,41 @@ class PdfCard extends StatefulWidget {
 class _PdfCardState extends State<PdfCard> {
   Future<File?>? _pdfDownloadFuture;
   bool _loadFailed = false;
+  double fileSize = 0.0;
 
   @override
   void initState() {
     super.initState();
     _checkFileExists();
+    _getFileSize().then((onValue) {
+      if (!mounted) return;
+      setState(() {
+        fileSize = onValue.ceilToDouble();
+      });
+    });
   }
 
   _checkFileExists() async {
     final pdfProvider = Provider.of<PdfUrlProvider>(context, listen: false);
     _pdfDownloadFuture = pdfProvider.checkFileExists();
+
+    if (_pdfDownloadFuture == null) {
+      return false;
+    }
   }
 
   void _downloadPdf() {
     final pdfProvider = Provider.of<PdfUrlProvider>(context, listen: false);
+    if (!mounted) return;
     setState(() {
       _pdfDownloadFuture = pdfProvider.downloadPdf();
       _loadFailed = false;
     });
+  }
+
+  Future<double> _getFileSize() async {
+    final pdfProvider = Provider.of<PdfUrlProvider>(context, listen: false);
+    return await pdfProvider.getFileSize();
   }
 
   @override
@@ -123,6 +141,7 @@ class _PdfCardState extends State<PdfCard> {
               content: Text('Failed to load PDF: ${details.error}'),
             ),
           );
+          if (!mounted) return;
           setState(() {
             _loadFailed = true;
           });
@@ -133,16 +152,29 @@ class _PdfCardState extends State<PdfCard> {
       return Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text('No PDF Found.\nPlease download PDF'),
+          Text(
+              'No PDF Found.\nPlease download PDF\nPdf File Size: $fileSize MB'),
           ElevatedButton(
             style: ButtonStyle(
               backgroundColor: WidgetStateProperty.all(colorScheme.primary),
             ),
             onPressed: _downloadPdf,
-            child: Text(
-              'Download PDF',
-              style: TextStyle(
-                color: colorScheme.onPrimary,
+            child: SizedBox(
+              width: 150,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Text(
+                    'Download PDF',
+                    style: TextStyle(
+                      color: colorScheme.onPrimary,
+                    ),
+                  ),
+                  const Icon(
+                    FontAwesomeIcons.download,
+                    color: Colors.white,
+                  ),
+                ],
               ),
             ),
           ),

@@ -106,11 +106,15 @@ class PdfUrlProvider extends ChangeNotifier {
   }
 
   Future<double> getFileSize() async {
-    final Dio dio = Dio();
-    final response = await dio.head(filePdf.url);
-    int totalFileSize = int.parse(response.headers.value('content-length')!);
+    try {
+      final Dio dio = Dio();
+      final response = await dio.head(filePdf.url);
+      int totalFileSize = int.parse(response.headers.value('content-length')!);
 
-    return totalFileSize / (1024 * 1024).round();
+      return totalFileSize / (1024 * 1024).round();
+    } catch (e) {
+      return 0.0;
+    }
   }
 
   setPageNumber(int value) {

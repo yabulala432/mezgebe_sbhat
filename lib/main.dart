@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:mezgebe_sbhat/providers/theme_provider.dart';
 import 'package:mezgebe_sbhat/screens/drawer_navigator.dart';
 import 'package:mezgebe_sbhat/services/file_service.dart';
-// import 'package:path/path.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider(

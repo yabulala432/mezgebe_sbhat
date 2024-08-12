@@ -4,6 +4,7 @@ import 'package:mezgebe_sbhat/components/home/touchable_item.dart';
 import 'package:mezgebe_sbhat/menus/kdase_menu.dart';
 import 'package:mezgebe_sbhat/menus/kidan_menu.dart';
 import 'package:mezgebe_sbhat/menus/msbak_menu.dart';
+import 'package:mezgebe_sbhat/menus/seatat_menu.dart';
 import 'package:mezgebe_sbhat/models/menu.dart';
 import 'package:mezgebe_sbhat/providers/bottom_nav_provider.dart';
 import 'package:mezgebe_sbhat/providers/theme_provider.dart';
@@ -13,12 +14,14 @@ List<Tab> tabs = const [
   Tab(text: 'ሥርዓተ ቅዳሴ'),
   Tab(text: 'ምስባክ'),
   Tab(text: 'ኪዳን'),
+  Tab(text: 'ሰዓታት')
 ];
 
 List<List<Menu>> menus = [
   kdaseMenu,
   msbakMenu,
   kidanMenu,
+  seatatMenu,
 ];
 
 class HomeScreen extends StatelessWidget {
@@ -47,6 +50,7 @@ class HomeScreen extends StatelessWidget {
                           pageBuilder: (context, animation1, animation2) =>
                               BottomNavApp(
                             menuClass: items[index].playList,
+                            title: items[index].title,
                           ),
                           transitionDuration: const Duration(seconds: 0),
                           reverseTransitionDuration: const Duration(seconds: 0),
@@ -68,7 +72,7 @@ class HomeScreen extends StatelessWidget {
     final theme = Provider.of<ThemeProvider>(context).themeData.colorScheme;
 
     return DefaultTabController(
-      length: 3,
+      length: 4,
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: theme.surface,
@@ -95,8 +99,12 @@ class HomeScreen extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
             indicatorColor: theme.primary,
+            indicatorSize: TabBarIndicatorSize.label,
             tabs: tabs,
-            isScrollable: false,
+            isScrollable: true,
+            tabAlignment: TabAlignment.start,
+            // take the full width of the screen
+            labelPadding: const EdgeInsets.symmetric(horizontal: 24),
           ),
         ),
         body: BackgroundColor(

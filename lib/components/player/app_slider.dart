@@ -3,23 +3,16 @@ import 'package:mezgebe_sbhat/providers/playlist_provider.dart';
 import 'package:mezgebe_sbhat/providers/theme_provider.dart';
 import 'package:provider/provider.dart';
 
-class AppSlider extends StatefulWidget {
-  // final double max;
-  // final double value;
-  // final int divisions;
-  // final Function onChangeEnd;
-  // final Function onChanged;
-  // final Function onChangeStart;
+// class AppSlider extends StatefulWidget {
+
+//   @override
+//   State<AppSlider> createState() => _AppSliderState();
+// }
+
+class AppSlider extends StatelessWidget {
   const AppSlider({
     super.key,
   });
-
-  @override
-  State<AppSlider> createState() => _AppSliderState();
-}
-
-class _AppSliderState extends State<AppSlider> {
-  // double _currentSliderValue = 0;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -34,30 +27,6 @@ class _AppSliderState extends State<AppSlider> {
           showValueIndicator: ShowValueIndicator.never,
         ),
         child: Slider(
-          // value: widget.value,
-          // min: 0,
-          // max: widget.max,
-          // divisions: widget.divisions,
-          // label: _currentSliderValue.round().toString(),
-          // onChangeStart: (value) {
-          //   widget.onChangeStart();
-          //   // setState(() {
-          //   //   _currentSliderValue = value;
-          //   // });
-          // },
-          // onChanged: (double value) {
-          //   widget.onChanged(value);
-          //   // setState(() {
-          //   //   _currentSliderValue = value;
-          //   // });
-          // },
-          // onChangeEnd: (value) {
-          //   widget.onChangeEnd(value);
-          //   // setState(() {
-          //   //   _currentSliderValue = value;
-          //   // });
-          // },
-
           onChangeStart: (value) {
             try {
               Provider.of<PlayListProvider>(context, listen: false).pause();

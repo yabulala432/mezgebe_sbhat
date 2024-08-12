@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mezgebe_sbhat/providers/theme_provider.dart';
 import 'package:mezgebe_sbhat/screens/bottom_nav_state.dart';
 import 'package:mezgebe_sbhat/screens/list_screen.dart';
@@ -6,18 +7,24 @@ import 'package:mezgebe_sbhat/screens/player_screen.dart';
 import 'package:provider/provider.dart';
 
 class BottomNavigator extends StatefulWidget {
-  const BottomNavigator({super.key});
+  final String title;
+  const BottomNavigator({super.key, required this.title});
 
   @override
   State<BottomNavigator> createState() => _BottomNavigatorState();
 }
 
 class _BottomNavigatorState extends State<BottomNavigator> {
-  final List<Widget> _screens = [const ListScreen(), const PlayerScreen()];
+  final List<Widget> _screens = [
+    const ListScreen(),
+    const PlayerScreen(),
+  ];
 
   @override
   Widget build(BuildContext context) {
     final BottomNavState bottomNavState = Provider.of<BottomNavState>(context);
+    final ColorScheme themeProvider =
+        Provider.of<ThemeProvider>(context).themeData.colorScheme;
 
     return Scaffold(
       body: IndexedStack(
@@ -28,11 +35,7 @@ class _BottomNavigatorState extends State<BottomNavigator> {
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
-              color: Provider.of<ThemeProvider>(context)
-                  .themeData
-                  .colorScheme
-                  .onPrimary
-                  .withOpacity(0.5),
+              color: themeProvider.primary.withOpacity(0.5),
               blurRadius: 10.0,
             ),
           ],
@@ -42,27 +45,22 @@ class _BottomNavigatorState extends State<BottomNavigator> {
           onTap: (int index) {
             bottomNavState.currentIndex = index;
           },
-          backgroundColor:
-              Provider.of<ThemeProvider>(context).themeData.colorScheme.surface,
-          fixedColor:
-              Provider.of<ThemeProvider>(context).themeData.colorScheme.primary,
-          unselectedItemColor: Provider.of<ThemeProvider>(context)
-              .themeData
-              .colorScheme
-              .onPrimary,
-          items: const [
-            BottomNavigationBarItem(icon: Icon(Icons.church), label: 'Home'),
+          backgroundColor: themeProvider.primary,
+          // fixedColor: themeProvider.surface,
+          unselectedItemColor: themeProvider.surface,
+          selectedItemColor: themeProvider.onPrimary,
+          items: [
             BottomNavigationBarItem(
-                icon: Icon(Icons.library_music_outlined), label: 'Player'),
+              icon: const FaIcon(FontAwesomeIcons.church),
+              label: widget.title,
+            ),
+            const BottomNavigationBarItem(
+              icon: FaIcon(FontAwesomeIcons.play),
+              label: 'ዜማ',
+            ),
           ],
         ),
       ),
     );
   }
-
-  // @override
-  // void dispose() {
-  //   super.dispose();
-  //   // Provider.of<PlayListProvider>(context, listen: false).dispose();
-  // }
 }

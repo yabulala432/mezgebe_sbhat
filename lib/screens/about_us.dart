@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:mezgebe_sbhat/components/about/app_tile.dart';
 import 'package:mezgebe_sbhat/components/home/background_color.dart';
@@ -14,18 +15,17 @@ class AboutUs extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ColorScheme themeProvider =
+        Provider.of<ThemeProvider>(context).themeData.colorScheme;
     return BackgroundColor(
-      color: Provider.of<ThemeProvider>(context).themeData.colorScheme.surface,
+      color: themeProvider.surface,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 15.0),
         child: ListView(
           children: [
             Container(
               decoration: BoxDecoration(
-                color: Provider.of<ThemeProvider>(context)
-                    .themeData
-                    .colorScheme
-                    .primary,
+                color: themeProvider.primary,
                 borderRadius: BorderRadius.circular(10),
               ),
               height: 250,
@@ -46,26 +46,20 @@ class AboutUs extends StatelessWidget {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Text(
-                              "Mezgebe Sbhat",
+                              "መዝገበ ስብሐት",
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontSize: 23,
                                 fontWeight: FontWeight.bold,
-                                color: Provider.of<ThemeProvider>(context)
-                                    .themeData
-                                    .colorScheme
-                                    .inversePrimary,
+                                color: themeProvider.inversePrimary,
                               ),
                             ),
                             Text(
-                              "Version 1.0.0 \nInspired by Qale Sbhat",
+                              "Version 1.0.0 \nInspired by ቃለ ስብሐት",
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontSize: 16,
-                                color: Provider.of<ThemeProvider>(context)
-                                    .themeData
-                                    .colorScheme
-                                    .inversePrimary,
+                                color: themeProvider.inversePrimary,
                               ),
                             ),
                           ],
@@ -84,10 +78,7 @@ class AboutUs extends StatelessWidget {
               child: Text(
                 'Collaborators',
                 style: TextStyle(
-                  color: Provider.of<ThemeProvider>(context)
-                      .themeData
-                      .colorScheme
-                      .primary,
+                  color: themeProvider.primary,
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),
@@ -95,36 +86,48 @@ class AboutUs extends StatelessWidget {
             ),
             AppTile(
               image: AssetImage('assets/images/yeabsira.jpg'),
-              name: 'Yeabsira Yonas',
+              name: 'የአብሥራ ዮናስ',
               title: 'Software Engineer',
               description: 'App Developer and Maintainer',
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            AppTile(
-              image: AssetImage('assets/images/solomonImage.jpeg'),
-              name: "Solomon Belay",
-              title: "Software Engineer",
-              description: "Logo Designer",
+              telegramHandle: 'fkureyohanns',
+              website: 'https://portfolio-yeabsra.vercel.app/',
+              email: 'yabulala432@gmail.com',
             ),
             SizedBox(
               height: 15,
             ),
             AppTile(
               image: AssetImage('assets/images/yihunImage.jpg'),
-              name: "Yihun Shekuri (D/N)",
+              name: "ዲ/ን ይሁን ሽኩሪ",
               title: "Software Engineer",
-              description: "App Name and Modification Ideas",
+              description: "App Name and Developer",
+              telegramHandle: 'sholet1234',
+              website: '',
+              email: '',
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            AppTile(
+              image: AssetImage('assets/images/solomonImage.jpeg'),
+              name: "ሶሎሞን በላይ",
+              title: "Software Engineer",
+              description: "Logo Designer",
+              telegramHandle: 'Solo_mo_on',
+              website: '',
+              email: '',
             ),
             SizedBox(
               height: 15,
             ),
             AppTile(
               image: AssetImage('assets/images/tempYihune.jpeg'),
-              name: "Yihune Zewdie (D/N)",
+              name: "ይሁኔ ዘውዴ",
               title: "Software Engineer",
-              description: "Some Modification Ideas",
+              description: "Modification Ideas",
+              telegramHandle: 'Atie_Mb21',
+              website: '',
+              email: '',
             ),
             SizedBox(
               height: 15,
@@ -146,16 +149,10 @@ class AboutUs extends StatelessWidget {
                     textStyle: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: Provider.of<ThemeProvider>(context)
-                          .themeData
-                          .colorScheme
-                          .surface,
+                      color: themeProvider.surface,
                     ),
                     shape: GFButtonShape.pills,
-                    color: Provider.of<ThemeProvider>(context)
-                        .themeData
-                        .colorScheme
-                        .primary,
+                    color: themeProvider.primary,
                     size: 60,
                   ),
                   SizedBox(
@@ -171,17 +168,11 @@ class AboutUs extends StatelessWidget {
                     },
                     text: "About the Developer",
                     shape: GFButtonShape.pills,
-                    color: Provider.of<ThemeProvider>(context)
-                        .themeData
-                        .colorScheme
-                        .primary,
+                    color: themeProvider.primary,
                     textStyle: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: Provider.of<ThemeProvider>(context)
-                          .themeData
-                          .colorScheme
-                          .surface,
+                      color: themeProvider.surface,
                     ),
                     size: 60,
                   ),
