@@ -15,11 +15,9 @@ class PlayerScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('state updating bro !');
     return PopScope(
       canPop: false,
       onPopInvoked: (didPop) {
-        print('pop Invoked');
         Provider.of<BottomNavState>(context, listen: false).navigateToScreen1();
       },
       child: Scaffold(
