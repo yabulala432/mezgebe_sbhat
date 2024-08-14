@@ -76,7 +76,7 @@ class _PdfCardState extends State<PdfCard> {
               color: Colors.transparent,
               child: Container(
                 constraints: BoxConstraints(
-                  maxHeight: screenHeight * 0.59,
+                  maxHeight: screenHeight * 0.55,
                 ),
                 width: double.infinity,
                 child: ClipRRect(

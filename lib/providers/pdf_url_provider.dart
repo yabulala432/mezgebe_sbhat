@@ -91,8 +91,11 @@ class PdfUrlProvider extends ChangeNotifier {
           maxAttempts: 5,
         );
       } catch (e) {
-        // ignore: avoid_print
-        print(e);
+        var file = File('${directory.path}/$fileName.pdf');
+        if (file.existsSync()) {
+          // delete the file if download failed
+          file.deleteSync();
+        }
       }
 
       isDownloading = false;

@@ -15,10 +15,13 @@ class PlayerScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ColorScheme themeProvider =
+        Provider.of<ThemeProvider>(context).themeData.colorScheme;
+    final bottomNavState = Provider.of<BottomNavState>(context, listen: false);
     return PopScope(
       canPop: false,
-      onPopInvoked: (didPop) {
-        Provider.of<BottomNavState>(context, listen: false).navigateToScreen1();
+      onPopInvokedWithResult: (didPop, result) {
+        bottomNavState.navigateToScreen1();
       },
       child: Scaffold(
         appBar: AppBar(
@@ -32,37 +35,31 @@ class PlayerScreen extends StatelessWidget {
               ],
             ),
           ),
-          backgroundColor:
-              Provider.of<ThemeProvider>(context).themeData.colorScheme.surface,
+          backgroundColor: themeProvider.surface,
           leading: IconButton(
             onPressed: () {
-              Provider.of<BottomNavState>(context, listen: false).currentIndex =
-                  0;
+              bottomNavState.currentIndex = 0;
             },
             icon: Icon(
               Icons.arrow_back,
-              color: Provider.of<ThemeProvider>(context)
-                  .themeData
-                  .colorScheme
-                  .onPrimary,
+              color: themeProvider.onPrimary,
               size: 30.0,
             ),
           ),
         ),
-        backgroundColor:
-            Provider.of<ThemeProvider>(context).themeData.colorScheme.surface,
+        backgroundColor: themeProvider.surface,
         body: Padding(
-          padding: const EdgeInsets.only(top: 8.0),
+          padding: const EdgeInsets.only(top: 2.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 14.0, vertical: 10.0),
+                padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
                 child: PdfCard(),
               ),
               Padding(
                 padding: const EdgeInsets.only(
-                    bottom: 30.0, left: 16.0, right: 16.0),
+                    bottom: 15.0, left: 16.0, right: 16.0),
                 child: Container(
                   alignment: Alignment.bottomCenter,
                   child: Column(

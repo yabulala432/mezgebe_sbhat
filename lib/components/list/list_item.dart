@@ -129,7 +129,7 @@ class _ListItemState extends State<ListItem> {
                         widget.title,
                         style: TextStyle(
                           color: themeProvider.primary,
-                          fontSize: 23.0,
+                          fontSize: 18.0,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -142,7 +142,8 @@ class _ListItemState extends State<ListItem> {
                           builder: (context, FileService fileService, child) {
                           return CircularProgressIndicator(
                             value: fileService.getDownloadProgress(
-                                fileId: widget.url),
+                              fileId: widget.url,
+                            ),
                             color: themeProvider.primary,
                             backgroundColor: Colors.white,
                           );
@@ -150,14 +151,14 @@ class _ListItemState extends State<ListItem> {
                       : fileExists
                           ? Icon(
                               const FaIcon(FontAwesomeIcons.play).icon,
-                              size: 40,
+                              size: 30,
                               color: themeProvider.primary,
                             )
                           : Icon(
                               const FaIcon(
                                 FontAwesomeIcons.download,
                               ).icon,
-                              size: 35,
+                              size: 30,
                               color: themeProvider.primary,
                             ),
                 ),

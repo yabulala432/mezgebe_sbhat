@@ -3,7 +3,7 @@ import 'package:mezgebe_sbhat/models/menu_list_parent.dart';
 import 'package:mezgebe_sbhat/models/pdf.dart';
 import '../models/song.dart';
 
-class SeatatMenu extends PlayListParent {
+class SeatatPartOne extends PlayListParent {
   @override
   Uri get baseUri => Uri.parse(
       "https://www.ethiopianorthodox.org/churchmusic/zema%20timehert%20bet/seatat%20letemariwoch/");
@@ -82,6 +82,22 @@ class SeatatMenu extends PlayListParent {
           audioUrl: "${baseUri}18 Eyesus kirstos to keme hames tebabat.mp3",
           title: "ኢየሱስ_ክርስቶስ",
         ),
+      ];
+
+  @override
+  String get folderName => 'seatat';
+
+  @override
+  Pdf get pdf => seatatPdf;
+}
+
+class SeatatMsbakat extends PlayListParent {
+  @override
+  Uri get baseUri => Uri.parse(
+      "https://www.ethiopianorthodox.org/churchmusic/zema%20timehert%20bet/seatat%20letemariwoch/");
+
+  @override
+  List<Song> get playList => [
         Song(
           audioUrl: "${baseUri}19 misbak menefeke lelelit.mp3",
           title: "መንፈቀ_ሌሊት",
@@ -114,6 +130,22 @@ class SeatatMenu extends PlayListParent {
           audioUrl: "${baseUri}26 esme teleale semu lebahetitu.mp3",
           title: "እስመ_ተለዐለ_ስሙ",
         ),
+      ];
+
+  @override
+  String get folderName => 'seatat';
+
+  @override
+  Pdf get pdf => seatatPdf;
+}
+
+class SeatatKulomu extends PlayListParent {
+  @override
+  Uri get baseUri => Uri.parse(
+      "https://www.ethiopianorthodox.org/churchmusic/zema%20timehert%20bet/seatat%20letemariwoch/");
+
+  @override
+  List<Song> get playList => [
         Song(
           audioUrl: "${baseUri}27 Kulomu zezeweter.mp3",
           title: "ዘዘወትር",
@@ -146,6 +178,22 @@ class SeatatMenu extends PlayListParent {
           audioUrl: "${baseUri}34 mogesena.mp3",
           title: "ሞገስነ",
         ),
+      ];
+
+  @override
+  String get folderName => 'seatat';
+
+  @override
+  Pdf get pdf => seatatPdf;
+}
+
+class SeatatMestebqueMeharene extends PlayListParent {
+  @override
+  Uri get baseUri => Uri.parse(
+      "https://www.ethiopianorthodox.org/churchmusic/zema%20timehert%20bet/seatat%20letemariwoch/");
+
+  @override
+  List<Song> get playList => [
         Song(
           audioUrl: "${baseUri}35 mestebeku be enete ele nomu.mp3",
           title: "መስተብቍዕ_በእንተ_ኖሙ",
@@ -212,6 +260,22 @@ class SeatatMenu extends PlayListParent {
           audioUrl: "${baseUri}51 meharene ab.mp3",
           title: "መሐረነ_አብ",
         ),
+      ];
+
+  @override
+  String get folderName => 'seatat';
+
+  @override
+  Pdf get pdf => seatatPdf;
+}
+
+class SeatatMekdmeTeamr extends PlayListParent {
+  @override
+  Uri get baseUri => Uri.parse(
+      "https://www.ethiopianorthodox.org/churchmusic/zema%20timehert%20bet/seatat%20letemariwoch/");
+
+  @override
+  List<Song> get playList => [
         Song(
           audioUrl: "${baseUri}52 hale luya leab boa melak.mp3",
           title: "ሃሌ_ሉያ",
@@ -222,8 +286,24 @@ class SeatatMenu extends PlayListParent {
         ),
         Song(
           audioUrl: "${baseUri}54 eyesus kirstos.mp3",
-          title: "ኢየሱስ_ክርስቶስ",
+          title: "ኢየሱስ_ክርስቶስ_2",
         ),
+      ];
+
+  @override
+  String get folderName => 'seatat';
+
+  @override
+  Pdf get pdf => seatatPdf;
+}
+
+class SeatatEsebhTsegaki extends PlayListParent {
+  @override
+  Uri get baseUri => Uri.parse(
+      "https://www.ethiopianorthodox.org/churchmusic/zema%20timehert%20bet/seatat%20letemariwoch/");
+
+  @override
+  List<Song> get playList => [
         Song(
           audioUrl: "${baseUri}55 esebh tsegaki zezeweter.mp3",
           title: "እሴብሕ_ጸጋኪ_ዘዘወትር",

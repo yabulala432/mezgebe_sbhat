@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mezgebe_sbhat/providers/theme_provider.dart';
@@ -35,7 +33,7 @@ class AboutApp extends StatelessWidget {
           padding: const EdgeInsets.only(bottom: 10.0),
           child: ListView(
             children: [
-              Image(
+              const Image(
                 image: AssetImage('assets/images/adaptive-icon.png'),
                 height: 400,
               ),
@@ -47,18 +45,18 @@ class AboutApp extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Icon(
-                      FaIcon(FontAwesomeIcons.church).icon,
+                      const FaIcon(FontAwesomeIcons.church).icon,
                       size: 50,
                       color: themeProvider.primary,
                     ),
-                    SizedBox(width: 30),
+                    const SizedBox(width: 30),
                     Flexible(
                       child: Text(
-                        'ይህ አፕሊኬሽን የተዘጋጀው የኢትዮጵያ ኦርቶዶክስ ተዋሕዶ ቤተ ክርስቲያንን ዜማ ለመማር ለሚፈልጉ ተማሪዎች ነው። በውስጡ ሦስት ዓይነት ዜማዎች አሉት። \n፩. ቅዳሴ   ፪. ምስባክ   ፫. ኪዳን',
+                        'ይህ አፕሊኬሽን የተዘጋጀው የኢትዮጵያ ኦርቶዶክስ ተዋሕዶ ቤተ ክርስቲያንን ዜማ ለመማር ለሚፈልጉ ተማሪዎች ነው። በውስጡም አራት ክፍሎች አሉት። \n፩. ቅዳሴ   ፪. ምስባክ   \n፫. ኪዳን   ፬. ሰዓታት',
                         softWrap: true,
                         textAlign: TextAlign.justify,
                         style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 19,
                           fontWeight: FontWeight.bold,
                           color: themeProvider.primary,
                         ),
@@ -67,7 +65,7 @@ class AboutApp extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               Divider(
                 thickness: 3.0,
                 height: 20.0,
@@ -75,7 +73,7 @@ class AboutApp extends StatelessWidget {
                 indent: 40.0,
                 endIndent: 40.0,
               ),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               Padding(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 20.0,
@@ -86,14 +84,13 @@ class AboutApp extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(
-                          FaIcon(FontAwesomeIcons.cross).icon,
+                          FontAwesomeIcons.cross,
                           size: 35,
                           color: themeProvider.primary,
                         ),
-                        SizedBox(width: 30),
+                        const SizedBox(width: 30),
                         Flexible(
                           child: Text(
-                            // msgana(thanks) =
                             'ምስጋና',
                             style: TextStyle(
                               fontSize: 25,
@@ -102,15 +99,15 @@ class AboutApp extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(width: 30),
+                        const SizedBox(width: 30),
                         Icon(
-                          FaIcon(FontAwesomeIcons.cross).icon,
+                          FontAwesomeIcons.cross,
                           size: 35,
                           color: themeProvider.primary,
                         ),
                       ],
                     ),
-                    SizedBox(height: 30),
+                    const SizedBox(height: 30),
                     Text(
                       "ለእግዚአብሔር",
                       style: TextStyle(
@@ -122,7 +119,7 @@ class AboutApp extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               Divider(
                 thickness: 3.0,
                 height: 20.0,
@@ -130,18 +127,18 @@ class AboutApp extends StatelessWidget {
                 indent: 40.0,
                 endIndent: 40.0,
               ),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               Column(
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Icon(
-                        FaIcon(FontAwesomeIcons.solidBookmark).icon,
+                        const FaIcon(FontAwesomeIcons.bookmark).icon,
                         size: 35,
                         color: themeProvider.primary,
                       ),
-                      SizedBox(width: 30),
+                      const SizedBox(width: 30),
                       Flexible(
                         child: Text(
                           'መታሰቢያነቱ',
@@ -152,19 +149,20 @@ class AboutApp extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(width: 30),
+                      const SizedBox(width: 30),
                       Icon(
-                        FaIcon(FontAwesomeIcons.solidBookmark).icon,
+                        const FaIcon(FontAwesomeIcons.bookmark).icon,
                         size: 35,
                         color: themeProvider.primary,
                       ),
                     ],
                   ),
-                  SizedBox(height: 30),
+                  const SizedBox(height: 30),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20.0),
                     child: Text(
-                      "ለኢትዮጵያ ኦርቶዶክስ ተዋሕዶ ቤተ ክርስቲያን አገልጋይ ካህናት በሙሉ ::",
+                      // , =
+                      "ለመምህር ቀለሙ እንዳለው ፣ እንዲሁም ለኢትዮጵያ ኦርቶዶክስ ተዋሕዶ ቤተ ክርስቲያን አገልጋይ ካህናት በሙሉ ::",
                       // ye yu yi ya ye y yo = የዩአይያየዮ
                       style: TextStyle(
                         fontSize: 23,

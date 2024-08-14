@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
@@ -33,7 +31,7 @@ class AboutUs extends StatelessWidget {
               child: Expanded(
                 child: Row(
                   children: [
-                    Image(
+                    const Image(
                       image: AssetImage('assets/images/adaptive-icon.png'),
                       width: 200,
                     ),
@@ -70,7 +68,7 @@ class AboutUs extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Padding(
@@ -84,7 +82,7 @@ class AboutUs extends StatelessWidget {
                 ),
               ),
             ),
-            AppTile(
+            const AppTile(
               image: AssetImage('assets/images/yeabsira.jpg'),
               name: 'የአብሥራ ዮናስ',
               title: 'Software Engineer',
@@ -93,10 +91,10 @@ class AboutUs extends StatelessWidget {
               website: 'https://portfolio-yeabsra.vercel.app/',
               email: 'yabulala432@gmail.com',
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
-            AppTile(
+            const AppTile(
               image: AssetImage('assets/images/yihunImage.jpg'),
               name: "ዲ/ን ይሁን ሽኩሪ",
               title: "Software Engineer",
@@ -105,10 +103,10 @@ class AboutUs extends StatelessWidget {
               website: '',
               email: '',
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
-            AppTile(
+            const AppTile(
               image: AssetImage('assets/images/solomonImage.jpeg'),
               name: "ሶሎሞን በላይ",
               title: "Software Engineer",
@@ -117,10 +115,10 @@ class AboutUs extends StatelessWidget {
               website: '',
               email: '',
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
-            AppTile(
+            const AppTile(
               image: AssetImage('assets/images/tempYihune.jpeg'),
               name: "ይሁኔ ዘውዴ",
               title: "Software Engineer",
@@ -129,7 +127,7 @@ class AboutUs extends StatelessWidget {
               website: '',
               email: '',
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             Padding(
@@ -141,7 +139,7 @@ class AboutUs extends StatelessWidget {
                     onPressed: () {
                       Navigator.of(context).push(
                         CupertinoPageRoute(
-                          builder: (context) => AboutApp(),
+                          builder: (context) => const AboutApp(),
                         ),
                       );
                     },
@@ -155,14 +153,14 @@ class AboutUs extends StatelessWidget {
                     color: themeProvider.primary,
                     size: 60,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
                   GFButton(
                     onPressed: () {
                       Navigator.of(context).push(
                         CupertinoPageRoute(
-                          builder: (context) => AboutDeveloper(),
+                          builder: (context) => const AboutDeveloper(),
                         ),
                       );
                     },
