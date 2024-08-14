@@ -18,73 +18,61 @@ class TouchableItem extends StatelessWidget {
     required this.onTap,
   });
 
-  void _handleTap() {
-    onTap();
-  }
-
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        InkWell(
-          onTap: () => _handleTap(),
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(
-                      20.0), // Adjust the radius as needed
-                  child: Image.asset(
-                    imageUrl,
-                    width: 80.0,
-                    height: 80.0,
-                    fit: BoxFit.cover,
-                  ),
+    final ColorScheme themeProvider =
+        Provider.of<ThemeProvider>(context).themeData.colorScheme;
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 5.0),
+      child: Card(
+        color: themeProvider.surface,
+        elevation: 25.0,
+        child: InkWell(
+          splashColor: themeProvider.primary.withOpacity(.5),
+          hoverColor: themeProvider.primary.withOpacity(.5),
+          focusColor: themeProvider.primary.withOpacity(.5),
+          highlightColor: themeProvider.primary.withOpacity(.5),
+          onTap: () => onTap(),
+          child: Row(
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(
+                  10.0,
                 ),
-                const SizedBox(width: 20.0),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        title,
-                        style: TextStyle(
-                            color: Provider.of<ThemeProvider>(context)
-                                .themeData
-                                .colorScheme
-                                .primary,
-                            fontSize: 23.0,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      Text(
-                        subtitle,
-                        softWrap: true,
-                        style: TextStyle(
-                          color: Provider.of<ThemeProvider>(context)
-                              .themeData
-                              .colorScheme
-                              .secondary,
-                          fontSize: 15.0,
-                        ),
-                      ),
-                    ],
-                  ),
+                child: Image.asset(
+                  imageUrl,
+                  width: 100.0,
+                  height: 100.0,
+                  fit: BoxFit.fill,
                 ),
-              ],
-            ),
+              ),
+              const SizedBox(width: 20.0),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      style: TextStyle(
+                          color: themeProvider.primary,
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      subtitle,
+                      softWrap: true,
+                      style: TextStyle(
+                        color: themeProvider.secondary,
+                        fontSize: 15.0,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
         ),
-        Separator(
-          color:
-              Provider.of<ThemeProvider>(context).themeData.colorScheme.primary,
-          height: 0.0,
-          thickness: 1.0,
-          indent: 10.0,
-          endEndent: 10,
-          padding: const EdgeInsets.symmetric(vertical: 8.0),
-        )
-      ],
+      ),
     );
   }
 }
