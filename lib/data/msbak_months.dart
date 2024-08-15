@@ -1184,151 +1184,151 @@ class MiyazyaMsbak extends PlayListParent {
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/miazia/daily/01 miazia.mp3",
-          title: "01_miazia",
+          title: "01_ነግ_ተሣሃለኒ_ቅዳ_ፈነወ",
           pageNumber: 1,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/miazia/daily/02 miazia.mp3",
-          title: "02_miazia",
+          title: "02_ቅዳ_ወዓመቲከኒ",
           pageNumber: 1,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/miazia/daily/03 miazia.mp3",
-          title: "03_miazia",
+          title: "03_ነግ_ቀርቡ_ቅዳ_ኲሎ_ዘፈቀደ",
           pageNumber: 1,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/miazia/daily/04 miazia.mp3",
-          title: "04_miazia",
+          title: "04_ነግ_ብፁዕ_ቅዳ_ቦኑ",
           pageNumber: 1,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/miazia/daily/05 miazia.mp3",
-          title: "05_miazia",
+          title: "05_ነግ_እስመ_ኖኀ_ቅዳ_ንሕነሰ",
           pageNumber: 2,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/miazia/daily/06 miazia.mp3",
-          title: "06_miazia",
+          title: "06_ነግ_እግዚኦ_ኢግዚእነ",
           pageNumber: 2,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/miazia/daily/07 miazia.mp3",
-          title: "07_miazia",
+          title: "07_ነግ_ኪዳነ_ተካየድኩ",
           pageNumber: 2,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/miazia/daily/08 miazia.mp3",
-          title: "08_miazia",
+          title: "08_ነግ_አኀዙኒ",
           pageNumber: 3,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/miazia/daily/11 miazia.mp3",
-          title: "11_miazia",
+          title: "11_ነግ_ሰይፎሙ",
           pageNumber: 3,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/miazia/daily/13 miazia.mp3",
-          title: "13_miazia",
+          title: "13_ነግ_ዘእምአፍቀሩኒ_ቅዳ_አምላክነሰ",
           pageNumber: 4,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/miazia/daily/14 miazia.mp3",
-          title: "14_miazia",
+          title: "14_ነግ_ደገሙ_ቅዳ_ወኢዐቀቡ",
           pageNumber: 4,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/miazia/daily/15 miazia.mp3",
-          title: "15_miazia",
+          title: "15_ነግ_ኲሎሙ_እለ_ይሬእዩኒ_ቅዳ_እስመ_አንተ",
           pageNumber: 5,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/miazia/daily/16 miazia.mp3",
-          title: "16_miazia",
+          title: "16_ቅዳ_ዘገብረ_ሰማየ",
           pageNumber: 5,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/miazia/daily/17 miazia.mp3",
-          title: "17_miazia",
+          title: "17_ነግ_ለእለ_የዐቅቡ_ቅዳ_ሊተሰ",
           pageNumber: 5,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/miazia/daily/18 miazia.mp3",
-          title: "18_miazia",
+          title: "18_ነግ_ወአንሰ_ምኑን",
           pageNumber: 5,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/miazia/daily/19 miazia.mp3",
-          title: "19_miazia",
+          title: "19_ቅዳ_እስመ_አመከርከነ",
           pageNumber: 6,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/miazia/daily/20 miazia.mp3",
-          title: "20_miazia",
+          title: "20_ነግ_እስመ_ኢኮንከ",
           pageNumber: 6,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/miazia/daily/21 miazia.mp3",
-          title: "21_miazia",
+          title: "21_ቅዳ_ወለገጽኪ_ይትመሐለሉ",
           pageNumber: 6,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/miazia/daily/22 miazia.mp3",
-          title: "22_miazia",
+          title: "22_ነግ_ወነሥኦ_እመዒተ_አባግዒሁ",
           pageNumber: 7,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/miazia/daily/23 miazia.mp3",
-          title: "23_miazia",
+          title: "23_ነግ_ይቀጠቅጦሙ",
           pageNumber: 7,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/miazia/daily/24 miazia.mp3",
-          title: "24_miazia",
+          title: "24_ነግ_ወእመዕብን",
           pageNumber: 7,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/miazia/daily/25 miazia.mp3",
-          title: "25_miazia",
+          title: "25_ነግ_ወድንገፀኒ_ቅዳ_ወአምላነሂ",
           pageNumber: 8,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/miazia/daily/26 miazia.mp3",
-          title: "26_miazia",
+          title: "26_ነግ_ይጸንሑኒ_ቅዳ_አኀዝከኒ",
           pageNumber: 8,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/miazia/daily/27 miazia.mp3",
-          title: "27_miazia",
+          title: "27_ነግ_ውእተ_ቅዳ_በእግዚአብሔር_ተወከልኩ",
           pageNumber: 8,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/miazia/daily/28 miazia.mp3",
-          title: "28_miazia",
+          title: "28_ቅዳ_ዕቀበኒ_ነግ_ዘፃመወ",
           pageNumber: 8,
         ),
       ];
@@ -1349,169 +1349,169 @@ class GnbotMsbak extends PlayListParent {
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/ginbot/daily/01 ginbot.mp3",
-          title: "01_ginbot",
+          title: "01_ቅዳ_መሠረታቲሃ",
           pageNumber: 1,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/ginbot/daily/02 ginbot.mp3",
-          title: "02_ginbot",
+          title: "02_ነግ_ወሐሙ",
           pageNumber: 1,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/ginbot/daily/03 ginbot.mp3",
-          title: "03_ginbot",
+          title: "03_ነግ_አድኅን_ሕዝበከ",
           pageNumber: 1,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/ginbot/daily/04 ginbot.mp3",
-          title: "04_ginbot",
+          title: "04_ነግ_ቃለ_እግዚአብሔር",
           pageNumber: 2,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/ginbot/daily/05 ginbot.mp3",
-          title: "05_ginbot",
+          title: "05_ነግ_አዝዝ_ቅዳ_ላዕሌከ",
           pageNumber: 2,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/ginbot/daily/06 ginbot.mp3",
-          title: "06_ginbot",
+          title: "06_ነግ_ወዘልፋየኒ_ቅዳ_ፍኖተከ",
           pageNumber: 2,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/ginbot/daily/07 ginbot.mp3",
-          title: "07_ginbot",
+          title: "07_ነግ_ውስተ_ባሕር",
           pageNumber: 2,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/ginbot/daily/08 ginbot.mp3",
-          title: "08_ginbot",
+          title: "08_ነግ_ዐርገ_ቅዳ_ደለወኒ",
           pageNumber: 3,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/ginbot/daily/09 ginbot.mp3",
-          title: "09_ginbot",
+          title: "09_ነግ_እስመ_አንተ",
           pageNumber: 3,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/ginbot/daily/10 ginbot.mp3",
-          title: "10_ginbot",
+          title: "10_ነግ_መሐሪ_ቅዳ_ወአጽዐንከ",
           pageNumber: 3,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/ginbot/daily/11 ginbot.mp3",
-          title: "11_ginbot",
+          title: "11_ነግ_ለይትፈሣሕ_ቅዳ_መድኃኔ_ገጽየ",
           pageNumber: 3,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/ginbot/daily/12 ginbot.mp3",
-          title: "12_ginbot",
+          title: "12_ቅዳ_በዓመፃ_ሰደዱኒ",
           pageNumber: 4,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/ginbot/daily/13 ginbot.mp3",
-          title: "13_ginbot",
+          title: "13_ነግ_ወተንሥኡ",
           pageNumber: 4,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/ginbot/daily/14 ginbot.mp3",
-          title: "14_ginbot",
+          title: "14_ነግ_ወእለኒ",
           pageNumber: 4,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/ginbot/daily/15 ginbot.mp3",
-          title: "15_ginbot",
+          title: "15_ነግ_ብጹዕ_ብዕሲ_ዘኢኈለቈ",
           pageNumber: 5,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/ginbot/daily/16 ginbot.mp3",
-          title: "16_ginbot",
+          title: "16_ነግ_አመ_ትሠምር",
           pageNumber: 5,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/ginbot/daily/17 ginbot.mp3",
-          title: "17_ginbot",
+          title: "17_ነግ_ግነዩ_ለእግዚአብሔር",
           pageNumber: 5,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/ginbot/daily/18 ginbot.mp3",
-          title: "18_ginbot",
+          title: "18_ነግ_ትፈኑ_ቅዳ_መንፈቀ_ሌሊት",
           pageNumber: 5,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/ginbot/daily/19 ginbot.mp3",
-          title: "19_ginbot",
+          title: "19_ነግ_ወመንፈሰከ_ቅዳ_የማነ_እግዚአብሔር",
           pageNumber: 6,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/ginbot/daily/20 ginbot.mp3",
-          title: "20_ginbot",
+          title: "20_ነግ_ነፍስነሰ_ቅዳ_ወአንሰ",
           pageNumber: 6,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/ginbot/daily/21 ginbot.mp3",
-          title: "21_ginbot",
+          title: "21_ቅዳ_ሰወርከኒ_ቅዳ_ኢትሚጦ_ለልብየ",
           pageNumber: 6,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/ginbot/daily/22 ginbot.mp3",
-          title: "22_ginbot",
+          title: "22_ነግ_በትርከ",
           pageNumber: 7,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/ginbot/daily/24 ginbot.mp3",
-          title: "24_ginbot",
+          title: "24_ነግ_ወየአምር_ቅዳ_ዘገብረ_ተአምረ",
           pageNumber: 7,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/ginbot/daily/25 ginbot.mp3",
-          title: "25_ginbot",
+          title: "25_ቅዳ_ዘአቀመ_ስማዐ_ለዮሴፍ",
           pageNumber: 8,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/ginbot/daily/26 ginbot.mp3",
-          title: "26_ginbot",
+          title: "26_ቅዳ_ብፁዕ_ብእሲ_ዘእምኀበከ",
           pageNumber: 8,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/ginbot/daily/27 ginbot.mp3",
-          title: "27_ginbot",
+          title: "27_ነግ_መኑ_ሰብእ",
           pageNumber: 8,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/ginbot/daily/28 ginbot.mp3",
-          title: "28_ginbot",
+          title: "28_ነግ_ተምዑ_ወኢተአበሱ",
           pageNumber: 9,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/ginbot/daily/29 ginbot.mp3",
-          title: "29_ginbot",
+          title: "29_ቅዳ_ወተግሣጽከ_ውእቱ",
           pageNumber: 9,
         ),
       ];
@@ -1532,175 +1532,175 @@ class SeneMsbak extends PlayListParent {
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/sene/daily/01sene .mp3",
-          title: "01sene_",
+          title: "01_ነግ_እስመ_ናሁ_ቅዳ_ወሤሞ",
           pageNumber: 1,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/sene/daily/02 sene .mp3",
-          title: "02_sene ",
+          title: "02_ነግ_ወለነዳያኒሃኒ",
           pageNumber: 1,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/sene/daily/03 sene .mp3",
-          title: "03_sene ",
+          title: "03_ነግ_ወአድኅነኒ_ቅዳ_አርኀዉ_ሊተ",
           pageNumber: 1,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/sene/daily/04 sene .mp3",
-          title: "04_sene ",
+          title: "04_ቅዳ_ቀሥቶኒ_ወተረ",
           pageNumber: 1,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/sene/daily/05 sene .mp3",
-          title: "05_sene ",
+          title: "05_ነግ_እሙንቱሰ_ቅዳ_ይትነሣእ_እግዚአብሔር ",
           pageNumber: 2,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/sene/daily/06 sene .mp3",
-          title: "06_sene ",
+          title: "06_ነግ_ገሠጽኮሙ",
           pageNumber: 2,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/sene/daily/07 sene .mp3",
-          title: "07_sene ",
+          title: "07_ነግ_ሰብሕዎ_ቅዳ_ያበድሮን",
           pageNumber: 2,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/sene/daily/08 sene .mp3",
-          title: "08_sene ",
+          title: "08_ነግ_እፎ_እስፋሕ",
           pageNumber: 2,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/sene/daily/09 sene .mp3",
-          title: "09_sene ",
+          title: "09_ነግ_ንግሩ_ለእግዚአብሔር_ቅዳ_ወሳሙኢልኒ",
           pageNumber: 3,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/sene/daily/10 sene .mp3",
-          title: "10_sene ",
+          title: "10_ቅዳ_ተፈሣሕነ",
           pageNumber: 3,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/sene/daily/11 sene .mp3",
-          title: "11_sene ",
+          title: "11_ነግ_ወኢይትኅበር_ቅዳ_ወኢትፈርህ",
           pageNumber: 3,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/sene/daily/12 sene .mp3",
-          title: "12_sene ",
+          title: "12_ቅዳ_ሶበ_ትሬእዮሙ",
           pageNumber: 4,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/sene/daily/13 sene .mp3",
-          title: "13_sene ",
+          title: "13_ነግ_ሕቀ_አሕፀፅኮ_ቅዳ_ይትሌቃሕ_ኃጥእ",
           pageNumber: 4,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/sene/daily/14 sene .mp3",
-          title: "14_sene ",
+          title: "14_ነግ_ፈተኑኒ_ወተሣለቁ",
           pageNumber: 4,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/sene/daily/15 sene .mp3",
-          title: "15_sene ",
+          title: "15_ነግ_ወያሌዕሎሙ_ለየዋሃን_ቅዳ_ውእተ_ዓሚረ",
           pageNumber: 4,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/sene/daily/16 sene .mp3",
-          title: "16_sene ",
+          title: "16_ነግ_ወአዝማድየኒ_ቀብፁኒ",
           pageNumber: 5,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/sene/daily/17 sene .mp3",
-          title: "17_sene ",
+          title: "17_ነግ_ኀይልየኒ_ቅዳ_አኮ_ከመዝ",
           pageNumber: 5,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/sene/daily/18 sene .mp3",
-          title: "18_sene ",
+          title: "18_ቅዳ_ሠርከ_ወነግሀ",
           pageNumber: 5,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/sene/daily/20 sene .mp3",
-          title: "20_sene ",
+          title: "20_ቅዳ_ግሩም_ምክሩ",
           pageNumber: 6,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/sene/daily/21 sene .mp3",
-          title: "21_sene ",
+          title: "21_ነግ_ወንሰግድ_ቅዳ_ቀደሰ_ማህደሮ",
           pageNumber: 6,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/sene/daily/22 sene .mp3",
-          title: "22_sene ",
+          title: "22_ነግ_አአኲተከ_ቅዳ_ወኢትቅናዕ",
           pageNumber: 6,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/sene/daily/23 sene .mp3",
-          title: "23_sene ",
+          title: "23_ነግ_እግዚኦ_ኲነኔከ_ቅዳ_በጽሑ_መላእክት",
           pageNumber: 7,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/sene/daily/24 sene .mp3",
-          title: "24_sene ",
+          title: "24_ነግ_በብርሃንከ_ቅዳ_ኃጢአትየ_ነገርኩ",
           pageNumber: 7,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/sene/daily/25 sene .mp3",
-          title: "25_sene ",
+          title: "25_ነግ_ሰላም_ብዙኀ_ቅዳ_ወአንተ_ገበርከ",
           pageNumber: 7,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/sene/daily/26 sene .mp3",
-          title: "26_sene ",
+          title: "26_ነግ_ወቀተለ",
           pageNumber: 8,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/sene/daily/27 sene .mp3",
-          title: "27_sene ",
+          title: "27_ነግ_መሐሪ_ወመስተሠህል_ቅዳ_ነዳይ_ወቁሱል",
           pageNumber: 8,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/sene/daily/28 sene .mp3",
-          title: "28_sene ",
+          title: "28_ነግ_ጸልሙ_ማያት",
           pageNumber: 8,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/sene/daily/29 sene .mp3",
-          title: "29_sene ",
+          title: "29_ቅዳ_ዘይገለብቦ_ለሰማይ",
           pageNumber: 9,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/sene/daily/30 sene .mp3",
-          title: "30_sene ",
+          title: "30_ነግ_አሜሃ_ቅዳ_ወተወከልኩከ",
           pageNumber: 9,
         ),
       ];
@@ -1721,151 +1721,157 @@ class HamleMsbak extends PlayListParent {
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/hamle/daily/01 hamle.mp3",
-          title: "01_hamle",
+          title: "01_ቅዳ_ለስሒት",
           pageNumber: 1,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/hamle/daily/02 hamle.mp3",
-          title: "02_hamle",
+          title: "02_ቅዳ_ሐወጽካ_ለምድር",
           pageNumber: 1,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/hamle/daily/03 hamle.mp3",
-          title: "03_hamle",
+          title: "03_ነግ_እለ_ይዘርዑ",
           pageNumber: 1,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/hamle/daily/04 hamle.mp3",
-          title: "04_hamle",
+          title: "04_ነግ_ወጾሩ_ቅዳ_እግዚኦ_ሰማዕነ",
           pageNumber: 1,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/hamle/daily/06 hamle.mp3",
-          title: "06_hamle",
+          title: "06_ነግ_ዝናም_እምፈቃዱ",
           pageNumber: 2,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/hamle/daily/07 hamle.mp3",
-          title: "07_hamle",
+          title: "07_ቅዳ_ወሐሠስኩ_ገጸከ",
           pageNumber: 2,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/hamle/daily/08 hamle.mp3",
-          title: "08_hamle",
+          title: "08_ነግ_ዮም_አመ_ሰማዕክሙ",
           pageNumber: 3,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/hamle/daily/09 hamle.mp3",
-          title: "09_hamle",
+          title: "09_ነግ_ኢይፈርህ_እምአዕላፍአዕላፍ",
           pageNumber: 3,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/hamle/daily/10 hamle.mp3",
-          title: "10_hamle",
+          title: "10_ነግ_እስመ_ናሁ_ጽድቀ",
           pageNumber: 3,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/hamle/daily/11 hamle.mp3",
-          title: "11_hamle",
+          title: "11_ነግ_ወኮነ_ፍሡሐነ_ቅዳ_ተፈሥሑ_ጻድቃን",
           pageNumber: 4,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/hamle/daily/12 hamle.mp3",
-          title: "12_hamle",
+          title: "12_ቅዳ_ኢይድኅን_ንጉሥ",
           pageNumber: 4,
         ),
         Song(
           audioUrl:
+              "$baseUri../../churchmusic/zema timehert bet/Misbak/hamle/daily/14 hamle.mp3",
+          title: "14_ነግ_ሰብሕዎ_ለእግዚአብሔር",
+          pageNumber: 5,
+        ),
+        Song(
+          audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/hamle/daily/15 hamle.mp3",
-          title: "15_hamle",
+          title: "15_ነግ_ወኢያስጠመኒ_አውሎ_ቅዳ_መኑ_ይትዔየሮ",
           pageNumber: 5,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/hamle/daily/16 hamle.mp3",
-          title: "16_hamle",
+          title: "16_ነግ_አንተ_ታበርህ_ቅዳ_ከመ_ነኪር",
           pageNumber: 5,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/hamle/daily/17 hamle.mp3",
-          title: "17_hamle",
+          title: "17_ነግ_በጻሕኩ",
           pageNumber: 5,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/hamle/daily/18 hamle.mp3",
-          title: "18_hamle",
+          title: "18_ቅዳ_ወኢነበርኩ",
           pageNumber: 6,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/hamle/daily/19 hamle.mp3",
-          title: "19_hamle",
+          title: "19_ነግ_ወአጽዐንከ_ቅዳ_ይትኀፈሩ_ኲሎሙ",
           pageNumber: 6,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/hamle/daily/20 hamle.mp3",
-          title: "20_hamle",
+          title: "20_ነግ_ወተለዐለ",
           pageNumber: 6,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/hamle/daily/21 hamle.mp3",
-          title: "21_hamle",
+          title: "21_ቅዳ_ብፁዕ_ዘይለቡ",
           pageNumber: 7,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/hamle/daily/22 hamle.mp3",
-          title: "22_hamle",
+          title: "22_ነግ_በጽባህ",
           pageNumber: 7,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/hamle/daily/23 hamle.mp3",
-          title: "23_hamle",
+          title: "23_ነግ_ላዕለ_ተኩላ_ቅዳ_ኢይቀሥፍ_ወትረ",
           pageNumber: 7,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/hamle/daily/24 hamle.mp3",
-          title: "24_hamle",
+          title: "24_ነግ_ንግሩ_ቅዳ_ማዕምርየ",
           pageNumber: 8,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/hamle/daily/26 hamle.mp3",
-          title: "26_hamle",
+          title: "26_ነግ_ዚአከ_ውእቱ_ቅዳ_ይምጽኡ_ተናብልት",
           pageNumber: 8,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/hamle/daily/27 hamle.mp3",
-          title: "27_hamle",
+          title: "27_ቅዳ_ወቅዱስ_እስራኤል",
           pageNumber: 8,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/hamle/daily/28 hamle.mp3",
-          title: "28_hamle",
+          title: "28_ነግ_ወአድኀኖሙ_ቅዳ_ወአንተሰ_ብእሲ",
           pageNumber: 9,
         ),
         Song(
           audioUrl:
               "$baseUri../../churchmusic/zema timehert bet/Misbak/hamle/daily/30 hamle.mp3",
-          title: "30_hamle",
+          title: "30_ነግ_ይቤ_ወመጽአ",
           pageNumber: 9,
         ),
       ];
@@ -1885,148 +1891,148 @@ class NehaseMsbak extends PlayListParent {
   List<Song> get playList => [
         Song(
           audioUrl: "${baseUri}gitsawe/nehasemisbak/01weengersemake.wma",
-          title: "01weengersemake",
+          title: "01_ቅዳ_ወእነግር_ስማዐከ",
           pageNumber: 1,
         ),
         Song(
           audioUrl:
               "${baseUri}gitsawe/nehasemisbak/02weyiwesedudenagelederha.wma",
-          title: "02weyiwesedudenagelederha",
+          title: "02_ቅዳ_ወይወስዱ_ለንጉሥ",
           pageNumber: 1,
         ),
         Song(
           audioUrl: "${baseUri}gitsawe/nehasemisbak/04egziobehaileke.wma",
-          title: "04egziobehaileke",
+          title: "04_ቅዳ_እግዚኦ_በኃይልከ",
           pageNumber: 1,
         ),
         Song(
           audioUrl: "${baseUri}gitsawe/nehasemisbak/05weteseyemeni.wma",
-          title: "05weteseyemeni",
+          title: "05_ቅዳ_ወትሠይመኒ",
           pageNumber: 2,
         ),
         Song(
           audioUrl: "${baseUri}gitsawe/nehasemisbak/06weyisegedalotu.wma",
-          title: "06weyisegedalotu",
+          title: "06_ቅዳ_ወይሰግዳ_ሎቱ",
           pageNumber: 2,
         ),
         Song(
           audioUrl:
               "${baseUri}gitsawe/nehasemisbak/07betsubitsimeseretathiha.wma",
-          title: "07betsubitsimeseretathiha",
+          title: "07_ነግ_መሠረታቲሃ_ቅዳ_ብፁዕ_ብእሲ",
           pageNumber: 2,
         ),
         Song(
           audioUrl: "${baseUri}gitsawe/nehasemisbak/08wedeketesat.wma",
-          title: "08wedeketesat",
+          title: "08_ቅዳ_ወድቀት_እሳት",
           pageNumber: 3,
         ),
         Song(
           audioUrl: "${baseUri}gitsawe/nehasemisbak/09weteqewumnigest.wma",
-          title: "09weteqewumnigest",
+          title: "09_ቅዳ_ወትቀውም_ንግሥት",
           pageNumber: 3,
         ),
         Song(
           audioUrl: "${baseUri}gitsawe/nehasemisbak/10tezekermahebereke.wma",
-          title: "10tezekermahebereke",
+          title: "10_ቅዳ_ተዘከር_ማኅበረከ",
           pageNumber: 3,
         ),
         Song(
           audioUrl: "${baseUri}gitsawe/nehasemisbak/11heyenteabeweki.wma",
-          title: "11heyenteabeweki",
+          title: "11_ቅዳ_ህየንተ_አበውኪ",
           pageNumber: 3,
         ),
         Song(
           audioUrl:
               "${baseUri}gitsawe/nehasemisbak/12bekidememelaektkeegziokuneneke.wma",
-          title: "12bekidememelaektkeegziokuneneke",
+          title: "12_ነግ_በቅደመ_መላእክቲከ_ቅዳ_እግዚኦ_ኲነኔከ",
           pageNumber: 4,
         ),
         Song(
           audioUrl:
               "${baseUri}gitsawe/nehasemisbak/13debertilultaborwearmonem.wma",
-          title: "13debertilultaborwearmonem",
+          title: "13_ነግ_ደብር_ጥሉል_ቅዳ_ታቦር_ወአርሞንኤም",
           pageNumber: 4,
         ),
         Song(
           audioUrl: "${baseUri}gitsawe/nehasemisbak/14zeazezke.wma",
-          title: "14zeazezke",
+          title: "14_ቅዳ_ዘአዘዝከ",
           pageNumber: 4,
         ),
         Song(
           audioUrl:
               "${baseUri}gitsawe/nehasemisbak/16qedesemahederowetezianewu.wma",
-          title: "16qedesemahederowetezianewu",
+          title: "16_ቅዳ_ቀደሰ_ማኅደሮ",
           pageNumber: 5,
         ),
         Song(
           audioUrl: "${baseUri}gitsawe/nehasemisbak/17gesetsose.wma",
-          title: "17gesetsose",
+          title: "17_ቅዳ_ገሥጾሰ",
           pageNumber: 5,
         ),
         Song(
           audioUrl: "${baseUri}gitsawe/nehasemisbak/18zeabeyalebereket.wma",
-          title: "18zeabeyalebereket",
+          title: "18_ቅዳ_ዘዐበያ_ለበረከት",
           pageNumber: 6,
         ),
         Song(
           audioUrl: "${baseUri}gitsawe/nehasemisbak/19beegziabher.wma",
-          title: "19beegziabher",
+          title: "19_ቅዳ_በእግዚአብሔር",
           pageNumber: 6,
         ),
         Song(
           audioUrl: "${baseUri}gitsawe/nehasemisbak/20netsereni.wma",
-          title: "20netsereni",
+          title: "20_ቅዳ_ነጽረኒ",
           pageNumber: 6,
         ),
         Song(
           audioUrl: "${baseUri}gitsawe/nehasemisbak/21awalidenigist.wma",
-          title: "21awalidenigist",
+          title: "21_ቅዳ_ወአዋልደ_ነገሥት",
           pageNumber: 7,
         ),
         Song(
           audioUrl: "${baseUri}gitsawe/nehasemisbak/22wegesetse.wma",
-          title: "22wegesetse",
+          title: "22_ቅዳ_ወገሠጸ_ነገሥተ",
           pageNumber: 7,
         ),
         Song(
           audioUrl: "${baseUri}gitsawe/nehasemisbak/23weagbaekene.wma",
-          title: "23weagbaekene",
+          title: "23_ነግ_ወአግባእከነ",
           pageNumber: 7,
         ),
         Song(
           audioUrl: "${baseUri}gitsawe/nehasemisbak/24esmebenetiahu.wma",
-          title: "24esmebenetiahu",
+          title: "24_ቅዳ_እስመ_በእንቲአሁእስመ_በእንቲአሁ",
           pageNumber: 8,
         ),
         Song(
           audioUrl: "${baseUri}gitsawe/nehasemisbak/25menutesfaye.wma",
-          title: "25menutesfaye",
+          title: "25_ቅዳ_ወይእዜኒ_መኑ_ተስፋየ",
           pageNumber: 8,
         ),
         Song(
           audioUrl: "${baseUri}gitsawe/nehasemisbak/26bitsuante.wma",
-          title: "26bitsuante",
+          title: "26_ቅዳ_ብፁዕ_አንተ",
           pageNumber: 8,
         ),
         Song(
           audioUrl: "${baseUri}gitsawe/nehasemisbak/27neunetfesah.wma",
-          title: "27neunetfesah",
+          title: "27_ነግ_ንዑ_ንትፌሣሕ",
           pageNumber: 8,
         ),
         Song(
           audioUrl: "${baseUri}gitsawe/nehasemisbak/28zesera.wma",
-          title: "28zesera",
+          title: "28_ነግ_ዘሰርዐ_ለአብርሃም",
           pageNumber: 9,
         ),
         Song(
           audioUrl:
               "${baseUri}gitsawe/nehasemisbak/29ezemerweelebumiselekeqedamawi.wma",
-          title: "29ezemerweelebumiselekeqedamawi",
+          title: "29_ቅዳ_እዜምር_ወእሌቡ",
           pageNumber: 9,
         ),
         Song(
           audioUrl: "${baseUri}gitsawe/nehasemisbak/30menkertelahiya.wma",
-          title: "30menkertelahiya",
+          title: "30_መንክር_ተላህያ_መንክር_ተላህያ",
           pageNumber: 10,
         ),
       ];
@@ -2046,32 +2052,32 @@ class PuagmenMsbak extends PlayListParent {
   List<Song> get playList => [
         Song(
           audioUrl: "${baseUri}gitsawe/pagumenmisbak/01esmetsedkewemeswate.wma",
-          title: "01esmetsedkewemeswate",
+          title: "01_ቅዳ_እስመ_ጽድቀ",
           pageNumber: 1,
         ),
         Song(
           audioUrl: "${baseUri}gitsawe/pagumenmisbak/02qedamihaletibeb.wma",
-          title: "02qedamihaletibeb",
+          title: "02_ቅዳ_ቀዳሚሃ_ለጥበብ",
           pageNumber: 1,
         ),
         Song(
           audioUrl: "${baseUri}gitsawe/pagumenmisbak/03egziabheresemehale.wma",
-          title: "03egziabheresemehale",
+          title: "03_ቅዳ_እግዚአብሔርሰ",
           pageNumber: 1,
         ),
         Song(
           audioUrl: "${baseUri}gitsawe/pagumenmisbak/04kilalisaneke.wma",
-          title: "04kilalisaneke",
+          title: "04_ቅዳ_ክላእ_ልሳነከ",
           pageNumber: 2,
         ),
         Song(
           audioUrl: "${baseUri}gitsawe/pagumenmisbak/05lailetekula.wma",
-          title: "05lailetekula",
+          title: "05_ቅዳ_ላዕለ_ተኲላ_ወከይሲ",
           pageNumber: 2,
         ),
         Song(
           audioUrl: "${baseUri}gitsawe/pagumenmisbak/06wetezeyanewuemelet.wma",
-          title: "06wetezeyanewuemelet",
+          title: "06_ቅዳ_ወተዝያነዉ",
           pageNumber: 2,
         ),
       ];
